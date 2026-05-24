@@ -232,7 +232,7 @@
             display: flex;
             justify-content: space-around;
             align-items: flex-end;
-            height: 340px;
+            height: 420px;
             width: 100%;
             background: #fafafa;
             border: 1px solid var(--border-light);
@@ -613,7 +613,12 @@
                         <div class="bar-label">2025</div>
                     </div>
                     <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 98px; background-color: var(--brand-cyan);">467*</div>
+                        <div style="position: relative; width: 100%;">
+                            <div style="height: 340px; border: 2px dashed var(--brand-cyan); border-radius: 4px; background: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,183,195,0.06) 5px, rgba(0,183,195,0.06) 10px); display: flex; align-items: flex-start; justify-content: center; padding-top: 8px;">
+                                <span style="font-size: 14px; font-weight: 700; color: var(--brand-cyan);">~1,600 projected</span>
+                            </div>
+                            <div class="bar-fill" style="height: 98px; background-color: var(--brand-cyan); position: absolute; bottom: 0; left: 0; right: 0; border-radius: 0 0 4px 4px;">467*</div>
+                        </div>
                         <div class="bar-label">2026 (Jan-May)</div>
                     </div>
                 </div>
@@ -1000,9 +1005,9 @@
 
         <!-- SLIDE 12: THE DATA: BEFORE AND AFTER -->
         <div class="slide-container" id="slide12">
-            <h2 class="slide-title">The Data: Before & After Agents</h2>
+            <h2 class="slide-title">The Data After Agents</h2>
             <div class="content-area">
-                <p style="margin-bottom: 25px;">Ecosystem comparisons: Jan-May 2025 (no agents) vs Jan-May 2026 (assisted by workflows):</p>
+                <p style="margin-bottom: 25px;">Jan-May 2026 compared to 2025</p>
                 
                 <div class="grid-2x2">
                     <div class="dev-card" style="padding: 24px; border-top-color: var(--color-green);">
@@ -1039,7 +1044,7 @@
             <div class="content-area">
                 <p style="margin-bottom: 25px; max-width: 900px;">Review coverage scaled smoothly over 5 months. Total parsed PR volume: <strong style="color: var(--brand-purple);">428 reviewed</strong>.</p>
                 
-                <div class="bar-chart-vertical" style="height: 310px;">
+                <div class="bar-chart-vertical">
                     <div class="vertical-bar-group">
                         <div class="bar-fill" style="height: 30px; background-color: var(--brand-purple);">10</div>
                         <div class="bar-label">Jan (Launch)</div>
