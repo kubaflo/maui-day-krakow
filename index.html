@@ -19,6 +19,8 @@
             --bg-canvas: #f3f2f1;          /* Canvas background */
             --bg-card: #ffffff;            /* Pure white slide sheets */
             --border-light: #edebe9;       /* Microsoft standard border */
+            --bg-subtle: #fafafa;          /* Subtle backgrounds */
+            --bg-code: #f6f8fa;            /* Code block backgrounds */
             
             /* Status Indicators */
             --color-red: #e03b2b;
@@ -26,6 +28,42 @@
             --color-green: #107c41;
             --color-blue: #0078d4;
         }
+
+        body.dark-mode {
+            --text-main: #e6e6e6;
+            --text-muted: #a0a0a0;
+            --bg-canvas: #1a1a2e;
+            --bg-card: #16213e;
+            --border-light: #2a2a4a;
+            --bg-subtle: #1e2545;
+            --bg-code: #1e2545;
+        }
+        body.dark-mode .slide-container {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        body.dark-mode .bar-fill { color: #fff; }
+        body.dark-mode .comment-header { background-color: var(--bg-subtle) !important; }
+        body.dark-mode .comment-body { background-color: var(--bg-card); }
+        body.dark-mode .comment-body p { color: var(--text-main) !important; }
+        body.dark-mode code { background-color: var(--bg-subtle); color: var(--brand-cyan); }
+        body.dark-mode .gh-badge-member { background-color: var(--bg-subtle); border-color: var(--border-light); color: var(--text-muted); }
+        body.dark-mode [style*="background: #fafafa"],
+        body.dark-mode [style*="background-color: #fafafa"] { background-color: var(--bg-subtle) !important; }
+        body.dark-mode [style*="background: #f5f0ff"] { background-color: #1e1545 !important; }
+        body.dark-mode [style*="background: #fdfdfd"] { background-color: var(--bg-subtle) !important; }
+        body.dark-mode [style*="background-color: #f6f8fa"] { background-color: var(--bg-subtle) !important; }
+        body.dark-mode [style*="color: #24292f"] { color: var(--text-main) !important; }
+        body.dark-mode [style*="color: #242424"] { color: var(--text-main) !important; }
+        body.dark-mode .bar-chart-vertical { background: var(--bg-subtle); border-color: var(--border-light); }
+        body.dark-mode .slide-container::before,
+        body.dark-mode .slide-container::after { background: var(--brand-purple); }
+        body.dark-mode .slide-container::after { height: 4px; background-color: var(--brand-purple) !important; border-top: none; border-radius: 0; }
+        body.dark-mode .slide-container { border-radius: 0; margin-bottom: 0; }
+        body.dark-mode .branding-footer { border-top-color: var(--border-light); }
+        body.dark-mode .slide-container img:not([src*="qrserver"]) { border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.4); }
+        body.dark-mode .pipeline-node { background-color: var(--bg-subtle); border-color: var(--border-light); }
+        body.dark-mode .pipeline-node h4 { color: var(--text-main); }
+        body.dark-mode .pipeline-node p { color: var(--text-muted); }
 
         * {
             box-sizing: border-box;
@@ -35,6 +73,10 @@
 
         body {
             background-color: var(--bg-canvas);
+            background-image: url('Unknown-landscape.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
             color: var(--text-main);
             display: flex;
@@ -58,6 +100,11 @@
             z-index: 100;
             position: sticky;
             top: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .deck-controls:hover {
+            opacity: 1;
         }
 
         .deck-btn {
@@ -75,6 +122,28 @@
             background-color: var(--brand-purple);
             color: white;
             border-color: var(--brand-purple);
+        }
+
+        /* Background overlay matching mauiday.net hero */
+        .bg-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .bg-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+        .bg-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(125% 125% at 50% 10%, transparent 40%, #C93CAD77 100%);
         }
 
         /* Slide Container Frame */
@@ -98,11 +167,95 @@
         }
 
         /* Slide deck visual status states for presentation mode */
+        body.mode-presentation .slide-deck-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            margin: auto;
+        }
         body.mode-presentation .slide-container {
-            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease-in-out;
+            z-index: 0;
         }
         body.mode-presentation .slide-container.active-slide {
+            opacity: 1;
+            pointer-events: auto;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Element entrance animations in presentation mode */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        body.mode-presentation .slide-container.active-slide .slide-title {
+            animation: fadeUp 0.5s ease-out 0.1s both;
+        }
+        body.mode-presentation .slide-container.active-slide .content-area > p,
+        body.mode-presentation .slide-container.active-slide .content-area > div {
+            animation: fadeUp 0.5s ease-out 0.25s both;
+        }
+        body.mode-presentation .slide-container.active-slide .dev-card,
+        body.mode-presentation .slide-container.active-slide .github-comment {
+            animation: fadeUp 0.4s ease-out both;
+        }
+        body.mode-presentation .slide-container.active-slide .grid-2x2 > *:nth-child(1) { animation: fadeUp 0.4s ease-out 0.2s both; }
+        body.mode-presentation .slide-container.active-slide .grid-2x2 > *:nth-child(2) { animation: fadeUp 0.4s ease-out 0.35s both; }
+        body.mode-presentation .slide-container.active-slide .grid-2x2 > *:nth-child(3) { animation: fadeUp 0.4s ease-out 0.5s both; }
+        body.mode-presentation .slide-container.active-slide .grid-2x2 > *:nth-child(4) { animation: fadeUp 0.4s ease-out 0.65s both; }
+        body.mode-presentation .slide-container.active-slide .two-column > *:nth-child(1) { animation: fadeUp 0.4s ease-out 0.2s both; }
+        body.mode-presentation .slide-container.active-slide .two-column > *:nth-child(2) { animation: fadeUp 0.4s ease-out 0.4s both; }
+        body.mode-presentation .slide-container.active-slide .bar-chart-vertical > *:nth-child(1) { animation: fadeUp 0.3s ease-out 0.15s both; }
+        body.mode-presentation .slide-container.active-slide .bar-chart-vertical > *:nth-child(2) { animation: fadeUp 0.3s ease-out 0.3s both; }
+        body.mode-presentation .slide-container.active-slide .bar-chart-vertical > *:nth-child(3) { animation: fadeUp 0.3s ease-out 0.45s both; }
+        body.mode-presentation .slide-container.active-slide .bar-chart-vertical > *:nth-child(4) { animation: fadeUp 0.3s ease-out 0.6s both; }
+        body.mode-presentation .slide-container.active-slide .bar-chart-vertical > *:nth-child(5) { animation: fadeUp 0.3s ease-out 0.75s both; }
+        body.mode-presentation .slide-container.active-slide .branding-footer {
+            animation: fadeUp 0.4s ease-out 0.6s both;
+        }
+        body.mode-presentation {
+            overflow: hidden;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        body.mode-presentation .deck-controls {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10001;
+        }
+        /* Slide counter overlay in presentation mode */
+        .pres-counter {
+            display: none;
+            position: fixed;
+            bottom: 16px;
+            right: 24px;
+            font-size: 14px;
+            color: rgba(0,0,0,0.3);
+            z-index: 10000;
+            font-weight: 600;
+            pointer-events: none;
+        }
+        body.mode-presentation .pres-counter {
+            display: block;
         }
 
         /* Top and Bottom Decorative Brand Stripes */
@@ -123,9 +276,9 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 14px;
-            background-color: #e1dfdd;
-            border-top: 4px solid var(--brand-purple);
+            height: 4px;
+            background-color: var(--brand-purple);
+            border-top: none;
             z-index: 10;
         }
 
@@ -533,14 +686,18 @@
 
     <!-- PRESENTATION DECK ORCHESTRATION PANEL -->
     <div class="deck-controls">
-        <button class="deck-btn" id="btn-toggle-mode"><i class="fa-solid fa-arrows-alt-v"></i> Scroll Mode</button>
+        <button class="deck-btn" id="btn-toggle-mode"><i class="fa-solid fa-arrows-alt-v"></i> Presentation Mode</button>
         <div style="height: 20px; width: 1px; background-color: var(--border-light);"></div>
         <button class="deck-btn" id="btn-prev"><i class="fa-solid fa-chevron-left"></i> Prev</button>
         <span id="slide-indicator" style="font-weight: 600; font-size: 14px; color: var(--text-muted);">Slide 1 of 18</span>
         <button class="deck-btn" id="btn-next">Next <i class="fa-solid fa-chevron-right"></i></button>
+        <div style="height: 20px; width: 1px; background-color: var(--border-light);"></div>
+        <button class="deck-btn" id="btn-toggle-theme"><i class="fa-solid fa-moon"></i> Dark</button>
     </div>
 
+    <div class="bg-overlay"></div>
     <div class="slide-deck-container">
+    <div class="pres-counter" id="pres-counter"></div>
 
         <!-- SLIDE 1: COVER -->
         <div class="slide-container active-slide" id="slide1">
@@ -1296,75 +1453,129 @@
             const btnPrev = document.getElementById('btn-prev');
             const btnNext = document.getElementById('btn-next');
             const indicator = document.getElementById('slide-indicator');
+            const presCounter = document.getElementById('pres-counter');
             
             let currentSlideIndex = 0;
             let isPresentationMode = false;
+            let slideDirection = 'forward';
+
+            let previousSlideIndex = 0;
 
             function updateUI() {
                 if (isPresentationMode) {
                     slides.forEach((slide, idx) => {
-                        slide.classList.toggle('active-slide', idx === currentSlideIndex);
+                        if (idx === currentSlideIndex) {
+                            slide.classList.add('active-slide');
+                            slide.style.zIndex = '2';
+                        } else if (idx === previousSlideIndex) {
+                            // Keep previous slide visible underneath during transition
+                            slide.style.zIndex = '1';
+                            slide.style.opacity = '1';
+                            setTimeout(() => {
+                                slide.classList.remove('active-slide');
+                                slide.style.zIndex = '';
+                                slide.style.opacity = '';
+                            }, 450);
+                        } else {
+                            slide.classList.remove('active-slide');
+                            slide.style.zIndex = '';
+                        }
                     });
+                    previousSlideIndex = currentSlideIndex;
                     indicator.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
+                    presCounter.textContent = `${currentSlideIndex + 1} / ${slides.length}`;
                     btnPrev.style.visibility = currentSlideIndex === 0 ? 'hidden' : 'visible';
                     btnNext.style.visibility = currentSlideIndex === slides.length - 1 ? 'hidden' : 'visible';
                 } else {
                     slides.forEach(slide => slide.classList.add('active-slide'));
                     indicator.textContent = `Total Slides: ${slides.length}`;
+                    presCounter.textContent = '';
                     btnPrev.style.visibility = 'hidden';
                     btnNext.style.visibility = 'hidden';
                 }
             }
 
-            btnToggleMode.addEventListener('click', () => {
-                isPresentationMode = !isPresentationMode;
-                if (isPresentationMode) {
-                    body.classList.remove('mode-scroll');
-                    body.classList.add('mode-presentation');
-                    btnToggleMode.innerHTML = '<i class="fa-solid fa-list"></i> Scroll Mode';
-                } else {
-                    body.classList.remove('mode-presentation');
-                    body.classList.add('mode-scroll');
-                    btnToggleMode.innerHTML = '<i class="fa-solid fa-arrows-alt-v"></i> Presentation Mode';
-                }
-                updateUI();
-                if (isPresentationMode) {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            });
-
-            btnPrev.addEventListener('click', () => {
-                if (currentSlideIndex > 0) {
-                    currentSlideIndex--;
-                    updateUI();
-                }
-            });
-
-            btnNext.addEventListener('click', () => {
+            function goNext() {
                 if (currentSlideIndex < slides.length - 1) {
+                    slideDirection = 'forward';
                     currentSlideIndex++;
                     updateUI();
                 }
+            }
+            function goPrev() {
+                if (currentSlideIndex > 0) {
+                    slideDirection = 'backward';
+                    currentSlideIndex--;
+                    updateUI();
+                }
+            }
+
+            function enterPresentation() {
+                isPresentationMode = true;
+                body.classList.remove('mode-scroll');
+                body.classList.add('mode-presentation');
+                btnToggleMode.innerHTML = '<i class="fa-solid fa-list"></i> Scroll Mode';
+                updateUI();
+                window.scrollTo({ top: 0 });
+            }
+
+            function exitPresentation() {
+                isPresentationMode = false;
+                body.classList.remove('mode-presentation');
+                body.classList.add('mode-scroll');
+                btnToggleMode.innerHTML = '<i class="fa-solid fa-arrows-alt-v"></i> Presentation Mode';
+                updateUI();
+            }
+
+            btnToggleMode.addEventListener('click', () => {
+                if (isPresentationMode) {
+                    exitPresentation();
+                } else {
+                    enterPresentation();
+                }
+            });
+
+            // Exit presentation on Escape
+            document.addEventListener('fullscreenchange', () => {});
+
+            btnPrev.addEventListener('click', () => goPrev());
+            btnNext.addEventListener('click', () => goNext());
+
+            // Click to advance in presentation mode (left 25% = back, right 75% = forward)
+            document.addEventListener('click', (e) => {
+                if (!isPresentationMode) return;
+                if (e.target.closest('a, button')) return;
+                const x = e.clientX / window.innerWidth;
+                if (x < 0.25) { goPrev(); } else { goNext(); }
             });
 
             // Keyboard navigation support
             document.addEventListener('keydown', (e) => {
                 if (!isPresentationMode) return;
-                if (e.key === 'ArrowRight' || e.key === 'Space') {
-                    if (currentSlideIndex < slides.length - 1) {
-                        currentSlideIndex++;
-                        updateUI();
-                    }
-                } else if (e.key === 'ArrowLeft') {
-                    if (currentSlideIndex > 0) {
-                        currentSlideIndex--;
-                        updateUI();
-                    }
+                if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    goNext();
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    goPrev();
+                } else if (e.key === 'Escape') {
+                    exitPresentation();
                 }
             });
 
             // Initialize UI
             updateUI();
+
+            // Dark/Light mode toggle
+            const btnTheme = document.getElementById('btn-toggle-theme');
+            btnTheme.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    btnTheme.innerHTML = '<i class="fa-solid fa-sun"></i> Light';
+                } else {
+                    btnTheme.innerHTML = '<i class="fa-solid fa-moon"></i> Dark';
+                }
+            });
         });
     </script>
 </body>
