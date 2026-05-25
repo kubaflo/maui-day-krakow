@@ -1246,6 +1246,52 @@
             </div>
         </div>
 
+        <!-- SLIDE: DAILY AGENTIC WORKFLOWS -->
+        <div class="slide-container" id="slide-daily-workflows">
+            <h2 class="slide-title">Daily Agentic Workflows</h2>
+            <div class="content-area" style="justify-content: flex-start;">
+                <p style="margin-bottom: 12px;">Two GitHub-powered workflows generate daily intelligence issues — no human trigger needed</p>
+                <div class="two-column" style="gap: 24px; align-items: stretch;">
+                    <!-- Card 1: Daily Repo Status -->
+                    <div style="border: 1px solid var(--border-light); border-radius: 10px; padding: 16px; display: flex; flex-direction: column;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <div style="font-size: 16px; font-weight: 700;">Daily Repo Status</div>
+                                <span style="font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 12px; background: var(--brand-cyan); color: white;">gh-aw</span>
+                        </div>
+                        <p style="font-size: 11px; color: var(--text-muted); line-height: 1.5; margin-bottom: 8px;">Markdown prompt compiled via <code style="background: #f3f2f1; padding: 1px 4px; border-radius: 3px; font-size: 10px;">gh aw compile</code> → <code style="background: #f3f2f1; padding: 1px 4px; border-radius: 3px; font-size: 10px;">.lock.yml</code>. Copilot agent analyzes repo activity daily.</p>
+                        <div style="margin-bottom: 8px; border-radius: 6px; overflow: hidden; border: 1px solid #e0e0e0; flex: 1; max-height: 320px;">
+                            <img src="daily-repo-status-issue.png" alt="Daily Repo Status Issue" style="width: 100%; display: block;">
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 2px;">
+                            <a href="https://github.com/dotnet/maui/issues/35600" target="_blank" style="font-size: 11px; color: var(--brand-cyan); font-weight: 600; text-decoration: none;">Issue #35600 — Latest daily status</a>
+                            <a href="https://github.com/dotnet/maui/blob/main/.github/workflows/daily-repo-status.md" target="_blank" style="font-size: 11px; color: var(--brand-purple); font-weight: 600; text-decoration: none;">daily-repo-status.md — Workflow prompt</a>
+                            <a href="https://github.com/dotnet/maui/blob/main/.github/workflows/daily-repo-status.lock.yml" target="_blank" style="font-size: 11px; color: var(--brand-purple); font-weight: 600; text-decoration: none;">daily-repo-status.lock.yml — Compiled lock</a>
+                        </div>
+                    </div>
+                    <!-- Card 2: PR Review Queue -->
+                    <div style="border: 1px solid var(--border-light); border-radius: 10px; padding: 16px; display: flex; flex-direction: column;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <div style="font-size: 16px; font-weight: 700;">PR Review Queue</div>
+                                <span style="font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 12px; background: var(--brand-purple); color: white;">Skill-Powered</span>
+                        </div>
+                        <p style="font-size: 11px; color: var(--text-muted); line-height: 1.5; margin-bottom: 8px;">GitHub Actions calls <code style="background: #f3f2f1; padding: 1px 4px; border-radius: 3px; font-size: 10px;">find-reviewable-pr</code> skill to query and categorize open PRs weekdays at 8 UTC.</p>
+                        <div style="margin-bottom: 8px; border-radius: 6px; overflow: hidden; border: 1px solid #e0e0e0; flex: 1; max-height: 320px;">
+                            <img src="pr-review-queue-issue.png" alt="PR Review Queue Issue" style="width: 100%; display: block;">
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 2px;">
+                            <a href="https://github.com/dotnet/maui/issues/35605" target="_blank" style="font-size: 11px; color: var(--brand-cyan); font-weight: 600; text-decoration: none;">Issue #35605 — Latest review queue</a>
+                            <a href="https://github.com/dotnet/maui/blob/main/.github/workflows/pr-review-queue.yml" target="_blank" style="font-size: 11px; color: var(--brand-purple); font-weight: 600; text-decoration: none;">pr-review-queue.yml — Actions workflow</a>
+                            <a href="https://github.com/dotnet/maui/blob/main/.github/skills/find-reviewable-pr/scripts/query-reviewable-prs.ps1" target="_blank" style="font-size: 11px; color: var(--brand-purple); font-weight: 600; text-decoration: none;">query-reviewable-prs.ps1 — Skill script</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="branding-footer">
+                <span>AUTOMATED INTELLIGENCE</span>
+                <span>dotnet/maui · .github/workflows/</span>
+            </div>
+        </div>
+
         <!-- SLIDE 10: LET'S SEE IT LIVE -->
         <div class="slide-container" id="slide10">
             <h2 class="slide-title">Let's See It Live</h2>
