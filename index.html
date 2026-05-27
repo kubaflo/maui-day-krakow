@@ -1145,14 +1145,14 @@
                             <div class="step-bubble">2</div>
                             <div class="step-desc-box">
                                 <h4>Review Analysis</h4>
-                                <p>Expert Review (30 dims) & parallel Try-Fix models.</p>
+                                <p>Expert Review (30 dims) &amp; parallel Try-Fix models.</p>
                             </div>
                         </div>
                         <div class="vertical-step-row active">
                             <div class="step-bubble">3</div>
                             <div class="step-desc-box">
                                 <h4>Comment Post</h4>
-                                <p>Post AI Summary & inline feedback directly to PR.</p>
+                                <p>Post AI Summary &amp; inline feedback directly to PR.</p>
                             </div>
                         </div>
                         <div class="vertical-step-row label-active">
@@ -1177,38 +1177,130 @@
             </div>
         </div>
 
-        <!-- SLIDE: EXPERT REVIEW INLINE FINDINGS -->
-        <div class="slide-container" id="slide11">
-            <h2 class="slide-title">Expert Review: Inline Findings</h2>
+        <!-- SLIDE: TRY-FIX HOW IT WORKS -->
+        <div class="slide-container" id="slide-tryfix">
+            <h2 class="slide-title">Try-Fix: How It Works</h2>
             <div class="content-area">
-                <div class="two-column" style="grid-template-columns: 45% 55%; gap: 40px; align-items: center;">
+                <div class="two-column" style="grid-template-columns: 55% 45%; gap: 40px; align-items: start;">
                     <div>
-                        <div class="blog-tag" style="background-color: var(--brand-cyan); margin-bottom: 15px;">CASE STUDY: PR #35590</div>
-                        <p style="margin-bottom: 20px; font-weight: 600; font-size: 21px;">Accessibility Analysis & Synthesized Parents</p>
-                        <div style="display: flex; flex-direction: column; gap: 12px;">
-                            <div style="padding: 10px 15px; background: #fafafa; border-left: 3px solid var(--brand-purple); border-radius: 2px;">
-                                <h4 style="font-size: 16px; margin-bottom: 2px;">iOS SemanticExtensions Audit</h4>
-                                <p style="font-size: 13px; color: var(--text-muted);">MauiBot reviews child semantic structures to flag stale VoicOver announcements when parent layout layers update dynamically.</p>
+                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">When a PR fix isn't ideal, the agent generates alternative candidates and tests them on real devices</p>
+
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
+                                <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-purple); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">1</div>
+                                <div>
+                                    <h4 style="font-size: 15px; margin-bottom: 2px;">Analyze Problem &amp; Existing Fix</h4>
+                                    <p style="font-size: 12px; color: var(--text-muted);">Reads the issue, PR diff, and gate test results — understands what the fix does and where it falls short</p>
+                                </div>
                             </div>
-                            <div style="padding: 10px 15px; background: #fafafa; border-left: 3px solid var(--brand-cyan); border-radius: 2px;">
-                                <h4 style="font-size: 16px; margin-bottom: 2px;">30-Dimension Validation Surface</h4>
-                                <p style="font-size: 13px; color: var(--text-muted);">Audits Connect/Disconnect routines, platform null margins, allocations, and API surface rules sequentially.</p>
+                            <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
+                                <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-cyan); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">2</div>
+                                <div>
+                                    <h4 style="font-size: 15px; margin-bottom: 2px;">Generate Alternative Candidates</h4>
+                                    <p style="font-size: 12px; color: var(--text-muted);">Designs a fundamentally different approach — not a tweak, but a new strategy informed by prior failures</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
+                                <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-blue); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">3</div>
+                                <div>
+                                    <h4 style="font-size: 15px; margin-bottom: 2px;">Build, Deploy &amp; Test on Device</h4>
+                                    <p style="font-size: 12px; color: var(--text-muted);">Each candidate is compiled, deployed to an emulator/simulator, and tested empirically — no guessing</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
+                                <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-green); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">4</div>
+                                <div>
+                                    <h4 style="font-size: 15px; margin-bottom: 2px;">Compare &amp; Recommend Best Fix</h4>
+                                    <p style="font-size: 12px; color: var(--text-muted);">All candidates are scored against the PR's fix — the winner is recommended with a full diff and rationale</p>
+                                </div>
                             </div>
                         </div>
-                        <p style="margin-top: 25px; font-size: 15px; font-style: italic; color: var(--brand-purple);">
-                            Explore active PR: <a href="https://github.com/dotnet/maui/pull/35590" target="_blank" style="color: var(--brand-purple); text-decoration: underline; font-weight: 700;">dotnet/maui#35590</a>
+
+                        <p style="margin-top: 14px; font-size: 12px; color: var(--text-muted);">
+                            Each candidate goes through expert self-review before testing
                         </p>
                     </div>
-                    <div>
-                        <div style="text-align: center;">
-                            <img src="expert-review.png" alt="MauiBot Expert Review Inline Comment on iOS SemanticExtensions" style="max-height: 500px; object-fit: contain;">
+                    <div style="display: flex; flex-direction: column; gap: 16px; padding-top: 10px;">
+                        <!-- Visual flow diagram -->
+                        <div style="background: var(--bg-subtle); border-radius: 12px; padding: 24px 20px; text-align: center;">
+                            <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">Iterative Fix Loop</div>
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                                <div style="background: var(--brand-purple); color: white; padding: 8px 20px; border-radius: 6px; font-size: 12px; font-weight: 600; width: 180px;">PR Fix Analysis</div>
+                                <div style="color: var(--text-muted); font-size: 16px;">↓</div>
+                                <div style="background: var(--brand-cyan); color: white; padding: 8px 20px; border-radius: 6px; font-size: 12px; font-weight: 600; width: 180px;">Candidate #1</div>
+                                <div style="color: var(--text-muted); font-size: 16px;">↓</div>
+                                <div style="background: var(--bg-canvas); border: 2px solid var(--color-red); padding: 6px 20px; border-radius: 6px; font-size: 11px; color: var(--color-red); font-weight: 600; width: 180px;">❌ Tests Failed</div>
+                                <div style="color: var(--text-muted); font-size: 10px; font-style: italic;">learn from failure</div>
+                                <div style="color: var(--text-muted); font-size: 16px;">↓</div>
+                                <div style="background: var(--color-blue); color: white; padding: 8px 20px; border-radius: 6px; font-size: 12px; font-weight: 600; width: 180px;">Candidate #2</div>
+                                <div style="color: var(--text-muted); font-size: 16px;">↓</div>
+                                <div style="background: var(--bg-canvas); border: 2px solid var(--color-green); padding: 6px 20px; border-radius: 6px; font-size: 11px; color: var(--color-green); font-weight: 600; width: 180px;">✅ Tests Passed</div>
+                                <div style="color: var(--text-muted); font-size: 16px;">↓</div>
+                                <div style="background: var(--color-green); color: white; padding: 8px 20px; border-radius: 6px; font-size: 12px; font-weight: 600; width: 180px;">🏆 Best Fix Wins</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="branding-footer">
-                <span>ARCHITECTURAL VECTORS</span>
-                <span>Target Review Criteria</span>
+                <span>TRY-FIX</span>
+                <span>Alternative Fix Exploration</span>
+            </div>
+        </div>
+
+        <!-- SLIDE: EXPERT REVIEW INLINE FINDINGS -->
+        <div class="slide-container" id="slide11">
+            <h2 class="slide-title">Expert Review: How It Works</h2>
+            <div class="content-area">
+                <div class="two-column" style="grid-template-columns: 55% 45%; gap: 40px; align-items: start;">
+                    <div>
+                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">Every PR gets a deep, multi-dimensional code review — not just style checks</p>
+
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
+                                <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-purple); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">1</div>
+                                <div>
+                                    <h4 style="font-size: 15px; margin-bottom: 2px;">30 Architectural Dimensions</h4>
+                                    <p style="font-size: 12px; color: var(--text-muted);">Handler lifecycle, platform threading, safe area, accessibility, layout, CollectionView, memory, API surface, and more</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
+                                <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-cyan); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">2</div>
+                                <div>
+                                    <h4 style="font-size: 15px; margin-bottom: 2px;">Per-Dimension Sub-Agents</h4>
+                                    <p style="font-size: 12px; color: var(--text-muted);">Each dimension is evaluated by a specialized sub-agent with domain-specific knowledge and checklist</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
+                                <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-blue); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">3</div>
+                                <div>
+                                    <h4 style="font-size: 15px; margin-bottom: 2px;">Independence-First Assessment</h4>
+                                    <p style="font-size: 12px; color: var(--text-muted);">Reads code before PR description to avoid anchoring bias — forms its own judgment first</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
+                                <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-green); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">4</div>
+                                <div>
+                                    <h4 style="font-size: 15px; margin-bottom: 2px;">Inline Findings on the PR</h4>
+                                    <p style="font-size: 12px; color: var(--text-muted);">Posts findings as inline code comments at exact file + line — reviewers see issues in context</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p style="margin-top: 14px; font-size: 12px; color: var(--text-muted);">
+                            See it in action: <a href="https://github.com/dotnet/maui/pull/35590" target="_blank" style="color: var(--brand-purple); text-decoration: underline;">dotnet/maui#35590</a>
+                        </p>
+                    </div>
+                    <div>
+                        <div style="text-align: center;">
+                            <img src="expert-review.png" alt="MauiBot Expert Review posting inline findings on a PR" style="max-height: 500px; object-fit: contain;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="branding-footer">
+                <span>EXPERT REVIEW</span>
+                <span>30-Dimension Analysis</span>
             </div>
         </div>
 
