@@ -1,0 +1,60 @@
+{
+  "collected_at": "2026-10-04",
+  "repository": "dotnet/maui",
+  "examples": [
+    {
+      "kind": "community_adoption_signal",
+      "pull_request": 35197,
+      "title": "[Android] Fix SearchBar IME full-screen extract mode in landscape orientation",
+      "url": "https://github.com/dotnet/maui/pull/35197",
+      "comment_url": "https://github.com/dotnet/maui/pull/35197#issuecomment-4388181135",
+      "author": "SubhikshaSf4851",
+      "quote": "@kubaflo I have updated the changes",
+      "observations": [
+        "Merged PR currently carries s/agent-fix-implemented and s/agent-suggestions-implemented.",
+        "Original commit sequence includes 'Updated suggestion' and 'committed the suggestion'."
+      ],
+      "caveat": "Evidence of uptake in one PR, not a representative satisfaction survey or independently measured quality uplift."
+    },
+    {
+      "kind": "human_validation_catches_bad_suggestion",
+      "pull_request": 35358,
+      "title": "[Android] Fix CollectionView ActivityIndicator not animating after header height change",
+      "url": "https://github.com/dotnet/maui/pull/35358",
+      "comment_url": "https://github.com/dotnet/maui/pull/35358#issuecomment-4438010132",
+      "author": "Vignesh-SF3580",
+      "quote": "I tested this locally, and it did not resolve the issue.",
+      "observations": [
+        "The author reports that the AI's sync-first approach reproduces the original problem and that removing an attachment condition breaks recycled items.",
+        "The PR also currently carries agent-fix-win and implementation labels, illustrating why those labels cannot be treated as calibrated success scores."
+      ],
+      "caveat": "A reported ineffective suggestion, not proof of an AI-caused regression in a shipped release."
+    },
+    {
+      "kind": "explicit_negative_feedback_label",
+      "pull_request": 34153,
+      "title": "[iOS] Fix VerticalOffset Update When Modifying CollectionView.ItemsSource While Scrolled",
+      "url": "https://github.com/dotnet/maui/pull/34153",
+      "observations": [
+        "This is the only PR returned by the current repository-wide s/agent-fix-lose label search.",
+        "The label description says the author adopted the agent's fix and it turned out to be bad.",
+        "The PR is merged and also carries s/agent-suggestions-implemented, but no s/agent-reviewed label at collection time."
+      ],
+      "caveat": "Sparse, mutable, incomplete negative labeling cannot establish an AI-attributable regression or failure rate."
+    }
+  ],
+  "unmeasured": [
+    "AI-attributable shipped regression rate",
+    "Representative community satisfaction",
+    "Zero-human-interaction PR percentage",
+    "Issue-created-to-fix-shipped time",
+    "Causal productivity uplift from AI"
+  ],
+  "source_inventory": {
+    "commit": "d8b87161cccb95b6163c103fca262d8890030bac",
+    "project_skill_files": 27,
+    "instruction_files": 19,
+    "agent_files": 6,
+    "url": "https://github.com/dotnet/maui/tree/d8b87161cccb95b6163c103fca262d8890030bac/.github"
+  }
+}

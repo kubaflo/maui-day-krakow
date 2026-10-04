@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>.NET MAUI: The AI-First Repository</title>
+    <title>.NET MAUI: AI prepares evidence. Humans decide.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&family=Inter:wght@400;600;700&family=Cascadia+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* MICROSOFT DEVBLOGS ARCHITECTURE SYSTEM */
@@ -78,7 +78,7 @@
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+            font-family: 'Manrope', system-ui, sans-serif;
             color: var(--text-main);
             display: flex;
             flex-direction: column;
@@ -605,7 +605,7 @@
             font-size: 32px;
             font-weight: 700;
             color: var(--brand-purple);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Manrope', sans-serif;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             position: relative;
             overflow: hidden;
@@ -783,17 +783,129 @@
             font-size: 12px;
             transition: background-color 0.2s;
         }
+
+        :root {
+            --brand-purple: #15594f;
+            --brand-lavender: #38756b;
+            --brand-cyan: #9a4b1a;
+            --bg-card: #fffdf7;
+            --bg-subtle: #f3f2e9;
+            --border-light: #dedfd4;
+        }
+        body.dark-mode {
+            --brand-purple: #83d6be;
+            --brand-lavender: #b1e5d6;
+            --brand-cyan: #ffc18e;
+            --bg-card: #142621;
+            --bg-subtle: #203a32;
+            --border-light: #426457;
+        }
+        h1, h2, h3 { letter-spacing: -0.035em; }
+        code, .eyebrow { font-family: 'IBM Plex Mono', monospace; }
+        .deck-controls { opacity: 1; flex-wrap: wrap; justify-content: center; max-width: calc(100vw - 24px); }
+        .deck-controls:focus-within { opacity: 1; }
+        .deck-btn { text-decoration: none; font-size: 14px; }
+        body.dark-mode .deck-btn:hover { color: #142621; }
+        body.dark-mode [style*="background: var(--brand-purple)"],
+        body.dark-mode [style*="background: var(--brand-cyan)"] { color: #142621 !important; }
+        :focus-visible { outline: 3px solid var(--brand-cyan); outline-offset: 4px; }
+        .eyebrow { color: var(--brand-purple); text-transform: uppercase; font-size: 14px; letter-spacing: .12em; margin-bottom: 18px; }
+        .evidence-slide .slide-title { margin-bottom: 22px; }
+        .evidence-slide .content-area { gap: 18px; }
+        .evidence-slide .branding-footer { color: var(--text-muted); font-size: 12px; letter-spacing: 0; gap: 20px; }
+        .evidence-lead { font-size: 23px; max-width: 940px; }
+        .evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .evidence-card { padding: 24px; background: var(--bg-subtle); border-top: 4px solid var(--brand-purple); }
+        .evidence-card h3 { font-size: 23px; margin-bottom: 12px; }
+        .evidence-card p { font-size: 18px; }
+        .takeaway { border-left: 4px solid var(--brand-cyan); padding: 14px 20px; background: var(--bg-subtle); font-size: 19px; }
+        .source-note { font-size: 13px; line-height: 1.5; }
+        .source-note a, .evidence-slide a { color: var(--brand-purple); }
+        .speaker-note { font-size: 16px; line-height: 1.5; color: var(--text-muted); }
+        .metric-strip { display: flex; align-items: baseline; gap: 28px; }
+        .metric-strip strong { font-size: 42px; color: var(--brand-purple); letter-spacing: -.04em; }
+        .metric-strip span { font-size: 17px; color: var(--text-muted); }
+        .chart-legend { display: flex; gap: 24px; font-size: 16px; color: var(--text-muted); }
+        .chart-legend span::before { content: ''; display: inline-block; width: 16px; height: 16px; margin-right: 8px; vertical-align: middle; background: var(--brand-purple); }
+        .chart-legend .previous-year::before { background: #6b7a86; }
+        .chart-legend .all-merges::before { background: #6b7a86; }
+        .monthly-chart { display: grid; grid-template-columns: repeat(9, 1fr); gap: 14px; border-bottom: 1px solid var(--text-muted); padding: 0 12px 12px; }
+        .month-group { min-width: 0; text-align: center; }
+        .month-bars { height: 245px; display: flex; align-items: flex-end; justify-content: center; gap: 8px; }
+        .month-bar { background: var(--brand-purple); width: 32px; position: relative; min-height: 1px; }
+        .month-bar.previous-year { background: #6b7a86; }
+        .month-bar span { position: absolute; bottom: calc(100% + 5px); left: 50%; transform: translateX(-50%); font-size: 16px; font-weight: 700; color: var(--text-main); }
+        .month-label { margin-top: 12px; font-size: 15px; color: var(--text-main); }
+        .signal-row { display: grid; grid-template-columns: 235px 1fr 140px; gap: 16px; align-items: center; }
+        .signal-label { font-size: 19px; color: var(--text-main); }
+        .signal-track { height: 38px; background: var(--border-light); }
+        .signal-fill { height: 100%; background: var(--brand-purple); }
+        .signal-count { font-size: 20px; font-weight: 700; color: var(--text-main); }
+        .data-table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        .data-table th, .data-table td { border-bottom: 1px solid var(--border-light); padding: 6px; font-size: 15px; text-align: right; }
+        .data-table th:first-child, .data-table td:first-child { text-align: left; }
+        .chart-data { font-size: 14px; }
+        .chart-data summary { cursor: pointer; color: var(--brand-purple); }
+        body.mode-presentation .chart-data[open] { background: var(--bg-card); position: absolute; inset: 0; padding: 20px; z-index: 20; overflow: auto; }
+        .slide-container { scroll-margin-top: 100px; }
+        .two-column > div { min-width: 0; }
+        .two-column[style*="55% 45%"] { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) !important; }
+        body.mode-presentation .slide-container:not(.active-slide) { visibility: hidden; }
+        .pres-counter { color: var(--text-muted); }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            body.mode-presentation .bar-fill,
+            body.mode-presentation .horizontal-fill { transform: none !important; }
+            body.mode-presentation .bar-fill span,
+            body.mode-presentation .horizontal-fill span { opacity: 1 !important; }
+        }
+        @media (max-width: 900px) {
+            body.mode-scroll { padding: 12px; }
+            .slide-deck-container { width: 100%; gap: 20px; }
+            body.mode-scroll .slide-container { width: 100%; height: auto; min-height: 560px; padding: 36px 24px 80px; overflow: visible; }
+            body.mode-scroll .two-column, body.mode-scroll .grid-2x2,
+            body.mode-scroll .grid-3x2, body.mode-scroll .evidence-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+            body.mode-scroll .flow-pipeline { flex-wrap: wrap; gap: 12px; }
+            body.mode-scroll .pipeline-node { width: 100% !important; }
+            body.mode-scroll .branding-footer { left: 24px; right: 24px; bottom: 24px; flex-wrap: wrap; }
+            body.mode-scroll .slide-title { font-size: 30px; margin-bottom: 24px; }
+            body.mode-scroll img { max-width: 100%; height: auto; }
+            body.mode-scroll .content-area > div[style*="display: flex"] { flex-wrap: wrap; gap: 24px; }
+            body.mode-scroll #slide1 .two-column > div > div[style*="display: flex"] { flex-wrap: wrap; }
+            body.mode-scroll .content-area > div > div[style*="width: 22%"] { width: 100% !important; }
+            body.mode-scroll .metric-strip { flex-wrap: wrap; gap: 12px; }
+            body.mode-scroll .monthly-chart { grid-template-columns: repeat(3, 1fr); row-gap: 24px; }
+            body.mode-scroll .signal-row { grid-template-columns: 1fr; gap: 8px; }
+            .deck-controls { top: 8px; gap: 8px; padding: 8px; }
+        }
+        @media print {
+            @page { size: landscape; margin: 0; }
+            body, body.mode-presentation { display: block; padding: 0; background: white; overflow: visible; }
+            .deck-controls, .bg-overlay, .bg-logos, .pres-counter { display: none !important; }
+            .slide-deck-container, body.mode-presentation .slide-deck-container { display: block; width: auto; height: auto; transform: none !important; }
+            .slide-container, body.mode-presentation .slide-container {
+                position: relative; width: 100%; height: 100vh; margin: 0; border-radius: 0;
+                opacity: 1 !important; visibility: visible !important; transform: none !important;
+                box-shadow: none; break-after: page; print-color-adjust: exact; -webkit-print-color-adjust: exact;
+            }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .bar-fill, .horizontal-fill { transform: none !important; }
+            .bar-fill span, .horizontal-fill span { opacity: 1 !important; }
+            .chart-data { display: none; }
+        }
     </style>
 </head>
 <body class="mode-scroll">
 
     <!-- PRESENTATION DECK ORCHESTRATION PANEL -->
     <div class="deck-controls">
-        <button class="deck-btn" id="btn-toggle-mode"><i class="fa-solid fa-arrows-alt-v"></i> Presentation Mode</button>
+        <button class="deck-btn" id="btn-toggle-mode" title="P toggles presentation; arrow keys navigate; Escape exits"><i class="fa-solid fa-arrows-alt-v"></i> Presentation Mode</button>
         <div style="height: 20px; width: 1px; background-color: var(--border-light);"></div>
         <button class="deck-btn" id="btn-prev"><i class="fa-solid fa-chevron-left"></i> Prev</button>
-        <span id="slide-indicator" style="font-weight: 600; font-size: 14px; color: var(--text-muted);">Slide 1 of 18</span>
+        <span id="slide-indicator" aria-live="polite" style="font-weight: 600; font-size: 14px; color: var(--text-muted);"></span>
         <button class="deck-btn" id="btn-next">Next <i class="fa-solid fa-chevron-right"></i></button>
+        <a class="deck-btn" href="#evidence" id="btn-evidence">Evidence / Oct update</a>
+        <a class="deck-btn" href="#slide5" id="btn-workflow">Workflow</a>
         <div style="height: 20px; width: 1px; background-color: var(--border-light);"></div>
         <button class="deck-btn" id="btn-toggle-theme"><i class="fa-solid fa-moon"></i> Dark</button>
     </div>
@@ -811,13 +923,14 @@
             <div class="content-area">
                 <div class="two-column" style="align-items: center; gap: 40px; height: 100%;">
                     <div>
-                        <div class="blog-tag">Ecosystem Strategy</div>
+                        <div class="eyebrow">University talk / 06 Oct 2026</div>
                         <h1 style="font-size: 56px; color: var(--brand-purple); margin-bottom: 15px;">.NET MAUI</h1>
                         <h2 style="font-size: 32px; margin-bottom: 25px; font-weight: 400; color: var(--text-muted); line-height: 1.3;">
-                            is the most AI-supported .NET repository
+                            AI prepares evidence.<br>Humans decide.
                         </h2>
                         <p style="font-size: 18px; margin-bottom: 40px; color: var(--text-muted);">
-                            How we got here — and how we keep improving.
+                            A practical open-source story, revisited since May.<br>
+                            Review agents, platform tests, and the people in the loop.
                         </p>
                         
                         <div style="display: flex; gap: 30px;">
@@ -852,45 +965,25 @@
                 </div>
             </div>
             <div class="branding-footer">
-                <span>MAUI DAY • KRAKÓW</span>
-                <span>MAY 29, 2026</span>
+                <span>KAREL'S UNIVERSITY TALK · MAUI DAY MATERIAL</span>
+                <span>OCTOBER 6, 2026</span>
             </div>
         </div>
 
-        <!-- SLIDE 2: COMPETING PRS -->
-        <div class="slide-container" id="slide2">
-            <h2 class="slide-title">Your PRs Were Competing with 1,270 Others</h2>
+        <div class="slide-container evidence-slide" id="slide2">
+            <div class="eyebrow">The opportunity</div>
+            <h2 class="slide-title">Give reviewers a better starting point.</h2>
             <div class="content-area">
-                <p style="margin-bottom: 30px; max-width: 950px;">Community contributions exploded — but manual review capacity didn't. Every single PR needs thorough code review, testing, and structural guidance.</p>
-                
-                <div class="bar-chart-vertical">
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 38px; background-color: #8c8c8c;"><span>149</span></div>
-                        <div class="bar-label">2023</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 150px; background-color: var(--color-orange);"><span>715</span></div>
-                        <div class="bar-label">2024</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 270px; background-color: var(--color-red);"><span>1,270</span></div>
-                        <div class="bar-label">2025</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div style="position: relative; width: 100%;">
-                            <div style="height: 340px; border: 2px dashed var(--brand-cyan); border-radius: 4px; background: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,183,195,0.06) 5px, rgba(0,183,195,0.06) 10px); display: flex; align-items: flex-start; justify-content: center; padding-top: 8px;">
-                                <span style="font-size: 14px; font-weight: 700; color: var(--brand-cyan);">~1,600 projected</span>
-                            </div>
-                            <div class="bar-fill" style="height: 98px; background-color: var(--brand-cyan); position: absolute; bottom: 0; left: 0; right: 0; border-radius: 0 0 4px 4px;"><span>467*</span></div>
-                        </div>
-                        <div class="bar-label">2026 (Jan-May)</div>
-                    </div>
+                <p class="evidence-lead">A useful agent does not just write an answer. It assembles something another person can inspect.</p>
+                <div class="evidence-grid">
+                    <div class="evidence-card"><h3>Find context</h3><p>Connect the issue, code paths, platform conventions, and earlier attempts.</p></div>
+                    <div class="evidence-card"><h3>Test a claim</h3><p>Ask whether a test fails without the fix and passes with it.</p></div>
+                    <div class="evidence-card"><h3>Show the work</h3><p>Leave findings, test results, and caveats on the pull request.</p></div>
                 </div>
+                <p class="takeaway">The positive story: make the next human decision better informed.</p>
+                <p class="speaker-note">Talk track: distinguish a proposed answer from checked evidence. Neither replaces maintainer accountability.</p>
             </div>
-            <div class="branding-footer">
-                <span>THE COMMUNITY EXPLOSION</span>
-                <span>dotnet/maui</span>
-            </div>
+            <div class="branding-footer"><span>AI AS REVIEW SUPPORT</span><span>Design principle, not a measured productivity claim</span></div>
         </div>
 
         <!-- SLIDE 3: WHAT A SINGLE REVIEW COSTS -->
@@ -900,8 +993,8 @@
                 <div class="two-column" style="align-items: center;">
                     <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
                         <div style="background-color: #fafafa; border: 1px solid var(--border-light); padding: 30px; border-radius: 4px;">
-                            <div style="font-size: 64px; font-weight: 700; color: var(--brand-purple); line-height: 1;">45 min</div>
-                            <p style="font-size: 18px; font-weight: 600; margin-top: 10px;">Average review time per session</p>
+                            <div style="font-size: 48px; font-weight: 700; color: var(--brand-purple); line-height: 1;">Context</div>
+                            <p style="font-size: 18px; font-weight: 600; margin-top: 10px;">Understand the bug, the change, and the risks</p>
                         </div>
                         <div style="background-color: #fafafa; border: 1px solid var(--border-light); padding: 30px; border-radius: 4px;">
                             <div style="font-size: 64px; font-weight: 700; color: var(--brand-cyan); line-height: 1;">4 Targets</div>
@@ -914,19 +1007,19 @@
                         <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px;">
                             <li style="display: flex; gap: 15px; font-size: 18px;">
                                 <i class="fa-solid fa-arrows-spin" style="color: var(--brand-purple); margin-top: 4px;"></i>
-                                <span><strong>2-3 Review Rounds Each:</strong> Commits require repeat runs before final signoff.</span>
+                                <span><strong>Review is iterative:</strong> New commits can require fresh analysis and validation.</span>
                             </li>
                             <li style="display: flex; gap: 15px; font-size: 18px;">
                                 <i class="fa-solid fa-calculator" style="color: var(--brand-purple); margin-top: 4px;"></i>
-                                <span><strong>100 PRs / Month x 1 Hour:</strong> Translates to 2.5 full work weeks just for PR reviews.</span>
+                                <span><strong>Evidence takes work:</strong> Reproduce the failure, verify the fix, then check for side effects.</span>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="branding-footer">
-                <span>MANUAL OVERHEAD ANALYSIS</span>
-                <span>Time Cost Evaluation</span>
+                <span>WHY REVIEW NEEDS SUPPORT</span>
+                <span>Workflow explanation, not measured review time</span>
             </div>
         </div>
 
@@ -938,7 +1031,7 @@
                     <div class="dev-card" style="border-top-color: var(--brand-cyan);">
                         <div style="font-size: 40px; color: var(--brand-cyan); margin-bottom: 20px;"><i class="fa-solid fa-eye"></i></div>
                         <h3>The Vision</h3>
-                        <p>Automating maintainer intuition by creating specialized AI assistants that understand repository context, platform nuances, and testing conventions natively.</p>
+                        <p>Supporting maintainer judgment with specialized AI assistants, repository context, platform-specific checks, and reproducible testing evidence.</p>
                     </div>
                     <div class="dev-card">
                         <div style="font-size: 40px; color: var(--brand-purple); margin-bottom: 20px;"><i class="fa-solid fa-cubes"></i></div>
@@ -952,7 +1045,7 @@
             </div>
             <div class="branding-footer">
                 <span>CONCEPTUAL TRANSITION</span>
-                <span>From Passive CI to Active Agents</span>
+                <span>May workflow walkthrough · illustrative, not an execution guarantee</span>
             </div>
         </div>
 
@@ -960,7 +1053,7 @@
         <div class="slide-container" id="slide-daily-workflows">
             <h2 class="slide-title">Daily Agentic Workflows</h2>
             <div class="content-area" style="justify-content: flex-start;">
-                <p style="margin-bottom: 8px;">Two GitHub-powered workflows generate daily intelligence issues — no human trigger needed</p>
+                <p style="margin-bottom: 8px;">Scheduled workflows can generate daily intelligence issues; people still interpret and act on them.</p>
                 <div class="two-column" style="gap: 20px; align-items: stretch;">
                     <!-- Card 1: Daily Repo Status -->
                     <div style="border: 1px solid var(--border-light); border-radius: 10px; padding: 12px; display: flex; flex-direction: column;">
@@ -1152,7 +1245,7 @@
             <div class="content-area">
                 <div class="two-column" style="grid-template-columns: 55% 45%; gap: 40px; align-items: start;">
                     <div>
-                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">When a PR fix isn't ideal, the agent generates alternative candidates and tests them on real devices</p>
+                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">The workflow can explore alternative fixes and validate candidates on configured emulators or simulators.</p>
 
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
@@ -1173,7 +1266,7 @@
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-blue); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">3</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Build, Deploy &amp; Test on Device</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Each candidate is compiled, deployed to an emulator/simulator, and tested empirically — no guessing</p>
+                                    <p style="font-size: 12px; color: var(--text-muted);">Build, deploy, and run the selected tests when the target environment is available; report failures and gaps</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
@@ -1205,7 +1298,7 @@
                                 <div style="color: var(--text-muted); font-size: 16px;">↓</div>
                                 <div style="background: var(--bg-canvas); border: 2px solid var(--color-green); padding: 6px 20px; border-radius: 6px; font-size: 11px; color: var(--color-green); font-weight: 600; width: 180px;">✅ Tests Passed</div>
                                 <div style="color: var(--text-muted); font-size: 16px;">↓</div>
-                                <div style="background: var(--color-green); color: white; padding: 8px 20px; border-radius: 6px; font-size: 12px; font-weight: 600; width: 180px;">🏆 Best Fix Wins</div>
+                                <div style="background: var(--color-green); color: white; padding: 8px 20px; border-radius: 6px; font-size: 12px; font-weight: 600; width: 180px;">Recommend for Review</div>
                             </div>
                         </div>
                     </div>
@@ -1223,7 +1316,7 @@
             <div class="content-area">
                 <div class="two-column" style="grid-template-columns: 55% 45%; gap: 40px; align-items: start;">
                     <div>
-                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">Every PR gets a deep, multi-dimensional code review — not just style checks</p>
+                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">The review workflow examines multiple dimensions beyond style; coverage depends on execution and available context.</p>
 
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
@@ -1386,9 +1479,9 @@
                     <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--color-blue);"><i class="fa-solid fa-mobile-screen"></i> Sandbox Agent</span>
                     <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-lavender);"><i class="fa-solid fa-lightbulb"></i> Learn From PR</span>
                     <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--color-green);"><i class="fa-solid fa-magnifying-glass"></i> Expert Reviewer</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-purple);"><i class="fa-solid fa-puzzle-piece"></i> 17 Skills</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-cyan);"><i class="fa-solid fa-file-code"></i> 18 Instruction Files</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--color-blue);"><i class="fa-solid fa-gears"></i> 5 Automated Workflows</span>
+                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-purple);"><i class="fa-solid fa-puzzle-piece"></i> Skills</span>
+                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-cyan);"><i class="fa-solid fa-file-code"></i> Repository Instructions</span>
+                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--color-blue);"><i class="fa-solid fa-gears"></i> Automated Workflows</span>
                 </div>
 
                 <div style="display: flex; align-items: center; gap: 30px; background: var(--bg-subtle); border: 2px solid var(--border-light); border-radius: 20px; padding: 24px 36px;">
@@ -1406,177 +1499,180 @@
             </div>
         </div>
 
-        <!-- SLIDE 12: THE DATA: BEFORE AND AFTER -->
-        <div class="slide-container" id="slide12">
-            <h2 class="slide-title">The Data After Agents</h2>
+        <div class="slide-container evidence-slide" id="evidence">
+            <div class="eyebrow">October update / matched January–September windows</div>
+            <h2 class="slide-title">More PRs reached merge.</h2>
             <div class="content-area">
-                <p style="margin-bottom: 25px;">Jan-May 2026 compared to 2025</p>
-                
-                <div class="grid-2x2">
-                    <div class="dev-card" style="padding: 24px; border-top-color: var(--color-green);">
-                        <h4 style="font-size: 18px; color: var(--text-muted);"><i class="fa-solid fa-clock"></i> Time to Merge</h4>
-                        <div style="font-size: 40px; font-weight: 700; margin-top: 10px; color: var(--text-main);">6.3 days</div>
-                        <p style="font-size: 15px; color: var(--color-green); font-weight: 600; margin-top: 5px;">-50% Reduction (was 12.5d)</p>
-                    </div>
-                    <div class="dev-card" style="padding: 24px; border-top-color: var(--color-green);">
-                        <h4 style="font-size: 18px; color: var(--text-muted);"><i class="fa-solid fa-bolt"></i> Same-Day Merges</h4>
-                        <div style="font-size: 40px; font-weight: 700; margin-top: 10px; color: var(--text-main);">22%</div>
-                        <p style="font-size: 15px; color: var(--color-green); font-weight: 600; margin-top: 5px;">+175% Speed Increase (was 8%)</p>
-                    </div>
-                    <div class="dev-card" style="padding: 24px; border-top-color: var(--color-blue);">
-                        <h4 style="font-size: 18px; color: var(--text-muted);"><i class="fa-solid fa-box-open"></i> PRs Merged</h4>
-                        <div style="font-size: 40px; font-weight: 700; margin-top: 10px; color: var(--text-main);">358</div>
-                        <p style="font-size: 15px; color: var(--color-blue); font-weight: 600; margin-top: 5px;">+62% Merged Faster*</p>
-                    </div>
-                    <div class="dev-card" style="padding: 24px; border-top-color: var(--color-green);">
-                        <h4 style="font-size: 18px; color: var(--text-muted);"><i class="fa-solid fa-rocket"></i> Merged &lt; 3 Days</h4>
-                        <div style="font-size: 40px; font-weight: 700; margin-top: 10px; color: var(--text-main);">34%</div>
-                        <p style="font-size: 15px; color: var(--color-green); font-weight: 600; margin-top: 5px;">+48% Early Signoffs (was 23%)</p>
-                    </div>
+                <div class="metric-strip"><div><strong>1,628</strong> <span>in 2025</span></div><div><strong>2,350</strong> <span>in 2026</span></div><span>44.3% more merged PRs · not causal AI uplift</span></div>
+                <div class="chart-legend"><span class="previous-year">2025</span><span>2026</span></div>
+                <div class="monthly-chart" role="img" aria-label="Monthly merged PRs, January through September. 2025: 150, 212, 210, 171, 164, 174, 171, 192, 184. 2026: 176, 199, 376, 222, 203, 245, 294, 343, 292. Linear scale from zero to 400 PRs.">
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-01" data-metric="merged" data-value="150" style="height: 37.5%;"><span>150</span></div><div class="month-bar" data-month="2026-01" data-metric="merged" data-value="176" style="height: 44%;"><span>176</span></div></div><div class="month-label">Jan</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-02" data-metric="merged" data-value="212" style="height: 53%;"><span>212</span></div><div class="month-bar" data-month="2026-02" data-metric="merged" data-value="199" style="height: 49.75%;"><span>199</span></div></div><div class="month-label">Feb</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-03" data-metric="merged" data-value="210" style="height: 52.5%;"><span>210</span></div><div class="month-bar" data-month="2026-03" data-metric="merged" data-value="376" style="height: 94%;"><span>376</span></div></div><div class="month-label">Mar</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-04" data-metric="merged" data-value="171" style="height: 42.75%;"><span>171</span></div><div class="month-bar" data-month="2026-04" data-metric="merged" data-value="222" style="height: 55.5%;"><span>222</span></div></div><div class="month-label">Apr</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-05" data-metric="merged" data-value="164" style="height: 41%;"><span>164</span></div><div class="month-bar" data-month="2026-05" data-metric="merged" data-value="203" style="height: 50.75%;"><span>203</span></div></div><div class="month-label">May</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-06" data-metric="merged" data-value="174" style="height: 43.5%;"><span>174</span></div><div class="month-bar" data-month="2026-06" data-metric="merged" data-value="245" style="height: 61.25%;"><span>245</span></div></div><div class="month-label">Jun</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-07" data-metric="merged" data-value="171" style="height: 42.75%;"><span>171</span></div><div class="month-bar" data-month="2026-07" data-metric="merged" data-value="294" style="height: 73.5%;"><span>294</span></div></div><div class="month-label">Jul</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-08" data-metric="merged" data-value="192" style="height: 48%;"><span>192</span></div><div class="month-bar" data-month="2026-08" data-metric="merged" data-value="343" style="height: 85.75%;"><span>343</span></div></div><div class="month-label">Aug</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-09" data-metric="merged" data-value="184" style="height: 46%;"><span>184</span></div><div class="month-bar" data-month="2026-09" data-metric="merged" data-value="292" style="height: 73%;"><span>292</span></div></div><div class="month-label">Sep</div></div>
                 </div>
+                <p class="source-note">All dotnet/maui PRs, including ports and dependency automation. UTC merge-date buckets; zero baseline, 0–400 PR scale. <a href="evidence/maui-ai-evidence-2026-10-04.json" download>Download snapshot</a> · <a href="#methodology">Methodology</a>. Larger activity is observable; AI's causal contribution is not isolated.</p>
+                <details class="chart-data"><summary>Exact counts, including independently counted opened PRs</summary><table class="data-table"><caption>January–September calendar-month event counts</caption><thead><tr><th scope="col">Month</th><th scope="col">2025 opened</th><th scope="col">2025 merged</th><th scope="col">2026 opened</th><th scope="col">2026 merged</th></tr></thead><tbody>
+                    <tr><th scope="row">Jan</th><td>224</td><td>150</td><td>285</td><td>176</td></tr>
+                    <tr><th scope="row">Feb</th><td>273</td><td>212</td><td>283</td><td>199</td></tr>
+                    <tr><th scope="row">Mar</th><td>306</td><td>210</td><td>270</td><td>376</td></tr>
+                    <tr><th scope="row">Apr</th><td>237</td><td>171</td><td>267</td><td>222</td></tr>
+                    <tr><th scope="row">May</th><td>219</td><td>164</td><td>221</td><td>203</td></tr>
+                    <tr><th scope="row">Jun</th><td>301</td><td>174</td><td>269</td><td>245</td></tr>
+                    <tr><th scope="row">Jul</th><td>321</td><td>171</td><td>391</td><td>294</td></tr>
+                    <tr><th scope="row">Aug</th><td>241</td><td>192</td><td>529</td><td>343</td></tr>
+                    <tr><th scope="row">Sep</th><td>245</td><td>184</td><td>512</td><td>292</td></tr>
+                </tbody></table></details>
             </div>
-            <div class="branding-footer">
-                <span>EVALUATION TELEMETRY</span>
-                <span>*2026 is ongoing; 358 merged in less total timeframe</span>
-            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Same nine months · different PR mixes</span></div>
         </div>
 
-        <!-- SLIDE 13: THE RAMP UP -->
-        <div class="slide-container" id="slide13">
-            <h2 class="slide-title">The Ramp-Up: 820% Growth in 5 Months</h2>
+        <div class="slide-container evidence-slide" id="ai-evolution">
+            <div class="eyebrow">Observed participation / not an autonomy score</div>
+            <h2 class="slide-title">AI traces in the merge stream.</h2>
             <div class="content-area">
-                <p style="margin-bottom: 25px; max-width: 900px;">Review coverage scaled smoothly over 5 months. Total parsed PR volume: <strong style="color: var(--brand-purple);">428 reviewed</strong>.</p>
-                
-                <div class="bar-chart-vertical">
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 30px; background-color: var(--brand-purple);"><span>10</span></div>
-                        <div class="bar-label">Jan (Launch)</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 80px; background-color: var(--brand-purple);"><span>27</span></div>
-                        <div class="bar-label">Feb</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 220px; background-color: var(--color-blue);"><span>74</span></div>
-                        <div class="bar-label">Mar</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 250px; background-color: var(--brand-purple);"><span>84</span></div>
-                        <div class="bar-label">Apr</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 275px; background-color: var(--brand-cyan);"><span>92</span></div>
-                        <div class="bar-label">May</div>
-                    </div>
+                <div class="metric-strip"><div><strong>1,738 / 2,350</strong> <span>2026 merged PRs with a signal</span></div><strong>74.0%</strong></div>
+                <div class="chart-legend"><span class="all-merges">All 2026 merges</span><span>At least one observed AI signal</span></div>
+                <div class="monthly-chart" role="img" aria-label="All 2026 monthly merges versus the subset with at least one observed AI signal, January through September. All merges: 176, 199, 376, 222, 203, 245, 294, 343, 292. AI-signal subset: 59, 110, 317, 188, 163, 195, 234, 232, 240. Zero to 400 PR scale.">
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-01" data-metric="merged" data-value="176" style="height: 44%;"><span>176</span></div><div class="month-bar" data-month="2026-01" data-metric="any_observed_ai_signal" data-value="59" style="height: 14.75%;"><span>59</span></div></div><div class="month-label">Jan</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-02" data-metric="merged" data-value="199" style="height: 49.75%;"><span>199</span></div><div class="month-bar" data-month="2026-02" data-metric="any_observed_ai_signal" data-value="110" style="height: 27.5%;"><span>110</span></div></div><div class="month-label">Feb</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-03" data-metric="merged" data-value="376" style="height: 94%;"><span>376</span></div><div class="month-bar" data-month="2026-03" data-metric="any_observed_ai_signal" data-value="317" style="height: 79.25%;"><span>317</span></div></div><div class="month-label">Mar</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-04" data-metric="merged" data-value="222" style="height: 55.5%;"><span>222</span></div><div class="month-bar" data-month="2026-04" data-metric="any_observed_ai_signal" data-value="188" style="height: 47%;"><span>188</span></div></div><div class="month-label">Apr</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-05" data-metric="merged" data-value="203" style="height: 50.75%;"><span>203</span></div><div class="month-bar" data-month="2026-05" data-metric="any_observed_ai_signal" data-value="163" style="height: 40.75%;"><span>163</span></div></div><div class="month-label">May</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-06" data-metric="merged" data-value="245" style="height: 61.25%;"><span>245</span></div><div class="month-bar" data-month="2026-06" data-metric="any_observed_ai_signal" data-value="195" style="height: 48.75%;"><span>195</span></div></div><div class="month-label">Jun</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-07" data-metric="merged" data-value="294" style="height: 73.5%;"><span>294</span></div><div class="month-bar" data-month="2026-07" data-metric="any_observed_ai_signal" data-value="234" style="height: 58.5%;"><span>234</span></div></div><div class="month-label">Jul</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-08" data-metric="merged" data-value="343" style="height: 85.75%;"><span>343</span></div><div class="month-bar" data-month="2026-08" data-metric="any_observed_ai_signal" data-value="232" style="height: 58%;"><span>232</span></div></div><div class="month-label">Aug</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-09" data-metric="merged" data-value="292" style="height: 73%;"><span>292</span></div><div class="month-bar" data-month="2026-09" data-metric="any_observed_ai_signal" data-value="240" style="height: 60%;"><span>240</span></div></div><div class="month-label">Sep</div></div>
                 </div>
+                <p class="source-note">Signal union: current <code>s/agent-reviewed</code> label OR Copilot app authorship OR explicit commit co-author credit. Labels can change; credits can be copied into ports. No signal does not mean no AI. This is not event-time review coverage. <a href="evidence/maui-ai-evidence-2026-10-04.json" download>PR-level data and definitions</a>.</p>
+                <details class="chart-data"><summary>Exact AI-signal subset counts</summary><table class="data-table"><caption>2026 merged PRs; signals observed at snapshot time</caption><thead><tr><th scope="col">Month</th><th scope="col">All merges</th><th scope="col">Signal union</th><th scope="col">Review label</th><th scope="col">App author or credit</th></tr></thead><tbody>
+                    <tr><th scope="row">Jan</th><td>176</td><td>59</td><td>12</td><td>47</td></tr>
+                    <tr><th scope="row">Feb</th><td>199</td><td>110</td><td>55</td><td>59</td></tr>
+                    <tr><th scope="row">Mar</th><td>376</td><td>317</td><td>244</td><td>148</td></tr>
+                    <tr><th scope="row">Apr</th><td>222</td><td>188</td><td>111</td><td>126</td></tr>
+                    <tr><th scope="row">May</th><td>203</td><td>163</td><td>135</td><td>83</td></tr>
+                    <tr><th scope="row">Jun</th><td>245</td><td>195</td><td>139</td><td>123</td></tr>
+                    <tr><th scope="row">Jul</th><td>294</td><td>234</td><td>148</td><td>162</td></tr>
+                    <tr><th scope="row">Aug</th><td>343</td><td>232</td><td>128</td><td>161</td></tr>
+                    <tr><th scope="row">Sep</th><td>292</td><td>240</td><td>151</td><td>150</td></tr>
+                </tbody></table></details>
             </div>
-            <div class="branding-footer">
-                <span>TRANSACTION SCALE DEPTH</span>
-                <span>Monthly Operations Growth</span>
-            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Overlapping signals counted once · 0–400 PR scale</span></div>
         </div>
 
-        <!-- SLIDE 14: MERGE SPEED 2X FASTER -->
-        <div class="slide-container" id="slide14">
-            <h2 class="slide-title">Merge Speed: 2x Faster</h2>
+        <div class="slide-container evidence-slide" id="community-update">
+            <div class="eyebrow">Contributor story / the same community-label criterion</div>
+            <h2 class="slide-title">A stronger contribution stream.</h2>
             <div class="content-area">
-                <p style="margin-bottom: 30px;">Time-to-merge distributions highlight the drop in tail latency (Median: 12.5 -> 6.3 days).</p>
-                
-                <div class="two-column" style="gap: 45px;">
-                    <div>
-                        <h4 style="font-size: 16px; margin-bottom: 15px; color: var(--color-red);">2025 (No Agents)</h4>
-                        <div class="bar-chart-horizontal">
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">Same Day</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 8%; background-color: var(--color-red);"><span>8%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">1-3 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 15%; background-color: var(--color-red);"><span>15%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">3-7 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 23%; background-color: var(--color-red);"><span>23%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">7-30 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 30%; background-color: var(--color-red);"><span>30%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">30+ Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 24%; background-color: var(--color-red);"><span>24%</span></div></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h4 style="font-size: 16px; margin-bottom: 15px; color: var(--color-green);">2026 (With Agents)</h4>
-                        <div class="bar-chart-horizontal">
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">Same Day</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 22%; background-color: var(--color-green);"><span>22%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">1-3 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 12%; background-color: var(--color-green);"><span>12%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">3-7 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 36%; background-color: var(--color-green);"><span>36%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">7-30 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 22%; background-color: var(--color-green);"><span>22%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">30+ Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 8%; background-color: var(--color-green);"><span>8%</span></div></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="evidence-grid">
+                    <div class="evidence-card"><h3>542 → 1,139</h3><p>Community-labeled PRs merged in matched Jan–Sep windows: <strong>110.1% more</strong>, or just over twice as many.</p></div>
+                    <div class="evidence-card"><h3>12.211 → 9.067 days</h3><p>Community-cohort median creation-to-merge time: <strong>25.7% shorter</strong>. This is elapsed calendar time, not reviewer effort.</p></div>
+                    <div class="evidence-card"><h3>1.689 → 3.004 days</h3><p>The <strong>all-PR median increased</strong>. Cohort and PR mix matter; we cannot claim across-the-board faster merges.</p></div>
                 </div>
+                <p class="takeaway">More community PRs reached merge, with a shorter median in that cohort. The data does not establish that AI caused either change.</p>
+                <p class="speaker-note">Talk track: show both medians. A contributor-focused improvement can coexist with a longer repository-wide median.</p>
+                <p class="source-note"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>Snapshot, exact cohorts and PR records</a>. Community means the current <code>community ✨</code> label in both years; labels can change or be backfilled. All PR types are included within each cohort.</p>
             </div>
-            <div class="branding-footer">
-                <span>DISTRIBUTION FREQUENCY</span>
-                <span>P75 latency decreased from 65 to 22 days</span>
-            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>2025 → 2026 · matched Jan–Sep merge cohorts</span></div>
         </div>
 
-        <!-- SLIDE 15: CORE ALIGNMENT PHILOSOPHY -->
-        <div class="slide-container" id="slide15">
-            <div class="content-area" style="justify-content: center;">
-                <div class="two-column" style="align-items: center; gap: 60px;">
-                    <div>
-                        <div style="font-size: 36px; color: var(--brand-purple); margin-bottom: 20px;"><i class="fa-solid fa-quote-left"></i></div>
-                        <h3 style="font-size: 32px; line-height: 1.35; font-weight: 600; color: var(--text-main);">
-                            "Agents don't replace reviewers. They make reviewers <span style="color: var(--brand-purple); font-weight: 700;">3x more effective</span>."
-                        </h3>
-                    </div>
-                    
-                    <div class="grid-3x2" style="grid-template-columns: 1fr 1fr; gap: 20px; height: auto;">
-                        <div class="dev-card" style="padding: 20px;">
-                            <div style="font-size: 28px; font-weight: 700; color: var(--brand-purple);">-50%</div>
-                            <p style="font-size: 13px; font-weight: 600;">Merge Time</p>
-                        </div>
-                        <div class="dev-card" style="padding: 20px; border-top-color: var(--brand-cyan);">
-                            <div style="font-size: 28px; font-weight: 700; color: var(--brand-cyan);">+175%</div>
-                            <p style="font-size: 13px; font-weight: 600;">Same-day Merges</p>
-                        </div>
-                        <div class="dev-card" style="padding: 20px; border-top-color: var(--brand-cyan);">
-                            <div style="font-size: 28px; font-weight: 700; color: var(--brand-cyan);">67</div>
-                            <p style="font-size: 13px; font-weight: 600;">Bugs Caught</p>
-                        </div>
-                        <div class="dev-card" style="padding: 20px;">
-                            <div style="font-size: 28px; font-weight: 700; color: var(--brand-purple);">428</div>
-                            <p style="font-size: 13px; font-weight: 600;">Total PRs Reviewed</p>
-                        </div>
-                    </div>
+        <div class="slide-container evidence-slide" id="review-capacity">
+            <div class="eyebrow">Review support / people still write the PRs</div>
+            <h2 class="slide-title">A visible layer of AI assistance.</h2>
+            <div class="content-area">
+                <div class="evidence-grid">
+                    <div class="evidence-card"><h3>1,123</h3><p>Merged PRs carry the current agent-reviewed label: <strong>47.8% of 2,350</strong>. Of those, 845 also carry the community label.</p></div>
+                    <div class="evidence-card"><h3>1,059</h3><p>Merged PRs have Copilot app authorship or explicit commit credit: <strong>45.1% of 2,350</strong>. This includes ports and automation.</p></div>
+                    <div class="evidence-card"><h3>868</h3><p>Human-account-authored merged PRs have explicit Copilot commit credit. App authorship alone would miss this visible collaboration.</p></div>
                 </div>
+                <p class="takeaway">Review and coding signals overlap on 444 PRs. The union is 1,738, not 1,123 + 1,059.</p>
+                <p class="speaker-note">Talk track: the observable change is wider participation in the workflow. These counts do not measure reviewer hours saved, finding quality, or AI's share of the code.</p>
+                <p class="source-note"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>Snapshot and PR records</a> · Jan–Sep 2026 merge cohort. Current labels are not a historical log; commit scans are incomplete for 27 PRs. Copied credits do not establish fresh AI work on each port.</p>
             </div>
-            <div class="branding-footer">
-                <span>COOPERATIVE ALIGNMENT MODEL</span>
-                <span>Performance Proofs</span>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Detected participation, not measured review capacity</span></div>
+        </div>
+
+        <div class="slide-container evidence-slide" id="human-involvement">
+            <div class="eyebrow">App-authored does not mean AI-only</div>
+            <h2 class="slide-title">Humans remain in the loop.</h2>
+            <div class="content-area">
+                <p class="evidence-lead">60 Copilot app-authored PRs merged in Jan–Sep 2026, compared with 37 in the matched 2025 window.</p>
+                <div class="evidence-grid">
+                    <div class="evidence-card"><h3>60 / 60</h3><p>Were merged by human-classified accounts. Classification uses GitHub's actor type plus an explicit automation-account exclusion list.</p></div>
+                    <div class="evidence-card"><h3>55 / 60</h3><p>Had a visible human-account comment or formal review before merge. The other five are not proven human-free.</p></div>
+                    <div class="evidence-card"><h3>44 / 60</h3><p>Had a visible pre-merge human-account approval. This is a PR-level observation, not a measure of the review's depth.</p></div>
+                </div>
+                <p class="takeaway">GitHub authorship records one account. It does not record every person who prompted, checked, revised, or discussed the work.</p>
+                <p class="source-note"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>60-PR interaction cohort and classification rule</a>. No comment/review truncation in this cohort. A human-classified account is not proof of a manual merge click; offline or private work is unobserved.</p>
             </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>No “zero human interaction” percentage inferred</span></div>
+        </div>
+
+        <div class="slide-container evidence-slide" id="community-uptake">
+            <div class="eyebrow">A visible collaboration signal</div>
+            <h2 class="slide-title">Suggestions can become contributions.</h2>
+            <div class="content-area">
+                <div class="metric-strip"><strong>168</strong><span>community-labeled merged PRs also carry an implementation/adoption label</span></div>
+                <blockquote class="takeaway" style="font-size: 27px;">“@kubaflo I have updated the changes”</blockquote>
+                <p class="evidence-lead">On an Android SearchBar PR, the public commit sequence includes “Updated suggestion” and “committed the suggestion”.</p>
+                <p class="speaker-note">Talk track: feedback and revision are part of engineering. Visible uptake is encouraging, but adoption alone does not validate a suggestion or measure satisfaction.</p>
+                <p class="source-note">Source: <a href="https://github.com/dotnet/maui/pull/35197#issuecomment-4388181135" target="_blank" rel="noopener">dotnet/maui#35197 · author's public follow-up</a>. Count uses current <code>s/agent-suggestions-implemented</code> OR <code>s/agent-fix-implemented</code> on the 1,139 community-labeled merges. <a href="evidence/maui-ai-examples-2026-10-04.json" download>Examples and caveats</a>.</p>
+            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Uptake, not a quality score or satisfaction survey</span></div>
+        </div>
+
+        <div class="slide-container evidence-slide" id="methodology">
+            <div class="eyebrow">How to read the update</div>
+            <h2 class="slide-title">Count the trace. Name the blind spot.</h2>
+            <div class="content-area">
+                <div class="evidence-grid">
+                    <div class="evidence-card"><h3>Matched windows</h3><p>January through September in each year. UTC merge-date buckets; October is partial and excluded.</p></div>
+                    <div class="evidence-card"><h3>Repository-wide</h3><p>All dotnet/maui PRs in scope, including ports and dependency automation. A merge is not a unique feature or bug fix.</p></div>
+                    <div class="evidence-card"><h3>Observable signals</h3><p>Review labels are current state, not event-time coverage; they can change later. App authorship is a different, incomplete AI signal.</p></div>
+                </div>
+                <p class="takeaway">Opened PRs use creation dates; merged PRs use merge dates. Those are event counts, not the same cohort moving through a funnel.</p>
+                <p class="speaker-note">Do not compare the old May deck's reviewed-PR total with a count of merged PRs carrying a label. The populations and time windows differ. Only the first 100 original commits are scanned; 27 current-year PRs are truncated, with merge-commit credit also checked.</p>
+                <p class="source-note">Collected <time datetime="2026-10-04T22:46:17Z">04 Oct 2026, 22:46:17 UTC</time>. <a href="evidence/maui-ai-evidence-2026-10-04.json" download>Full dated JSON</a> · <a href="evidence/maui-ai-examples-2026-10-04.json" download>Qualitative sources</a> · <a href="evidence/collect_maui_ai_evidence.py" download>Reproducible collector</a> (existing GitHub CLI login; run <code>python3 evidence/collect_maui_ai_evidence.py --output fresh-snapshot.json</code>).</p>
+            </div>
+            <div class="branding-footer"><span>REPRODUCIBLE PUBLIC GITHUB SNAPSHOT</span><span>3,978 PR records · 18 monthly buckets · October excluded</span></div>
+        </div>
+
+        <div class="slide-container evidence-slide" id="limitations">
+            <div class="eyebrow">The honest boundary</div>
+            <h2 class="slide-title">More automation is not the same as proof.</h2>
+            <div class="content-area">
+                <div class="evidence-grid">
+                    <div class="evidence-card"><h3>Visible ≠ complete</h3><p>GitHub does not capture every local AI session, private discussion, failed run, or hour spent by a person.</p></div>
+                    <div class="evidence-card"><h3>Passing ≠ correct</h3><p>Tests cover specific scenarios. Models can miss bugs, misread intent, and suggest incorrect fixes.</p></div>
+                    <div class="evidence-card"><h3>Correlation ≠ cause</h3><p>Release timing, PR size, staffing, and backlog mix also affect activity and merge time.</p></div>
+                </div>
+
+                <div class="slide-container evidence-slide" id="human-validation">
+                    <div class="eyebrow">A real human checkpoint</div>
+                    <h2 class="slide-title">A label is not a verdict.</h2>
+                    <div class="content-area">
+                        <blockquote class="takeaway" style="font-size: 27px; line-height: 1.5;">
+                            “I tested this locally, and it did not resolve the issue.”
+                        </blockquote>
+                        <div class="evidence-grid">
+                            <div class="evidence-card"><h3>Visible signal</h3><p>This PR carries agent-fix-win / implemented signals in the observed label state.</p></div>
+                            <div class="evidence-card"><h3>Author checks</h3><p>The author reports that the suggestion did not fix the issue and explains a recycled-item concern.</p></div>
+                            <div class="evidence-card"><h3>Better standard</h3><p>Read the discussion, reproduce the behavior, and verify the candidate. Do not treat a label as proof.</p></div>
+                        </div>
+                        <p class="source-note">Source: <a href="https://github.com/dotnet/maui/pull/35358#issuecomment-4438010132" target="_blank" rel="noopener">dotnet/maui#35358 · author's public follow-up</a> · <a href="evidence/maui-ai-examples-2026-10-04.json" download>Example snapshot · 04 Oct 2026</a>. This is a validation limitation, not evidence of a shipped regression caused by AI. Negative labels are too sparse to estimate a failure rate.</p>
+                        <p class="speaker-note">Talk track: this is why the human loop matters. Public disagreement is useful evidence, not something to hide behind a success badge.</p>
+                    </div>
+                    <div class="branding-footer"><span>MAKE FEEDBACK PART OF THE SYSTEM</span><span>One example, not a failure-rate estimate</span></div>
+                </div>
+                <p class="takeaway">All-PR median merge time rose from 1.689 to 3.004 days. We are not claiming universal speedup, a productivity multiplier, fewer regressions, satisfaction, or zero human interaction.</p>
+                <p class="speaker-note">What would strengthen the story? Validated review findings, comparable cohorts, measured human effort, and post-release outcomes.</p>
+            </div>
+            <div class="branding-footer"><span>HUMAN ACCOUNTABILITY STAYS</span><span>No review or merge SLA implied</span></div>
         </div>
 
         <!-- SLIDE 16: SUBMIT A PR TODAY -->
@@ -1588,32 +1684,32 @@
                     
                     <div style="z-index: 1; text-align: center; width: 22%;">
                         <div style="width: 26px; height: 26px; background: var(--brand-purple); border-radius: 50%; border: 4px solid white; outline: 2px solid var(--brand-purple); margin: 0 auto 15px;"></div>
-                        <h4 style="font-size: 18px;">Within Minutes</h4>
+                        <h4 style="font-size: 18px;">Classify</h4>
                         <p style="font-size: 14px; color: var(--text-muted); margin-top: 5px;">Auto-labeled with area & platform tags.</p>
                     </div>
                     
                     <div style="z-index: 1; text-align: center; width: 22%;">
                         <div style="width: 26px; height: 26px; background: var(--brand-cyan); border-radius: 50%; border: 4px solid white; outline: 2px solid var(--brand-cyan); margin: 0 auto 15px;"></div>
-                        <h4 style="font-size: 18px;">Within 1 Hour</h4>
+                        <h4 style="font-size: 18px;">Gather evidence</h4>
                         <p style="font-size: 14px; color: var(--text-muted); margin-top: 5px;">AI review with actionable feedback posted directly.</p>
                     </div>
                     
                     <div style="z-index: 1; text-align: center; width: 22%;">
                         <div style="width: 26px; height: 26px; background: var(--brand-purple); border-radius: 50%; border: 4px solid white; outline: 2px solid var(--brand-purple); margin: 0 auto 15px;"></div>
-                        <h4 style="font-size: 18px;">Within a Day</h4>
+                        <h4 style="font-size: 18px;">Human review</h4>
                         <p style="font-size: 14px; color: var(--text-muted); margin-top: 5px;">Human reviewer assigns feedback with AI context.</p>
                     </div>
                     
                     <div style="z-index: 1; text-align: center; width: 22%;">
                         <div style="width: 26px; height: 26px; background: var(--color-green); border-radius: 50%; border: 4px solid white; outline: 2px solid var(--color-green); margin: 0 auto 15px;"></div>
-                        <h4 style="font-size: 18px;">Median 6.3 Days</h4>
-                        <p style="font-size: 14px; color: var(--text-muted); margin-top: 5px;">Code merged. Your fix ships inside .NET packages.</p>
+                        <h4 style="font-size: 18px;">Maintainer decision</h4>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-top: 5px;">Merge only when ready; shipping follows the release process.</p>
                     </div>
                 </div>
             </div>
             <div class="branding-footer">
                 <span>DEVELOPER WORKFLOW TIMELINE</span>
-                <span>Repository Turnaround Speed</span>
+                <span>Conceptual sequence, not a turnaround guarantee</span>
             </div>
         </div>
 
@@ -1627,7 +1723,7 @@
                             <div style="color: var(--brand-purple); font-size: 24px; padding-top: 2px;"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                             <div>
                                 <h4 style="font-size: 18px;">Contribute to MAUI</h4>
-                                <p style="font-size: 15px; margin-top: 5px;">Your PR gets AI-powered review automatically.</p>
+                                <p style="font-size: 15px; margin-top: 5px;">Bring a clear repro and tests; AI-assisted review can add evidence, not a guaranteed signoff.</p>
                             </div>
                         </div>
                         <div style="display: flex; gap: 15px; align-items: start;">
@@ -1684,7 +1780,7 @@
             </div>
             <div class="branding-footer">
                 <span>github.com/dotnet/maui/wiki</span>
-                <span>MAUI DAY KRAKÓW</span>
+                <span>UNIVERSITY TALK · OCTOBER 6, 2026</span>
             </div>
         </div>
 
@@ -1694,7 +1790,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const body = document.body;
-            const slides = document.querySelectorAll('.slide-container');
+            const slides = Array.from(document.querySelectorAll('.slide-container'));
+            const deck = document.querySelector('.slide-deck-container');
             const btnToggleMode = document.getElementById('btn-toggle-mode');
             const btnPrev = document.getElementById('btn-prev');
             const btnNext = document.getElementById('btn-next');
@@ -1703,54 +1800,54 @@
             
             let currentSlideIndex = 0;
             let isPresentationMode = false;
-            let slideDirection = 'forward';
+            slides.forEach((slide, index) => {
+                slide.setAttribute('role', 'region');
+                slide.setAttribute('aria-label', `Slide ${index + 1}: ${slide.querySelector('h1, h2, h3').textContent.trim()}`);
+            });
 
-            let previousSlideIndex = 0;
+            function fitPresentation() {
+                if (!isPresentationMode) {
+                    deck.style.transform = '';
+                    return;
+                }
+                const scale = Math.min(1, window.innerWidth / 1280, (window.innerHeight - 100) / 720);
+                deck.style.transform = `scale(${Math.max(0.1, scale)})`;
+            }
 
             function updateUI() {
                 if (isPresentationMode) {
                     slides.forEach((slide, idx) => {
-                        if (idx === currentSlideIndex) {
-                            slide.classList.add('active-slide');
-                            slide.style.zIndex = '2';
-                        } else if (idx === previousSlideIndex) {
-                            // Keep previous slide visible underneath during transition
-                            slide.style.zIndex = '1';
-                            slide.style.opacity = '1';
-                            setTimeout(() => {
-                                slide.classList.remove('active-slide');
-                                slide.style.zIndex = '';
-                                slide.style.opacity = '';
-                            }, 450);
-                        } else {
-                            slide.classList.remove('active-slide');
-                            slide.style.zIndex = '';
-                        }
+                        const active = idx === currentSlideIndex;
+                        slide.classList.toggle('active-slide', active);
+                        slide.inert = !active;
+                        slide.setAttribute('aria-hidden', String(!active));
                     });
-                    previousSlideIndex = currentSlideIndex;
                     indicator.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
                     presCounter.textContent = `${currentSlideIndex + 1} / ${slides.length}`;
                     btnPrev.style.visibility = currentSlideIndex === 0 ? 'hidden' : 'visible';
                     btnNext.style.visibility = currentSlideIndex === slides.length - 1 ? 'hidden' : 'visible';
                 } else {
-                    slides.forEach(slide => slide.classList.add('active-slide'));
+                    slides.forEach(slide => {
+                        slide.classList.add('active-slide');
+                        slide.inert = false;
+                        slide.removeAttribute('aria-hidden');
+                    });
                     indicator.textContent = `Total Slides: ${slides.length}`;
                     presCounter.textContent = '';
                     btnPrev.style.visibility = 'hidden';
                     btnNext.style.visibility = 'hidden';
                 }
+                fitPresentation();
             }
 
             function goNext() {
                 if (currentSlideIndex < slides.length - 1) {
-                    slideDirection = 'forward';
                     currentSlideIndex++;
                     updateUI();
                 }
             }
             function goPrev() {
                 if (currentSlideIndex > 0) {
-                    slideDirection = 'backward';
                     currentSlideIndex--;
                     updateUI();
                 }
@@ -1781,22 +1878,42 @@
                 }
             });
 
-            // Exit presentation on Escape
-            document.addEventListener('fullscreenchange', () => {});
-
             btnPrev.addEventListener('click', () => goPrev());
             btnNext.addEventListener('click', () => goNext());
+            window.addEventListener('resize', fitPresentation);
+
+            function followHash() {
+                const index = slides.findIndex(slide => `#${slide.id}` === window.location.hash);
+                if (index < 0) return;
+                currentSlideIndex = index;
+                updateUI();
+                if (!isPresentationMode) slides[index].scrollIntoView({ block: 'start' });
+            }
+            document.querySelectorAll('.deck-controls a[href^="#"]').forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    history.replaceState(null, '', link.getAttribute('href'));
+                    followHash();
+                });
+            });
+            window.addEventListener('hashchange', followHash);
 
             // Click to advance in presentation mode (left 25% = back, right 75% = forward)
             document.addEventListener('click', (e) => {
                 if (!isPresentationMode) return;
-                if (e.target.closest('a, button')) return;
+                if (e.target.closest('a, button, details, input, textarea, select, [contenteditable]')) return;
                 const x = e.clientX / window.innerWidth;
                 if (x < 0.25) { goPrev(); } else { goNext(); }
             });
 
             // Keyboard navigation support
             document.addEventListener('keydown', (e) => {
+                if (e.target.closest('details, input, textarea, select, [contenteditable]')) return;
+                if (e.key === ' ' && e.target.closest('a, button')) return;
+                if (e.key.toLowerCase() === 'p') {
+                    if (isPresentationMode) exitPresentation(); else enterPresentation();
+                    return;
+                }
                 if (!isPresentationMode) return;
                 if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
                     e.preventDefault();
@@ -1811,6 +1928,7 @@
 
             // Initialize UI
             updateUI();
+            followHash();
 
             // Dark/Light mode toggle
             const btnTheme = document.getElementById('btn-toggle-theme');
