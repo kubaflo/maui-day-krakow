@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>.NET MAUI: AI prepares evidence. Humans decide.</title>
+    <title>.NET MAUI: AI assistance is the default</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -811,8 +811,27 @@
         :focus-visible { outline: 3px solid var(--brand-cyan); outline-offset: 4px; }
         .eyebrow { color: var(--brand-purple); text-transform: uppercase; font-size: 14px; letter-spacing: .12em; margin-bottom: 18px; }
         .evidence-slide .slide-title { margin-bottom: 22px; }
-        .evidence-slide .content-area { gap: 18px; }
-        .evidence-slide .branding-footer { color: var(--text-muted); font-size: 12px; letter-spacing: 0; gap: 20px; }
+        .evidence-slide { padding: 40px 70px 24px; gap: 14px; }
+        .evidence-slide .content-area { gap: 16px; flex: 1; min-height: 0; }
+        .evidence-slide .branding-footer { position: static; flex: none; color: var(--text-muted); font-size: 12px; letter-spacing: 0; gap: 20px; padding-top: 12px; border-top: 1px solid var(--border-light); }
+        .adoption-number { font-size: 128px; line-height: 1; letter-spacing: -.08em; color: var(--brand-purple); }
+        .provenance { font-size: 17px; color: var(--brand-purple); font-weight: 700; }
+        .keynote .content-area { justify-content: center; }
+        .keynote .slide-title { border: 0; font-size: 48px; margin-bottom: 0; }
+        .keynote .adoption-number { font-size: 200px; font-weight: 800; }
+        .keynote .eyebrow { margin-bottom: 0; }
+        .keynote .evidence-lead { font-size: 27px; }
+        .keynote .source-note { font-size: 15px; }
+        .keynote .result-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 70px; align-items: center; }
+        .result-graphic { display: flex; align-items: end; justify-content: center; gap: 45px; height: 270px; }
+        .result-column { width: 100px; background: var(--brand-purple); position: relative; }
+        .result-column.previous { background: #6b7a86; }
+        .result-column span { position: absolute; top: -40px; width: 100%; text-align: center; font-size: 27px; font-weight: 800; }
+        .result-column small { position: absolute; bottom: -34px; width: 100%; text-align: center; font-size: 18px; }
+        .workflow-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+        .workflow-step { padding: 34px 12px; background: var(--bg-subtle); border-top: 5px solid var(--brand-purple); text-align: center; font-size: 25px; font-weight: 800; }
+        .workflow-step i { display: block; font-size: 40px; margin-bottom: 28px; color: var(--brand-purple); }
+        .ownership-title { font-size: 90px; line-height: 1.12; color: var(--brand-purple); }
         .evidence-lead { font-size: 23px; max-width: 940px; }
         .evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .evidence-card { padding: 24px; background: var(--bg-subtle); border-top: 4px solid var(--brand-purple); }
@@ -844,10 +863,10 @@
         .data-table { border-collapse: collapse; width: 100%; margin-top: 10px; }
         .data-table th, .data-table td { border-bottom: 1px solid var(--border-light); padding: 6px; font-size: 15px; text-align: right; }
         .data-table th:first-child, .data-table td:first-child { text-align: left; }
-        .chart-data { font-size: 14px; }
-        .chart-data summary { cursor: pointer; color: var(--brand-purple); }
-        body.mode-presentation .chart-data[open] { background: var(--bg-card); position: absolute; inset: 0; padding: 20px; z-index: 20; overflow: auto; }
+        .appendix .data-table th, .appendix .data-table td { font-size: 18px; padding: 9px; }
         .slide-container { scroll-margin-top: 100px; }
+        body:not(.show-appendix) .slide-container.appendix,
+        body.show-appendix .slide-container[data-keynote] { display: none; }
         .two-column > div { min-width: 0; }
         .two-column[style*="55% 45%"] { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) !important; }
         body.mode-presentation .slide-container:not(.active-slide) { visibility: hidden; }
@@ -876,6 +895,10 @@
             body.mode-scroll .metric-strip { flex-wrap: wrap; gap: 12px; }
             body.mode-scroll .monthly-chart { grid-template-columns: repeat(3, 1fr); row-gap: 24px; }
             body.mode-scroll .signal-row { grid-template-columns: 1fr; gap: 8px; }
+            body.mode-scroll .result-layout { grid-template-columns: 1fr; gap: 60px; }
+            body.mode-scroll .workflow-strip { grid-template-columns: 1fr; }
+            body.mode-scroll .keynote .adoption-number { font-size: 110px; }
+            body.mode-scroll .ownership-title { font-size: 55px; }
             .deck-controls { top: 8px; gap: 8px; padding: 8px; }
         }
         @media print {
@@ -906,6 +929,7 @@
         <button class="deck-btn" id="btn-next">Next <i class="fa-solid fa-chevron-right"></i></button>
         <a class="deck-btn" href="#evidence" id="btn-evidence">Evidence / Oct update</a>
         <a class="deck-btn" href="#slide5" id="btn-workflow">Workflow</a>
+        <a class="deck-btn" href="#methodology" id="btn-sources">Optional appendix / sources</a>
         <div style="height: 20px; width: 1px; background-color: var(--border-light);"></div>
         <button class="deck-btn" id="btn-toggle-theme"><i class="fa-solid fa-moon"></i> Dark</button>
     </div>
@@ -919,18 +943,18 @@
     <div class="pres-counter" id="pres-counter"></div>
 
         <!-- SLIDE 1: COVER -->
-        <div class="slide-container active-slide" id="slide1">
+        <div class="slide-container active-slide" id="slide1" data-keynote>
             <div class="content-area">
                 <div class="two-column" style="align-items: center; gap: 40px; height: 100%;">
                     <div>
                         <div class="eyebrow">University talk / 06 Oct 2026</div>
                         <h1 style="font-size: 56px; color: var(--brand-purple); margin-bottom: 15px;">.NET MAUI</h1>
                         <h2 style="font-size: 32px; margin-bottom: 25px; font-weight: 400; color: var(--text-muted); line-height: 1.3;">
-                            AI prepares evidence.<br>Humans decide.
+                            AI assistance is the default.<br>Human ownership stays.
                         </h2>
                         <p style="font-size: 18px; margin-bottom: 40px; color: var(--text-muted);">
                             A practical open-source story, revisited since May.<br>
-                            Review agents, platform tests, and the people in the loop.
+                            Everyday AI assistance. More community contributions.
                         </p>
                         
                         <div style="display: flex; gap: 30px;">
@@ -942,17 +966,6 @@
                                 <div>
                                     <h4 style="font-size: 16px;">Jakub Florkowski</h4>
                                     <p style="font-size: 12px; color: var(--brand-purple); font-weight: 600;">@kubaflo</p>
-                                </div>
-                            </div>
-                            
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <div class="profile-avatar-wrapper" style="width: 60px; height: 60px; font-size: 20px;">
-                                    GV
-                                    <img src="https://github.com/jfversluis.png" alt="Gerald Versluis" onerror="this.style.display='none'">
-                                </div>
-                                <div>
-                                    <h4 style="font-size: 16px;">Gerald Versluis</h4>
-                                    <p style="font-size: 12px; color: var(--brand-purple); font-weight: 600;">@jfversluis</p>
                                 </div>
                             </div>
                         </div>
@@ -1499,11 +1512,42 @@
             </div>
         </div>
 
-        <div class="slide-container evidence-slide" id="evidence">
+        <div class="slide-container evidence-slide keynote" id="evidence" data-keynote>
+            <div class="eyebrow">October update / everyday engineering</div>
+            <h2 class="slide-title">AI assistance is the default.</h2>
+            <div class="content-area">
+                <div class="adoption-number">≈99%</div>
+                <p class="evidence-lead">of PRs AI-assisted since June 2026.</p>
+                <p class="provenance">Maintainer-reported estimate · June 2026 onward</p>
+            </div>
+            <div class="branding-footer"><span>MAINTAINER ESTIMATE · SUPPLIED 05 OCT 2026</span><a href="#methodology">Reported adoption · sources and scope</a></div>
+        </div>
+
+        <div class="slide-container evidence-slide keynote" id="community-volume" data-keynote>
+            <div class="eyebrow">More community contributions reach merge</div>
+            <h2 class="slide-title">A bigger contribution stream.</h2>
+            <div class="content-area result-layout">
+                <div><div class="adoption-number">2.1×</div><p class="evidence-lead">community PRs merged</p></div>
+                <div class="result-graphic" role="img" aria-label="Community-labeled merged PRs: 542 in January–September 2025; 1,139 in January–September 2026. Zero-baseline proportional bars."><div class="result-column previous" style="height: 118.488px;"><span>542</span><small>2025</small></div><div class="result-column" style="height: 249px;"><span>1,139</span><small>2026</small></div></div>
+            </div>
+            <div class="branding-footer"><span>MATCHED JAN–SEP · CURRENT COMMUNITY LABEL · SNAPSHOT 04 OCT 2026</span><a href="#methodology">Observed outcome · not causal attribution</a></div>
+        </div>
+
+        <div class="slide-container evidence-slide keynote" id="community-timing" data-keynote>
+            <div class="eyebrow">A shorter path for community contributions</div>
+            <h2 class="slide-title">Less time from PR to merge.</h2>
+            <div class="content-area result-layout">
+                <div><div class="adoption-number">−26%</div><p class="evidence-lead">community median PR-to-merge time</p></div>
+                <div class="result-graphic" role="img" aria-label="Community median creation-to-merge time: 12.211 days in January–September 2025; 9.067 days in January–September 2026. Reduction 25.7 percent, rounded to 26 percent."><div class="result-column previous" style="height: 249px;"><span>12.2d</span><small>2025</small></div><div class="result-column" style="height: 184.889px;"><span>9.1d</span><small>2026</small></div></div>
+            </div>
+            <div class="branding-footer"><span>MATCHED JAN–SEP COMMUNITY COHORT · SNAPSHOT 04 OCT 2026</span><a href="#limitations">Elapsed days · all-PR timing in appendix</a></div>
+        </div>
+
+        <div class="slide-container evidence-slide keynote" id="merge-activity" data-keynote>
             <div class="eyebrow">October update / matched January–September windows</div>
             <h2 class="slide-title">More PRs reached merge.</h2>
             <div class="content-area">
-                <div class="metric-strip"><div><strong>1,628</strong> <span>in 2025</span></div><div><strong>2,350</strong> <span>in 2026</span></div><span>44.3% more merged PRs · not causal AI uplift</span></div>
+                <div class="metric-strip"><strong style="font-size: 72px;">+44%</strong><span>1,628 → 2,350 total merged PRs</span></div>
                 <div class="chart-legend"><span class="previous-year">2025</span><span>2026</span></div>
                 <div class="monthly-chart" role="img" aria-label="Monthly merged PRs, January through September. 2025: 150, 212, 210, 171, 164, 174, 171, 192, 184. 2026: 176, 199, 376, 222, 203, 245, 294, 343, 292. Linear scale from zero to 400 PRs.">
                     <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-01" data-metric="merged" data-value="150" style="height: 37.5%;"><span>150</span></div><div class="month-bar" data-month="2026-01" data-metric="merged" data-value="176" style="height: 44%;"><span>176</span></div></div><div class="month-label">Jan</div></div>
@@ -1516,8 +1560,31 @@
                     <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-08" data-metric="merged" data-value="192" style="height: 48%;"><span>192</span></div><div class="month-bar" data-month="2026-08" data-metric="merged" data-value="343" style="height: 85.75%;"><span>343</span></div></div><div class="month-label">Aug</div></div>
                     <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-09" data-metric="merged" data-value="184" style="height: 46%;"><span>184</span></div><div class="month-bar" data-month="2026-09" data-metric="merged" data-value="292" style="height: 73%;"><span>292</span></div></div><div class="month-label">Sep</div></div>
                 </div>
-                <p class="source-note">All dotnet/maui PRs, including ports and dependency automation. UTC merge-date buckets; zero baseline, 0–400 PR scale. <a href="evidence/maui-ai-evidence-2026-10-04.json" download>Download snapshot</a> · <a href="#methodology">Methodology</a>. Larger activity is observable; AI's causal contribution is not isolated.</p>
-                <details class="chart-data"><summary>Exact counts, including independently counted opened PRs</summary><table class="data-table"><caption>January–September calendar-month event counts</caption><thead><tr><th scope="col">Month</th><th scope="col">2025 opened</th><th scope="col">2025 merged</th><th scope="col">2026 opened</th><th scope="col">2026 merged</th></tr></thead><tbody>
+            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Matched Jan–Sep windows · all PR types · 0–400 scale</span></div>
+        </div>
+            <div class="slide-container evidence-slide keynote" id="everyday-workflow" data-keynote>
+                <div class="eyebrow">Not one magic prompt / a connected workflow</div>
+                <h2 class="slide-title">AI across the engineering loop.</h2>
+                <div class="content-area">
+                    <div class="workflow-strip"><div class="workflow-step"><i class="fa-solid fa-tags" aria-hidden="true"></i>Triage</div><div class="workflow-step"><i class="fa-solid fa-code" aria-hidden="true"></i>Code</div><div class="workflow-step"><i class="fa-solid fa-vial" aria-hidden="true"></i>Tests</div><div class="workflow-step"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Review</div><div class="workflow-step"><i class="fa-solid fa-gears" aria-hidden="true"></i>CI</div></div>
+                    <p class="evidence-lead" style="margin-top: 35px;">Context → candidates → checked evidence → human decisions.</p>
+                </div>
+                <div class="branding-footer"><span>AI SUPPORT THROUGHOUT · PEOPLE OWN THE WORK</span><a href="#slide5">Optional technical walkthrough</a></div>
+            </div>
+            <div class="slide-container evidence-slide keynote" id="ownership" data-keynote>
+                <div class="eyebrow">The winning combination</div>
+                <h2 class="ownership-title">AI-assisted.<br>Human-owned.</h2>
+                <div class="content-area">
+                    <p class="evidence-lead">All 60 Copilot app-authored merges in the snapshot<br>were merged by human-classified accounts.</p>
+                </div>
+                <div class="branding-footer"><span>JAN–SEP 2026 · PUBLIC SNAPSHOT · NOT PROOF OF MANUAL MERGE CLICKS</span><a href="#human-involvement">Human-involvement detail</a></div>
+            </div>
+        <div class="slide-container evidence-slide appendix" id="merge-counts">
+            <div class="eyebrow">Appendix / public event counts</div>
+            <h2 class="slide-title">Monthly PR activity: exact counts.</h2>
+            <div class="content-area">
+                <table class="data-table"><caption>January–September calendar-month event counts</caption><thead><tr><th scope="col">Month</th><th scope="col">2025 opened</th><th scope="col">2025 merged</th><th scope="col">2026 opened</th><th scope="col">2026 merged</th></tr></thead><tbody>
                     <tr><th scope="row">Jan</th><td>224</td><td>150</td><td>285</td><td>176</td></tr>
                     <tr><th scope="row">Feb</th><td>273</td><td>212</td><td>283</td><td>199</td></tr>
                     <tr><th scope="row">Mar</th><td>306</td><td>210</td><td>270</td><td>376</td></tr>
@@ -1527,14 +1594,14 @@
                     <tr><th scope="row">Jul</th><td>321</td><td>171</td><td>391</td><td>294</td></tr>
                     <tr><th scope="row">Aug</th><td>241</td><td>192</td><td>529</td><td>343</td></tr>
                     <tr><th scope="row">Sep</th><td>245</td><td>184</td><td>512</td><td>292</td></tr>
-                </tbody></table></details>
+                </tbody></table>
             </div>
             <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Same nine months · different PR mixes</span></div>
         </div>
 
         <div class="slide-container evidence-slide" id="ai-evolution">
-            <div class="eyebrow">Observed participation / not an autonomy score</div>
-            <h2 class="slide-title">AI traces in the merge stream.</h2>
+            <div class="eyebrow">Public metadata / lower-bound corroboration</div>
+            <h2 class="slide-title">AI participation is visible at scale.</h2>
             <div class="content-area">
                 <div class="metric-strip"><div><strong>1,738 / 2,350</strong> <span>2026 merged PRs with a signal</span></div><strong>74.0%</strong></div>
                 <div class="chart-legend"><span class="all-merges">All 2026 merges</span><span>At least one observed AI signal</span></div>
@@ -1549,8 +1616,15 @@
                     <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-08" data-metric="merged" data-value="343" style="height: 85.75%;"><span>343</span></div><div class="month-bar" data-month="2026-08" data-metric="any_observed_ai_signal" data-value="232" style="height: 58%;"><span>232</span></div></div><div class="month-label">Aug</div></div>
                     <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-09" data-metric="merged" data-value="292" style="height: 73%;"><span>292</span></div><div class="month-bar" data-month="2026-09" data-metric="any_observed_ai_signal" data-value="240" style="height: 60%;"><span>240</span></div></div><div class="month-label">Sep</div></div>
                 </div>
-                <p class="source-note">Signal union: current <code>s/agent-reviewed</code> label OR Copilot app authorship OR explicit commit co-author credit. Labels can change; credits can be copied into ports. No signal does not mean no AI. This is not event-time review coverage. <a href="evidence/maui-ai-evidence-2026-10-04.json" download>PR-level data and definitions</a>.</p>
-                <details class="chart-data"><summary>Exact AI-signal subset counts</summary><table class="data-table"><caption>2026 merged PRs; signals observed at snapshot time</caption><thead><tr><th scope="col">Month</th><th scope="col">All merges</th><th scope="col">Signal union</th><th scope="col">Review label</th><th scope="col">App author or credit</th></tr></thead><tbody>
+                <p class="source-note">Labels, app authorship or commit credit; overlapping signals counted once. Jan–Sep snapshot detects less than all AI use and is separate from the June-onward maintainer estimate. <a href="#ai-counts">Exact counts</a> · <a href="#methodology">Definitions</a>.</p>
+            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>0–400 PR scale · not total adoption coverage</span></div>
+        </div>
+        <div class="slide-container evidence-slide appendix" id="ai-counts">
+            <div class="eyebrow">Appendix / overlapping metadata signals</div>
+            <h2 class="slide-title">AI signals: exact subset counts.</h2>
+            <div class="content-area">
+                <table class="data-table"><caption>2026 merged PRs; signals observed at snapshot time</caption><thead><tr><th scope="col">Month</th><th scope="col">All merges</th><th scope="col">Signal union</th><th scope="col">Review label</th><th scope="col">App author or credit</th></tr></thead><tbody>
                     <tr><th scope="row">Jan</th><td>176</td><td>59</td><td>12</td><td>47</td></tr>
                     <tr><th scope="row">Feb</th><td>199</td><td>110</td><td>55</td><td>59</td></tr>
                     <tr><th scope="row">Mar</th><td>376</td><td>317</td><td>244</td><td>148</td></tr>
@@ -1560,7 +1634,7 @@
                     <tr><th scope="row">Jul</th><td>294</td><td>234</td><td>148</td><td>162</td></tr>
                     <tr><th scope="row">Aug</th><td>343</td><td>232</td><td>128</td><td>161</td></tr>
                     <tr><th scope="row">Sep</th><td>292</td><td>240</td><td>151</td><td>150</td></tr>
-                </tbody></table></details>
+                </tbody></table>
             </div>
             <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Overlapping signals counted once · 0–400 PR scale</span></div>
         </div>
@@ -1572,10 +1646,10 @@
                 <div class="evidence-grid">
                     <div class="evidence-card"><h3>542 → 1,139</h3><p>Community-labeled PRs merged in matched Jan–Sep windows: <strong>110.1% more</strong>, or just over twice as many.</p></div>
                     <div class="evidence-card"><h3>12.211 → 9.067 days</h3><p>Community-cohort median creation-to-merge time: <strong>25.7% shorter</strong>. This is elapsed calendar time, not reviewer effort.</p></div>
-                    <div class="evidence-card"><h3>1.689 → 3.004 days</h3><p>The <strong>all-PR median increased</strong>. Cohort and PR mix matter; we cannot claim across-the-board faster merges.</p></div>
+                    <div class="evidence-card"><h3>168 contributions</h3><p>Community merges also carry implementation/adoption labels: visible uptake of suggestions.</p></div>
                 </div>
-                <p class="takeaway">More community PRs reached merge, with a shorter median in that cohort. The data does not establish that AI caused either change.</p>
-                <p class="speaker-note">Talk track: show both medians. A contributor-focused improvement can coexist with a longer repository-wide median.</p>
+                <p class="takeaway">More contributions reached merge. Community contributors saw a shorter median path from PR creation to merge.</p>
+                <p class="speaker-note">Talk track: AI is now part of everyday engineering. These are observed contributor outcomes; <a href="#limitations">the appendix distinguishes timing cohorts and attribution</a>.</p>
                 <p class="source-note"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>Snapshot, exact cohorts and PR records</a>. Community means the current <code>community ✨</code> label in both years; labels can change or be backfilled. All PR types are included within each cohort.</p>
             </div>
             <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>2025 → 2026 · matched Jan–Sep merge cohorts</span></div>
@@ -1626,25 +1700,25 @@
             <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Uptake, not a quality score or satisfaction survey</span></div>
         </div>
 
-        <div class="slide-container evidence-slide" id="methodology">
-            <div class="eyebrow">How to read the update</div>
-            <h2 class="slide-title">Count the trace. Name the blind spot.</h2>
+        <div class="slide-container evidence-slide appendix" id="methodology">
+            <div class="eyebrow">Appendix / sources and scope</div>
+            <h2 class="slide-title">Two sources. Two different scopes.</h2>
             <div class="content-area">
                 <div class="evidence-grid">
                     <div class="evidence-card"><h3>Matched windows</h3><p>January through September in each year. UTC merge-date buckets; October is partial and excluded.</p></div>
                     <div class="evidence-card"><h3>Repository-wide</h3><p>All dotnet/maui PRs in scope, including ports and dependency automation. A merge is not a unique feature or bug fix.</p></div>
                     <div class="evidence-card"><h3>Observable signals</h3><p>Review labels are current state, not event-time coverage; they can change later. App authorship is a different, incomplete AI signal.</p></div>
                 </div>
-                <p class="takeaway">Opened PRs use creation dates; merged PRs use merge dates. Those are event counts, not the same cohort moving through a funnel.</p>
+                <p class="takeaway">≈99% is a maintainer-reported estimate supplied 05 Oct 2026, covering June 2026 onward. It is not computed from the Jan–Sep snapshot. <a href="evidence/maintainer-adoption-2026-10-05.json" download>Estimate provenance</a>.</p>
                 <p class="speaker-note">Do not compare the old May deck's reviewed-PR total with a count of merged PRs carrying a label. The populations and time windows differ. Only the first 100 original commits are scanned; 27 current-year PRs are truncated, with merge-commit credit also checked.</p>
                 <p class="source-note">Collected <time datetime="2026-10-04T22:46:17Z">04 Oct 2026, 22:46:17 UTC</time>. <a href="evidence/maui-ai-evidence-2026-10-04.json" download>Full dated JSON</a> · <a href="evidence/maui-ai-examples-2026-10-04.json" download>Qualitative sources</a> · <a href="evidence/collect_maui_ai_evidence.py" download>Reproducible collector</a> (existing GitHub CLI login; run <code>python3 evidence/collect_maui_ai_evidence.py --output fresh-snapshot.json</code>).</p>
             </div>
             <div class="branding-footer"><span>REPRODUCIBLE PUBLIC GITHUB SNAPSHOT</span><span>3,978 PR records · 18 monthly buckets · October excluded</span></div>
         </div>
 
-        <div class="slide-container evidence-slide" id="limitations">
-            <div class="eyebrow">The honest boundary</div>
-            <h2 class="slide-title">More automation is not the same as proof.</h2>
+        <div class="slide-container evidence-slide appendix" id="limitations">
+            <div class="eyebrow">Appendix / interpretation</div>
+            <h2 class="slide-title">What the figures do—and do not—show.</h2>
             <div class="content-area">
                 <div class="evidence-grid">
                     <div class="evidence-card"><h3>Visible ≠ complete</h3><p>GitHub does not capture every local AI session, private discussion, failed run, or hour spent by a person.</p></div>
@@ -1652,7 +1726,12 @@
                     <div class="evidence-card"><h3>Correlation ≠ cause</h3><p>Release timing, PR size, staffing, and backlog mix also affect activity and merge time.</p></div>
                 </div>
 
-                <div class="slide-container evidence-slide" id="human-validation">
+                <p class="takeaway">All-PR median merge time rose from 1.689 to 3.004 days. Community median fell from 12.211 to 9.067 days. Different PR mixes can move in different directions.</p>
+                <p class="speaker-note">No causal productivity multiplier, shipped-regression rate, satisfaction score, or human-free percentage is measured. Opened and merged PRs are independent event cohorts.</p>
+            </div>
+            <div class="branding-footer"><span>HUMAN ACCOUNTABILITY STAYS</span><span>No review or merge SLA implied</span></div>
+        </div>
+                <div class="slide-container evidence-slide appendix" id="human-validation">
                     <div class="eyebrow">A real human checkpoint</div>
                     <h2 class="slide-title">A label is not a verdict.</h2>
                     <div class="content-area">
@@ -1669,11 +1748,6 @@
                     </div>
                     <div class="branding-footer"><span>MAKE FEEDBACK PART OF THE SYSTEM</span><span>One example, not a failure-rate estimate</span></div>
                 </div>
-                <p class="takeaway">All-PR median merge time rose from 1.689 to 3.004 days. We are not claiming universal speedup, a productivity multiplier, fewer regressions, satisfaction, or zero human interaction.</p>
-                <p class="speaker-note">What would strengthen the story? Validated review findings, comparable cohorts, measured human effort, and post-release outcomes.</p>
-            </div>
-            <div class="branding-footer"><span>HUMAN ACCOUNTABILITY STAYS</span><span>No review or merge SLA implied</span></div>
-        </div>
 
         <!-- SLIDE 16: SUBMIT A PR TODAY -->
         <div class="slide-container" id="slide16">
@@ -1760,7 +1834,7 @@
         </div>
 
         <!-- SLIDE 18: THANK YOU -->
-        <div class="slide-container" id="slide18">
+        <div class="slide-container" id="slide18" data-keynote>
             <div class="content-area" style="justify-content: center; align-items: center; text-align: center;">
                 <h1 style="font-size: 80px; color: var(--brand-purple); margin-bottom: 20px;">Thank You!</h1>
                 <p style="font-size: 28px; color: var(--text-muted); margin-bottom: 50px;">Questions?</p>
@@ -1770,11 +1844,6 @@
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://www.linkedin.com/in/jakub-florkowski/&color=512BD4" alt="Jakub LinkedIn QR" width="160" height="160" style="margin-bottom: 12px;">
                         <h4 style="font-size: 18px; margin-bottom: 5px;">Jakub Florkowski</h4>
                         <p style="font-size: 16px; color: var(--brand-purple); font-weight: 600;">@kubaflo</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://www.linkedin.com/in/jfversluis/&color=512BD4" alt="Gerald LinkedIn QR" width="160" height="160" style="margin-bottom: 12px;">
-                        <h4 style="font-size: 18px; margin-bottom: 5px;">Gerald Versluis</h4>
-                        <p style="font-size: 16px; color: var(--brand-purple); font-weight: 600;">@jfversluis</p>
                     </div>
                 </div>
             </div>
@@ -1790,8 +1859,12 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const body = document.body;
-            const slides = Array.from(document.querySelectorAll('.slide-container'));
             const deck = document.querySelector('.slide-deck-container');
+            deck.querySelectorAll('.slide-container:not([data-keynote])').forEach(slide => {
+                slide.classList.add('appendix');
+                deck.appendChild(slide);
+            });
+            const slides = Array.from(deck.querySelectorAll(':scope > .slide-container'));
             const btnToggleMode = document.getElementById('btn-toggle-mode');
             const btnPrev = document.getElementById('btn-prev');
             const btnNext = document.getElementById('btn-next');
@@ -1815,6 +1888,11 @@
             }
 
             function updateUI() {
+                const isAppendix = slides[currentSlideIndex].classList.contains('appendix');
+                body.classList.toggle('show-appendix', isAppendix);
+                const sequence = slides.filter(slide => slide.classList.contains('appendix') === isAppendix);
+                const position = sequence.indexOf(slides[currentSlideIndex]) + 1;
+                const total = sequence.length;
                 if (isPresentationMode) {
                     slides.forEach((slide, idx) => {
                         const active = idx === currentSlideIndex;
@@ -1822,17 +1900,17 @@
                         slide.inert = !active;
                         slide.setAttribute('aria-hidden', String(!active));
                     });
-                    indicator.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
-                    presCounter.textContent = `${currentSlideIndex + 1} / ${slides.length}`;
-                    btnPrev.style.visibility = currentSlideIndex === 0 ? 'hidden' : 'visible';
-                    btnNext.style.visibility = currentSlideIndex === slides.length - 1 ? 'hidden' : 'visible';
+                    indicator.textContent = `${isAppendix ? 'Optional appendix' : 'Keynote'} ${position} of ${total}`;
+                    presCounter.textContent = `${isAppendix ? 'Appendix · ' : ''}${position} / ${total}`;
+                    btnPrev.style.visibility = position === 1 ? 'hidden' : 'visible';
+                    btnNext.style.visibility = position === total ? 'hidden' : 'visible';
                 } else {
                     slides.forEach(slide => {
                         slide.classList.add('active-slide');
                         slide.inert = false;
                         slide.removeAttribute('aria-hidden');
                     });
-                    indicator.textContent = `Total Slides: ${slides.length}`;
+                    indicator.textContent = `${isAppendix ? 'Optional appendix' : 'Keynote'}: ${total} slides`;
                     presCounter.textContent = '';
                     btnPrev.style.visibility = 'hidden';
                     btnNext.style.visibility = 'hidden';
@@ -1841,13 +1919,15 @@
             }
 
             function goNext() {
-                if (currentSlideIndex < slides.length - 1) {
+                const next = slides[currentSlideIndex + 1];
+                if (next && next.classList.contains('appendix') === slides[currentSlideIndex].classList.contains('appendix')) {
                     currentSlideIndex++;
                     updateUI();
                 }
             }
             function goPrev() {
-                if (currentSlideIndex > 0) {
+                const previous = slides[currentSlideIndex - 1];
+                if (previous && previous.classList.contains('appendix') === slides[currentSlideIndex].classList.contains('appendix')) {
                     currentSlideIndex--;
                     updateUI();
                 }
@@ -1889,7 +1969,7 @@
                 updateUI();
                 if (!isPresentationMode) slides[index].scrollIntoView({ block: 'start' });
             }
-            document.querySelectorAll('.deck-controls a[href^="#"]').forEach(link => {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
                 link.addEventListener('click', e => {
                     e.preventDefault();
                     history.replaceState(null, '', link.getAttribute('href'));

@@ -1,0 +1,14 @@
+{
+  "metric": "Estimated proportion of PRs using AI assistance",
+  "reported_percent_approximate": 99,
+  "scope": "June 2026 onward",
+  "supplied_on": "2026-10-05",
+  "source": "MAUI maintainer-reported estimate",
+  "classification": "Reported adoption; not independently measured",
+  "limits": [
+    "Not derived from the dated public GitHub metadata snapshot.",
+    "Public labels, app authorship and commit credits do not detect all assistance.",
+    "AI-assisted does not mean AI-only or no human involvement.",
+    "No per-PR denominator or independent measurement protocol was supplied."
+  ]
+}
