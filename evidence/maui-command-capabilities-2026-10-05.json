@@ -1,0 +1,140 @@
+{
+  "repository": "dotnet/maui",
+  "checked_on": "2026-10-05",
+  "default_branch_commit": "7f52ae4d0b8c41e966a1a3a9a6f8348c2a45de95",
+  "commands": [
+    {
+      "command": "/review",
+      "status": "live",
+      "surface": "pull request comment",
+      "short_outcome": "Code review, test gate and alternative fixes",
+      "capabilities": [
+        "Queues the full MAUI Copilot PR review pipeline.",
+        "Orchestrates regression cross-references, gate verification, candidate review and fix exploration.",
+        "Publishes code review and available platform test evidence in an AI Summary."
+      ],
+      "limits": [
+        "Requires current write, maintain or admin permission.",
+        "The deprecated /review rerun queue was removed; the normal review command remains."
+      ],
+      "sources": [
+        "https://github.com/dotnet/maui/blob/main/.github/docs/pr-review-workflow.md",
+        "https://github.com/dotnet/maui/pull/39029"
+      ]
+    },
+    {
+      "command": "/review tests",
+      "status": "live",
+      "surface": "pull request comment",
+      "short_outcome": "PR-caused versus baseline CI failures",
+      "capabilities": [
+        "Compares current failures with the latest five completed target-branch runs for each pipeline.",
+        "Covers maui-pr, maui-pr-devicetests and maui-pr-uitests.",
+        "Reports likely PR-caused, likely unrelated, needs human investigation or insufficient data."
+      ],
+      "limits": [
+        "Report-only: it does not write tests, rerun CI, change code or approve the PR.",
+        "Requires current write, maintain or admin permission."
+      ],
+      "sources": [
+        "https://github.com/dotnet/maui/blob/main/.github/workflows/copilot-review-tests.md",
+        "https://github.com/dotnet/maui/blob/main/.github/skills/review-test-failures/SKILL.md"
+      ]
+    },
+    {
+      "command": "/review performance",
+      "status": "live",
+      "surface": "pull request comment",
+      "short_outcome": "Measured managed base/head performance",
+      "capabilities": [
+        "Pins merge-base, PR head and harness before measuring selected managed benchmarks.",
+        "Runs isolated managed Release benchmarks in ABBA order on a hosted Linux runner.",
+        "Publishes a validated performance report with measured timing, allocations, coverage and follow-up."
+      ],
+      "limits": [
+        "Managed measurements are not native device coverage.",
+        "Shared-host timings are advisory; a passing subset is not a whole-PR clean verdict.",
+        "Requires current write, maintain or admin permission."
+      ],
+      "recent_improvement": "Expandable results and follow-up reports restored in merged PR 39037.",
+      "sources": [
+        "https://github.com/dotnet/maui/blob/main/.github/workflows/copilot-review-performance.md",
+        "https://github.com/dotnet/maui/pull/39037"
+      ]
+    },
+    {
+      "command": "/issue trace-regression",
+      "status": "live",
+      "surface": "issue comment",
+      "short_outcome": "Candidate introducing commits and PRs",
+      "capabilities": [
+        "Uses reported version boundaries and affected source history to identify introducing-change candidates.",
+        "Separates confirmed, likely, candidate and insufficient-evidence verdicts.",
+        "Posts one expandable evidence-backed Regression Trace on the triggering issue."
+      ],
+      "limits": [
+        "Report-only: it does not reproduce the bug, execute samples, run bisects or push a fix.",
+        "Confirmation requires linked same-environment runtime evidence.",
+        "Requires current write, maintain or admin permission."
+      ],
+      "recent_improvement": {
+        "pull_request": 39121,
+        "status": "open",
+        "head_commit": "1ac3b0517bbca9af7fb39b8ec3d2b85ec7818121",
+        "summary": "Bounded source/history evidence and version-gap preflight",
+        "not_yet_in_default_branch": true
+      },
+      "sources": [
+        "https://github.com/dotnet/maui/blob/main/.github/workflows/issue-trace-regression.md",
+        "https://github.com/dotnet/maui/pull/39121"
+      ]
+    },
+    {
+      "command": "/issue triage",
+      "status": "in_flight",
+      "surface": "issue comment",
+      "short_outcome": "Evidence-backed labels and follow-up questions",
+      "capabilities": [
+        "Proposed standalone GitHub Agentic Workflow for the existing manual issue-label taxonomy.",
+        "Adds evidence-backed labels and narrow corrections, with one explanation.",
+        "Preserves unrelated labels and gates confirmation/planning labels on existing authorized evidence and decisions."
+      ],
+      "limits": [
+        "Open PR 39065: not yet a live default-branch slash command.",
+        "Does not run samples, change milestones or assignees, close issues, modify product code or create PRs.",
+        "Requires current write, maintain or admin permission."
+      ],
+      "pull_request": 39065,
+      "head_commit": "ad0a059cf0bdf9af5eb6f54122311eb2d91a1102",
+      "sources": [
+        "https://github.com/dotnet/maui/pull/39065",
+        "https://github.com/dotnet/maui/blob/ad0a059cf0bdf9af5eb6f54122311eb2d91a1102/.github/docs/issue-triage.md"
+      ]
+    }
+  ],
+  "recent_work": [
+    {
+      "pull_request": 39029,
+      "state": "merged",
+      "summary": "Removed only the old review-rerun machinery; normal review and focused subcommands remain.",
+      "merged_at": "2026-09-30T18:28:13Z"
+    },
+    {
+      "pull_request": 39037,
+      "state": "merged",
+      "summary": "Restored readable expandable performance results and follow-up.",
+      "merged_at": "2026-10-01T10:41:28Z"
+    },
+    {
+      "pull_request": 39121,
+      "state": "open",
+      "summary": "Strengthens existing regression tracing with bounded history and cheap version preflight."
+    },
+    {
+      "pull_request": 39065,
+      "state": "open",
+      "summary": "Adds full-taxonomy, evidence-governed manual issue triage."
+    }
+  ],
+  "methodology": "Checked public workflow/docs and live PR states, informed by recent local session discovery. No private session transcript content is included. Open-PR features are distinguished from merged production commands."
+}

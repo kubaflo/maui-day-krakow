@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>.NET MAUI: The AI-First Repository</title>
+    <title>.NET MAUI: AI assistance is the default</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&family=Inter:wght@400;600;700&family=Cascadia+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* MICROSOFT DEVBLOGS ARCHITECTURE SYSTEM */
         :root {
             --brand-purple: #512BD4;       /* Official .NET Purple */
             --brand-lavender: #8250DF;     /* Highlight accent */
-            --brand-cyan: #00B7C3;         /* Interactive cyan */
+            --brand-cyan: #7047EB;         /* Violet accent */
             --text-main: #242424;          /* Charcoal body */
             --text-muted: #505050;         /* Secondary slate */
             --bg-canvas: #f3f2f1;          /* Canvas background */
@@ -23,10 +23,10 @@
             --bg-code: #f6f8fa;            /* Code block backgrounds */
             
             /* Status Indicators */
-            --color-red: #e03b2b;
-            --color-orange: #f28c28;
-            --color-green: #107c41;
-            --color-blue: #0078d4;
+            --color-red: #8558B8;
+            --color-orange: #9875D8;
+            --color-green: #6541C4;
+            --color-blue: #7047EB;
         }
 
         body.dark-mode {
@@ -78,7 +78,7 @@
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+            font-family: 'Manrope', system-ui, sans-serif;
             color: var(--text-main);
             display: flex;
             flex-direction: column;
@@ -169,7 +169,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(125% 125% at 50% 10%, transparent 40%, #C93CAD77 100%);
+            background: radial-gradient(125% 125% at 50% 10%, transparent 40%, #512BD477 100%);
         }
 
         /* Slide Container Frame */
@@ -605,7 +605,7 @@
             font-size: 32px;
             font-weight: 700;
             color: var(--brand-purple);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Manrope', sans-serif;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             position: relative;
             overflow: hidden;
@@ -783,17 +783,221 @@
             font-size: 12px;
             transition: background-color 0.2s;
         }
+
+        :root {
+            --brand-purple: #512BD4;
+            --brand-lavender: #8250DF;
+            --brand-cyan: #7047EB;
+            --bg-card: #ffffff;
+            --bg-subtle: #f7f4ff;
+            --border-light: #e3dcf5;
+        }
+        body.dark-mode {
+            --brand-purple: #BBA3FF;
+            --brand-lavender: #D1BEFF;
+            --brand-cyan: #C4ADFF;
+            --bg-card: #1d1535;
+            --bg-subtle: #2a2047;
+            --border-light: #51406e;
+        }
+        h1, h2, h3 { letter-spacing: -0.035em; }
+        code, .eyebrow { font-family: 'IBM Plex Mono', monospace; }
+        .deck-controls { opacity: 1; flex-wrap: wrap; justify-content: center; max-width: calc(100vw - 24px); }
+        .deck-controls:focus-within { opacity: 1; }
+        .deck-btn { text-decoration: none; font-size: 14px; }
+        body.dark-mode .deck-btn:hover { color: #1d1535; }
+        body.dark-mode [style*="background: var(--brand-purple)"],
+        body.dark-mode [style*="background: var(--brand-cyan)"] { color: #1d1535 !important; }
+        .slide-container { padding: 40px 70px 24px; gap: 14px; }
+        .slide-container > .content-area { flex: 1; min-height: 0; }
+        .slide-container > .branding-footer { position: static; flex: none; padding-top: 12px; border-top: 1px solid var(--border-light); color: var(--text-muted); gap: 20px; }
+        .slide-title { margin-bottom: 20px; }
+        .slide-container .speaker-note { display: none; }
+        #slide-daily-workflows p, #slide-daily-workflows a { font-size: 14px !important; }
+        #slide-daily-workflows img { max-height: 280px; object-fit: contain; }
+        #slide-tryfix .two-column p, #slide11 .two-column p { font-size: 16px !important; }
+        #slide-tryfix .two-column h4, #slide11 .two-column h4 { font-size: 18px !important; }
+        #slide11 img { max-height: 420px !important; }
+        #slide-pipeline img { max-width: 100%; max-height: 235px; }
+        #slide-pipeline img[src="azdo-tasks.png"] { max-height: 140px !important; }
+        #slide-pipeline img[src="azdo-stages.png"] { max-height: 150px !important; }
+        #slide-pipeline img[src="copilot-logs.png"] { max-height: 330px !important; }
+        #slide-pipeline .content-area > div { min-height: 0; }
+        :focus-visible { outline: 3px solid var(--brand-cyan); outline-offset: 4px; }
+        .eyebrow { color: var(--brand-purple); text-transform: uppercase; font-size: 14px; letter-spacing: .12em; margin-bottom: 18px; }
+        .evidence-slide .slide-title { margin-bottom: 22px; }
+        .evidence-slide { padding: 40px 70px 24px; gap: 14px; }
+        .evidence-slide .content-area { gap: 16px; flex: 1; min-height: 0; }
+        .evidence-slide .branding-footer { position: static; flex: none; color: var(--text-muted); font-size: 12px; letter-spacing: 0; gap: 20px; padding-top: 12px; border-top: 1px solid var(--border-light); }
+        .adoption-number { font-size: 128px; line-height: 1; letter-spacing: -.08em; color: var(--brand-purple); }
+        .provenance { font-size: 17px; color: var(--brand-purple); font-weight: 700; }
+        .keynote .content-area { justify-content: center; }
+        .keynote .slide-title { border: 0; font-size: 48px; margin-bottom: 0; }
+        .keynote .adoption-number { font-size: 200px; font-weight: 800; }
+        .keynote .eyebrow { margin-bottom: 0; }
+        .keynote .evidence-lead { font-size: 27px; }
+        .keynote .source-note { font-size: 15px; }
+        .keynote .result-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 70px; align-items: center; }
+        .result-graphic { display: flex; align-items: end; justify-content: center; gap: 45px; height: 270px; }
+        .result-column { width: 100px; background: var(--brand-purple); position: relative; }
+        .result-column.previous { background: #967FC8; }
+        .result-column span { position: absolute; top: -40px; width: 100%; text-align: center; font-size: 27px; font-weight: 800; }
+        .result-column small { position: absolute; bottom: -34px; width: 100%; text-align: center; font-size: 18px; }
+        .workflow-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+        .workflow-step { padding: 34px 12px; background: var(--bg-subtle); border-top: 5px solid var(--brand-purple); text-align: center; font-size: 25px; font-weight: 800; }
+        .workflow-step i { display: block; font-size: 40px; margin-bottom: 28px; color: var(--brand-purple); }
+        .ownership-title { font-size: 90px; line-height: 1.12; color: var(--brand-purple); }
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
+        .comparison-panel { padding: 30px; background: var(--bg-subtle); border-top: 5px solid var(--brand-purple); }
+        .comparison-panel h3 { font-size: 30px; margin-bottom: 18px; }
+        .comparison-panel p { font-size: 24px; line-height: 1.6; }
+        .test-proof { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 30px; }
+        .proof-state { padding: 45px 20px; text-align: center; border: 3px solid var(--brand-purple); background: var(--bg-subtle); }
+        .proof-state strong { display: block; font-size: 48px; color: var(--brand-purple); margin-top: 20px; }
+        .proof-state span { font-size: 22px; }
+        .history-bars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 45px; align-items: end; height: 330px; padding: 45px 35px 40px; }
+        .history-group { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; gap: 12px; }
+        .history-bar { width: 100%; max-width: 150px; background: var(--brand-purple); position: relative; }
+        .history-bar strong { position: absolute; top: -38px; width: 100%; text-align: center; font-size: 30px; color: var(--text-main); }
+        .history-group > span { font-size: 23px; font-weight: 700; }
+        .history-legend { display: flex; gap: 28px; font-size: 18px; }
+        .history-legend span::before { content: ''; display: inline-block; width: 22px; height: 5px; background: var(--series); margin-right: 8px; vertical-align: middle; }
+        .history-svg { width: 100%; height: 330px; overflow: visible; }
+        .history-svg text { fill: var(--text-main); font-family: 'Manrope', sans-serif; font-size: 18px; }
+        .history-svg .axis { stroke: var(--border-light); stroke-width: 1; }
+        .waffle { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; width: 230px; margin: 16px auto 0; }
+        .waffle-cell { aspect-ratio: 1; border-radius: 3px; background: var(--border-light); }
+        .waffle-cell.filled { background: var(--brand-purple); }
+        .visual-panel { background: var(--bg-subtle); border-top: 5px solid var(--brand-purple); padding: 24px; text-align: center; }
+        .visual-panel h3 { font-size: 24px; }
+        .visual-panel .display-value { font-size: 80px; font-weight: 800; letter-spacing: -.06em; color: var(--brand-purple); }
+        .command-list { display: grid; gap: 18px; }
+        .command-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; padding: 20px 24px; background: var(--bg-subtle); border-left: 5px solid var(--brand-purple); }
+        .command-row code { font-size: 27px; color: var(--brand-purple); white-space: nowrap; }
+        .command-row p { font-size: 21px; }
+        .command-state { font-size: 13px; font-weight: 800; text-transform: uppercase; color: var(--brand-purple); }
+        body.dark-mode .visual-panel .display-value,
+        body.dark-mode .command-row code,
+        body.dark-mode .command-state { color: #C5B4FF; }
+        body.dark-mode .waffle-cell.filled { background: #A68AFF; }
+        #slide-jump { font: inherit; color: var(--text-main); background: var(--bg-card); border: 1px solid var(--border-light); padding: 6px; max-width: 210px; }
+        body.dark-mode .history-bar { background-color: #BBA3FF !important; }
+        body.dark-mode .history-group:nth-child(1) .history-bar { background-color: #8E76BE !important; }
+        body.dark-mode .history-group:nth-child(2) .history-bar { background-color: #A68DD5 !important; }
+        body.dark-mode .history-group:nth-child(3) .history-bar { background-color: #C8B2F5 !important; }
+        body.dark-mode .history-svg [data-year="2023"] { stroke: #8E76BE; }
+        body.dark-mode .history-svg [data-year="2024"] { stroke: #A68DD5; }
+        body.dark-mode .history-svg [data-year="2025"] { stroke: #C8B2F5; }
+        body.dark-mode .history-svg [data-year="2026"] { stroke: #BBA3FF; }
+        body.dark-mode .history-legend span:nth-child(1) { --series: #8E76BE !important; }
+        body.dark-mode .history-legend span:nth-child(2) { --series: #A68DD5 !important; }
+        body.dark-mode .history-legend span:nth-child(3) { --series: #C8B2F5 !important; }
+        body.dark-mode .history-legend span:nth-child(4) { --series: #BBA3FF !important; }
+        .evidence-lead { font-size: 23px; max-width: 940px; }
+        .evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .evidence-card { padding: 24px; background: var(--bg-subtle); border-top: 4px solid var(--brand-purple); }
+        .evidence-card h3 { font-size: 23px; margin-bottom: 12px; }
+        .evidence-card p { font-size: 18px; }
+        .takeaway { border-left: 4px solid var(--brand-cyan); padding: 14px 20px; background: var(--bg-subtle); font-size: 19px; }
+        .source-note { font-size: 13px; line-height: 1.5; }
+        .source-note a, .evidence-slide a { color: var(--brand-purple); }
+        .speaker-note { font-size: 16px; line-height: 1.5; color: var(--text-muted); }
+        .metric-strip { display: flex; align-items: baseline; gap: 28px; }
+        .metric-strip strong { font-size: 42px; color: var(--brand-purple); letter-spacing: -.04em; }
+        .metric-strip span { font-size: 17px; color: var(--text-muted); }
+        .chart-legend { display: flex; gap: 24px; font-size: 16px; color: var(--text-muted); }
+        .chart-legend span::before { content: ''; display: inline-block; width: 16px; height: 16px; margin-right: 8px; vertical-align: middle; background: var(--brand-purple); }
+        .chart-legend .previous-year::before { background: #967FC8; }
+        .chart-legend .all-merges::before { background: #967FC8; }
+        .monthly-chart { display: grid; grid-template-columns: repeat(9, 1fr); gap: 14px; border-bottom: 1px solid var(--text-muted); padding: 0 12px 12px; }
+        .month-group { min-width: 0; text-align: center; }
+        .month-bars { height: 245px; display: flex; align-items: flex-end; justify-content: center; gap: 8px; }
+        .month-bar { background: var(--brand-purple); width: 32px; position: relative; min-height: 1px; }
+        .month-bar.previous-year { background: #967FC8; }
+        .month-bar span { position: absolute; bottom: calc(100% + 5px); left: 50%; transform: translateX(-50%); font-size: 16px; font-weight: 700; color: var(--text-main); }
+        .month-label { margin-top: 12px; font-size: 15px; color: var(--text-main); }
+        .signal-row { display: grid; grid-template-columns: 235px 1fr 140px; gap: 16px; align-items: center; }
+        .signal-label { font-size: 19px; color: var(--text-main); }
+        .signal-track { height: 38px; background: var(--border-light); }
+        .signal-fill { height: 100%; background: var(--brand-purple); }
+        .signal-count { font-size: 20px; font-weight: 700; color: var(--text-main); }
+        .data-table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        .data-table th, .data-table td { border-bottom: 1px solid var(--border-light); padding: 6px; font-size: 15px; text-align: right; }
+        .data-table th:first-child, .data-table td:first-child { text-align: left; }
+        .appendix .data-table th, .appendix .data-table td { font-size: 18px; padding: 9px; }
+        .slide-container { scroll-margin-top: 100px; }
+        body:not(.show-appendix) .slide-container.appendix,
+        body.show-appendix .slide-container[data-keynote] { display: none; }
+        .two-column > div { min-width: 0; }
+        .two-column[style*="55% 45%"] { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) !important; }
+        body.mode-presentation .slide-container:not(.active-slide) { visibility: hidden; }
+        .pres-counter { color: var(--text-muted); }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            body.mode-presentation .bar-fill,
+            body.mode-presentation .horizontal-fill { transform: none !important; }
+            body.mode-presentation .bar-fill span,
+            body.mode-presentation .horizontal-fill span { opacity: 1 !important; }
+        }
+        @media (max-width: 900px) {
+            body.mode-scroll { padding: 12px; }
+            .slide-deck-container { width: 100%; gap: 20px; }
+            body.mode-scroll .slide-container { width: 100%; height: auto; min-height: 560px; padding: 36px 24px 80px; overflow: visible; }
+            body.mode-scroll .two-column, body.mode-scroll .grid-2x2,
+            body.mode-scroll .grid-3x2, body.mode-scroll .evidence-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+            body.mode-scroll .flow-pipeline { flex-wrap: wrap; gap: 12px; }
+            body.mode-scroll .pipeline-node { width: 100% !important; }
+            body.mode-scroll .branding-footer { flex-wrap: wrap; }
+            body.mode-scroll .slide-title { font-size: 30px; margin-bottom: 24px; }
+            body.mode-scroll #slide-pipeline .content-area > div { grid-template-columns: 1fr !important; }
+            body.mode-scroll img { max-width: 100%; height: auto; }
+            body.mode-scroll .content-area > div[style*="display: flex"] { flex-wrap: wrap; gap: 24px; }
+            body.mode-scroll #slide1 .two-column > div > div[style*="display: flex"] { flex-wrap: wrap; }
+            body.mode-scroll .content-area > div > div[style*="width: 22%"] { width: 100% !important; }
+            body.mode-scroll .metric-strip { flex-wrap: wrap; gap: 12px; }
+            body.mode-scroll .monthly-chart { grid-template-columns: repeat(3, 1fr); row-gap: 24px; }
+            body.mode-scroll .signal-row { grid-template-columns: 1fr; gap: 8px; }
+            body.mode-scroll .result-layout { grid-template-columns: 1fr; gap: 60px; }
+            body.mode-scroll .workflow-strip { grid-template-columns: 1fr; }
+            body.mode-scroll .comparison-grid, body.mode-scroll .test-proof { grid-template-columns: 1fr; gap: 24px; }
+            body.mode-scroll .command-row { grid-template-columns: 1fr; }
+            body.mode-scroll .command-row code { white-space: normal; overflow-wrap: anywhere; font-size: 24px; }
+            body.mode-scroll .waffle { width: min(230px, 100%); }
+            body.mode-scroll .keynote .adoption-number { font-size: 110px; }
+            body.mode-scroll .ownership-title { font-size: 55px; }
+            .deck-controls { top: 8px; gap: 8px; padding: 8px; }
+        }
+        @media print {
+            @page { size: landscape; margin: 0; }
+            body, body.mode-presentation { display: block; padding: 0; background: white; overflow: visible; }
+            .deck-controls, .bg-overlay, .bg-logos, .pres-counter { display: none !important; }
+            .slide-deck-container, body.mode-presentation .slide-deck-container { display: block; width: auto; height: auto; transform: none !important; }
+            .slide-container, body.mode-presentation .slide-container {
+                position: relative; width: 100%; height: 100vh; margin: 0; border-radius: 0;
+                opacity: 1 !important; visibility: visible !important; transform: none !important;
+                box-shadow: none; break-after: page; print-color-adjust: exact; -webkit-print-color-adjust: exact;
+            }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .bar-fill, .horizontal-fill { transform: none !important; }
+            .bar-fill span, .horizontal-fill span { opacity: 1 !important; }
+            .chart-data { display: none; }
+        }
     </style>
 </head>
 <body class="mode-scroll">
 
     <!-- PRESENTATION DECK ORCHESTRATION PANEL -->
     <div class="deck-controls">
-        <button class="deck-btn" id="btn-toggle-mode"><i class="fa-solid fa-arrows-alt-v"></i> Presentation Mode</button>
+        <button class="deck-btn" id="btn-toggle-mode" title="P toggles presentation; arrow keys navigate; Escape exits"><i class="fa-solid fa-arrows-alt-v"></i> Presentation Mode</button>
         <div style="height: 20px; width: 1px; background-color: var(--border-light);"></div>
         <button class="deck-btn" id="btn-prev"><i class="fa-solid fa-chevron-left"></i> Prev</button>
-        <span id="slide-indicator" style="font-weight: 600; font-size: 14px; color: var(--text-muted);">Slide 1 of 18</span>
+        <span id="slide-indicator" aria-live="polite" style="font-weight: 600; font-size: 14px; color: var(--text-muted);"></span>
         <button class="deck-btn" id="btn-next">Next <i class="fa-solid fa-chevron-right"></i></button>
+        <a class="deck-btn" href="#evidence" id="btn-evidence">Evidence / Oct update</a>
+        <a class="deck-btn" href="#historical-growth">2023–2026 comparison</a>
+        <a class="deck-btn" href="#workflow" id="btn-workflow">Workflow</a>
+        <a class="deck-btn" href="#methodology" id="btn-sources">Optional appendix / sources</a>
+        <select id="slide-jump" aria-label="Jump to a main slide"><option>Slide index</option></select>
         <div style="height: 20px; width: 1px; background-color: var(--border-light);"></div>
         <button class="deck-btn" id="btn-toggle-theme"><i class="fa-solid fa-moon"></i> Dark</button>
     </div>
@@ -807,17 +1011,18 @@
     <div class="pres-counter" id="pres-counter"></div>
 
         <!-- SLIDE 1: COVER -->
-        <div class="slide-container active-slide" id="slide1">
+        <div class="slide-container active-slide" id="slide1" data-keynote>
             <div class="content-area">
                 <div class="two-column" style="align-items: center; gap: 40px; height: 100%;">
                     <div>
-                        <div class="blog-tag">Ecosystem Strategy</div>
+                        <div class="eyebrow">University talk / 06 Oct 2026</div>
                         <h1 style="font-size: 56px; color: var(--brand-purple); margin-bottom: 15px;">.NET MAUI</h1>
                         <h2 style="font-size: 32px; margin-bottom: 25px; font-weight: 400; color: var(--text-muted); line-height: 1.3;">
-                            is the most AI-supported .NET repository
+                            AI assistance is the default.<br>Human ownership stays.
                         </h2>
                         <p style="font-size: 18px; margin-bottom: 40px; color: var(--text-muted);">
-                            How we got here — and how we keep improving.
+                            A practical open-source story, revisited since May.<br>
+                            Everyday AI assistance. More community contributions.
                         </p>
                         
                         <div style="display: flex; gap: 30px;">
@@ -831,17 +1036,6 @@
                                     <p style="font-size: 12px; color: var(--brand-purple); font-weight: 600;">@kubaflo</p>
                                 </div>
                             </div>
-                            
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <div class="profile-avatar-wrapper" style="width: 60px; height: 60px; font-size: 20px;">
-                                    GV
-                                    <img src="https://github.com/jfversluis.png" alt="Gerald Versluis" onerror="this.style.display='none'">
-                                </div>
-                                <div>
-                                    <h4 style="font-size: 16px;">Gerald Versluis</h4>
-                                    <p style="font-size: 12px; color: var(--brand-purple); font-weight: 600;">@jfversluis</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div>
@@ -852,45 +1046,24 @@
                 </div>
             </div>
             <div class="branding-footer">
-                <span>MAUI DAY • KRAKÓW</span>
-                <span>MAY 29, 2026</span>
+                <span>OCTOBER 6, 2026</span>
             </div>
         </div>
 
-        <!-- SLIDE 2: COMPETING PRS -->
-        <div class="slide-container" id="slide2">
-            <h2 class="slide-title">Your PRs Were Competing with 1,270 Others</h2>
+        <div class="slide-container evidence-slide" id="slide2">
+            <div class="eyebrow">The opportunity</div>
+            <h2 class="slide-title">Give reviewers a better starting point.</h2>
             <div class="content-area">
-                <p style="margin-bottom: 30px; max-width: 950px;">Community contributions exploded — but manual review capacity didn't. Every single PR needs thorough code review, testing, and structural guidance.</p>
-                
-                <div class="bar-chart-vertical">
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 38px; background-color: #8c8c8c;"><span>149</span></div>
-                        <div class="bar-label">2023</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 150px; background-color: var(--color-orange);"><span>715</span></div>
-                        <div class="bar-label">2024</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 270px; background-color: var(--color-red);"><span>1,270</span></div>
-                        <div class="bar-label">2025</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div style="position: relative; width: 100%;">
-                            <div style="height: 340px; border: 2px dashed var(--brand-cyan); border-radius: 4px; background: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0,183,195,0.06) 5px, rgba(0,183,195,0.06) 10px); display: flex; align-items: flex-start; justify-content: center; padding-top: 8px;">
-                                <span style="font-size: 14px; font-weight: 700; color: var(--brand-cyan);">~1,600 projected</span>
-                            </div>
-                            <div class="bar-fill" style="height: 98px; background-color: var(--brand-cyan); position: absolute; bottom: 0; left: 0; right: 0; border-radius: 0 0 4px 4px;"><span>467*</span></div>
-                        </div>
-                        <div class="bar-label">2026 (Jan-May)</div>
-                    </div>
+                <p class="evidence-lead">A useful agent does not just write an answer. It assembles something another person can inspect.</p>
+                <div class="evidence-grid">
+                    <div class="evidence-card"><h3>Find context</h3><p>Connect the issue, code paths, platform conventions, and earlier attempts.</p></div>
+                    <div class="evidence-card"><h3>Test a claim</h3><p>Ask whether a test fails without the fix and passes with it.</p></div>
+                    <div class="evidence-card"><h3>Show the work</h3><p>Leave findings, test results, and caveats on the pull request.</p></div>
                 </div>
+                <p class="takeaway">The positive story: make the next human decision better informed.</p>
+                <p class="speaker-note">Talk track: distinguish a proposed answer from checked evidence. Neither replaces maintainer accountability.</p>
             </div>
-            <div class="branding-footer">
-                <span>THE COMMUNITY EXPLOSION</span>
-                <span>dotnet/maui</span>
-            </div>
+            <div class="branding-footer"><span>AI AS REVIEW SUPPORT</span><span>Design principle, not a measured productivity claim</span></div>
         </div>
 
         <!-- SLIDE 3: WHAT A SINGLE REVIEW COSTS -->
@@ -900,8 +1073,8 @@
                 <div class="two-column" style="align-items: center;">
                     <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
                         <div style="background-color: #fafafa; border: 1px solid var(--border-light); padding: 30px; border-radius: 4px;">
-                            <div style="font-size: 64px; font-weight: 700; color: var(--brand-purple); line-height: 1;">45 min</div>
-                            <p style="font-size: 18px; font-weight: 600; margin-top: 10px;">Average review time per session</p>
+                            <div style="font-size: 48px; font-weight: 700; color: var(--brand-purple); line-height: 1;">Context</div>
+                            <p style="font-size: 18px; font-weight: 600; margin-top: 10px;">Understand the bug, the change, and the risks</p>
                         </div>
                         <div style="background-color: #fafafa; border: 1px solid var(--border-light); padding: 30px; border-radius: 4px;">
                             <div style="font-size: 64px; font-weight: 700; color: var(--brand-cyan); line-height: 1;">4 Targets</div>
@@ -914,36 +1087,36 @@
                         <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px;">
                             <li style="display: flex; gap: 15px; font-size: 18px;">
                                 <i class="fa-solid fa-arrows-spin" style="color: var(--brand-purple); margin-top: 4px;"></i>
-                                <span><strong>2-3 Review Rounds Each:</strong> Commits require repeat runs before final signoff.</span>
+                                <span><strong>Review is iterative:</strong> New commits can require fresh analysis and validation.</span>
                             </li>
                             <li style="display: flex; gap: 15px; font-size: 18px;">
                                 <i class="fa-solid fa-calculator" style="color: var(--brand-purple); margin-top: 4px;"></i>
-                                <span><strong>100 PRs / Month x 1 Hour:</strong> Translates to 2.5 full work weeks just for PR reviews.</span>
+                                <span><strong>Evidence takes work:</strong> Reproduce the failure, verify the fix, then check for side effects.</span>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="branding-footer">
-                <span>MANUAL OVERHEAD ANALYSIS</span>
-                <span>Time Cost Evaluation</span>
+                <span>WHY REVIEW NEEDS SUPPORT</span>
+                <span>Workflow explanation, not measured review time</span>
             </div>
         </div>
 
         <!-- SLIDE 5: THE SHIFT TO AGENTIC WORKFLOWS -->
         <div class="slide-container" id="slide5">
-            <h2 class="slide-title">The Shift to Agentic Workflows</h2>
+            <h2 class="slide-title" id="workflow">The Shift to Agentic Workflows</h2>
             <div class="content-area">
                 <div class="two-column" style="gap: 60px;">
                     <div class="dev-card" style="border-top-color: var(--brand-cyan);">
                         <div style="font-size: 40px; color: var(--brand-cyan); margin-bottom: 20px;"><i class="fa-solid fa-eye"></i></div>
                         <h3>The Vision</h3>
-                        <p>Automating maintainer intuition by creating specialized AI assistants that understand repository context, platform nuances, and testing conventions natively.</p>
+                        <p>Repository context + platform checks + reproducible evidence.</p>
                     </div>
                     <div class="dev-card">
                         <div style="font-size: 40px; color: var(--brand-purple); margin-bottom: 20px;"><i class="fa-solid fa-cubes"></i></div>
                         <h3>The Core Ecosystem</h3>
-                        <p>Moving from monolithic chat to an ecosystem of skills: <strong>pr</strong> for review cycles, <strong>sandbox</strong> for validation, and <strong>write-tests</strong> for coverage.</p>
+                        <p><strong>pr</strong> reviews. <strong>sandbox</strong> validates. <strong>write-tests</strong> builds coverage.</p>
                     </div>
                 </div>
                 <div style="margin-top: 40px; background-color: #fafafa; border: 1px solid var(--border-light); padding: 30px; border-radius: 4px; text-align: center;">
@@ -952,7 +1125,7 @@
             </div>
             <div class="branding-footer">
                 <span>CONCEPTUAL TRANSITION</span>
-                <span>From Passive CI to Active Agents</span>
+                <span>May workflow walkthrough · illustrative, not an execution guarantee</span>
             </div>
         </div>
 
@@ -960,7 +1133,7 @@
         <div class="slide-container" id="slide-daily-workflows">
             <h2 class="slide-title">Daily Agentic Workflows</h2>
             <div class="content-area" style="justify-content: flex-start;">
-                <p style="margin-bottom: 8px;">Two GitHub-powered workflows generate daily intelligence issues — no human trigger needed</p>
+                <p style="margin-bottom: 8px;">Scheduled intelligence. Human priorities.</p>
                 <div class="two-column" style="gap: 20px; align-items: stretch;">
                     <!-- Card 1: Daily Repo Status -->
                     <div style="border: 1px solid var(--border-light); border-radius: 10px; padding: 12px; display: flex; flex-direction: column;">
@@ -968,7 +1141,7 @@
                                 <div style="font-size: 15px; font-weight: 700;">Daily Repo Status</div>
                                 <span style="font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 12px; background: var(--brand-cyan); color: white;">gh-aw</span>
                         </div>
-                        <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin-bottom: 6px;">Markdown prompt compiled via <code style="background: #f3f2f1; padding: 1px 4px; border-radius: 3px; font-size: 10px;">gh aw compile</code> → <code style="background: #f3f2f1; padding: 1px 4px; border-radius: 3px; font-size: 10px;">.lock.yml</code>. Copilot agent analyzes repo activity daily.</p>
+                        <p style="font-size: 14px; margin-bottom: 6px;">Markdown prompt → compiled workflow → daily activity report.</p>
                         <div style="margin-bottom: 6px; border-radius: 6px; overflow: hidden; border: 1px solid #e0e0e0; flex: 1; max-height: 350px;">
                             <img src="daily-repo-status-issue.png" alt="Daily Repo Status Issue" style="width: 100%; display: block;">
                         </div>
@@ -984,7 +1157,7 @@
                                 <div style="font-size: 15px; font-weight: 700;">PR Review Queue</div>
                                 <span style="font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 12px; background: var(--brand-purple); color: white;">Skill-Powered</span>
                         </div>
-                        <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin-bottom: 6px;">GitHub Actions calls <code style="background: #f3f2f1; padding: 1px 4px; border-radius: 3px; font-size: 10px;">find-reviewable-pr</code> skill to query and categorize open PRs weekdays at 8 UTC.</p>
+                        <p style="font-size: 14px; margin-bottom: 6px;"><code>find-reviewable-pr</code> → categorized queue → maintainer action.</p>
                         <div style="margin-bottom: 6px; border-radius: 6px; overflow: hidden; border: 1px solid #e0e0e0; flex: 1; max-height: 350px;">
                             <img src="pr-review-queue-issue.png" alt="PR Review Queue Issue" style="width: 100%; display: block;">
                         </div>
@@ -1016,19 +1189,19 @@
                     <div style="flex: 1; padding: 16px 20px; background: #fafafa; border-left: 4px solid var(--brand-purple); border-radius: 0 6px 6px 0;">
                         <h4 style="font-size: 15px; margin-bottom: 6px;">Trigger</h4>
                         <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-                            GitHub Agentic Workflow (<code>gh-aw</code>) fires on <code>pull_request_target</code> and <code>issues.opened</code> events.
+                            PR or issue event starts the workflow.
                         </p>
                     </div>
                     <div style="flex: 1; padding: 16px 20px; background: #fafafa; border-left: 4px solid var(--brand-cyan); border-radius: 0 6px 6px 0;">
                         <h4 style="font-size: 15px; margin-bottom: 6px;">Skill: <code>agentic-labeler</code></h4>
                         <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-                            Sandboxed Copilot agent invokes the <code>agentic-labeler</code> skill. Reads the diff via MCP tools and infers labels from file paths.
+                            Sandboxed agent reads paths and infers area + platform.
                         </p>
                     </div>
                     <div style="flex: 1; padding: 16px 20px; background: #fafafa; border-left: 4px solid var(--color-green); border-radius: 0 6px 6px 0;">
                         <h4 style="font-size: 15px; margin-bottom: 6px;">Safe-Output Write</h4>
                         <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-                            Separate job with write permissions applies <code>area-*</code> and <code>platform/*</code> labels.
+                            Separate write job applies the proposed labels.
                         </p>
                     </div>
                 </div>
@@ -1152,35 +1325,35 @@
             <div class="content-area">
                 <div class="two-column" style="grid-template-columns: 55% 45%; gap: 40px; align-items: start;">
                     <div>
-                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">When a PR fix isn't ideal, the agent generates alternative candidates and tests them on real devices</p>
+                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">Explore candidates. Test behavior. Recommend a fix.</p>
 
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-purple); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">1</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Analyze Problem &amp; Existing Fix</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Reads the issue, PR diff, and gate test results — understands what the fix does and where it falls short</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Issue + diff + gate results.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-cyan); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">2</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Generate Alternative Candidates</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Designs a fundamentally different approach — not a tweak, but a new strategy informed by prior failures</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Try another strategy; learn from failures.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-blue); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">3</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Build, Deploy &amp; Test on Device</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Each candidate is compiled, deployed to an emulator/simulator, and tested empirically — no guessing</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Run selected tests; report gaps.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-green); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">4</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Compare &amp; Recommend Best Fix</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">All candidates are scored against the PR's fix — the winner is recommended with a full diff and rationale</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Compare evidence; leave a diff and rationale.</p>
                                 </div>
                             </div>
                         </div>
@@ -1205,7 +1378,7 @@
                                 <div style="color: var(--text-muted); font-size: 16px;">↓</div>
                                 <div style="background: var(--bg-canvas); border: 2px solid var(--color-green); padding: 6px 20px; border-radius: 6px; font-size: 11px; color: var(--color-green); font-weight: 600; width: 180px;">✅ Tests Passed</div>
                                 <div style="color: var(--text-muted); font-size: 16px;">↓</div>
-                                <div style="background: var(--color-green); color: white; padding: 8px 20px; border-radius: 6px; font-size: 12px; font-weight: 600; width: 180px;">🏆 Best Fix Wins</div>
+                                <div style="background: var(--color-green); color: white; padding: 8px 20px; border-radius: 6px; font-size: 12px; font-weight: 600; width: 180px;">Recommend for Review</div>
                             </div>
                         </div>
                     </div>
@@ -1223,35 +1396,35 @@
             <div class="content-area">
                 <div class="two-column" style="grid-template-columns: 55% 45%; gap: 40px; align-items: start;">
                     <div>
-                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">Every PR gets a deep, multi-dimensional code review — not just style checks</p>
+                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">Platform-aware findings, right on the diff.</p>
 
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-purple); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">1</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">30 Architectural Dimensions</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Handler lifecycle, platform threading, safe area, accessibility, layout, CollectionView, memory, API surface, and more</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Lifecycle, threading, layout, accessibility, memory.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-cyan); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">2</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Per-Dimension Sub-Agents</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Each dimension is evaluated by a specialized sub-agent with domain-specific knowledge and checklist</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Domain-specific context and checklists.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-blue); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">3</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Independence-First Assessment</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Reads code before PR description to avoid anchoring bias — forms its own judgment first</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Code first; description second.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-green); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">4</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Inline Findings on the PR</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Posts findings as inline code comments at exact file + line — reviewers see issues in context</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">File + line + actionable explanation.</p>
                                 </div>
                             </div>
                         </div>
@@ -1302,7 +1475,7 @@
                     <div style="display: flex; flex-direction: column; gap: 12px;">
                         <div style="padding: 15px 20px; background: #fafafa; border-left: 4px solid var(--brand-purple);">
                             <h4 style="font-size: 18px;">pr-review</h4>
-                            <p style="font-size: 14px;">End-to-end orchestrator - runs 3 distinct phases.</p>
+                            <p style="font-size: 16px;">Orchestrates the review cycle.</p>
                         </div>
                         <div style="padding: 15px 20px; background: #fafafa; border-left: 4px solid var(--color-red);">
                             <h4 style="font-size: 18px;">verify-tests-fail</h4>
@@ -1310,7 +1483,7 @@
                         </div>
                         <div style="padding: 15px 20px; background: #fafafa; border-left: 4px solid var(--color-orange);">
                             <h4 style="font-size: 18px;">try-fix</h4>
-                            <p style="font-size: 14px;">Explores 4 separate AI models to find robust fix paths.</p>
+                            <p style="font-size: 16px;">Explores alternative fix candidates.</p>
                         </div>
                     </div>
                     
@@ -1325,13 +1498,13 @@
                         </div>
                         <div style="padding: 15px 20px; background: #fafafa; border-left: 4px solid #737373;">
                             <h4 style="font-size: 18px;">learn-from-pr</h4>
-                            <p style="font-size: 14px;">Self-improves and learns repo context after every execution.</p>
+                            <p style="font-size: 16px;">Captures lessons as reusable repository context.</p>
                         </div>
                     </div>
                 </div>
                 
                 <p style="margin-top: 30px; text-align: center; font-weight: 600; font-size: 18px; color: var(--brand-purple);">
-                    18 reusable skills + 17 instruction files = domain-specific AI, not generic chat.
+                    Reusable skills + repository instructions = domain-specific support.
                 </p>
             </div>
             <div class="branding-footer">
@@ -1374,210 +1547,225 @@
             </div>
         </div>
 
-        <!-- SLIDE: USING AI TO WORK ON MAUI -->
-        <div class="slide-container" id="slide-ai-wiki">
-            <h2 class="slide-title">Want to Try It Yourself?</h2>
-            <div class="content-area" style="align-items: center; justify-content: center; text-align: center;">
-                <p style="font-size: 18px; margin-bottom: 28px; color: var(--text-muted);">Everything in the wiki — agents, skills, workflows, and more</p>
-
-                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 32px; max-width: 1000px;">
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-purple);"><i class="fa-solid fa-robot"></i> PR Review Agent</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-cyan);"><i class="fa-solid fa-vial"></i> Write Tests Agent</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--color-blue);"><i class="fa-solid fa-mobile-screen"></i> Sandbox Agent</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-lavender);"><i class="fa-solid fa-lightbulb"></i> Learn From PR</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--color-green);"><i class="fa-solid fa-magnifying-glass"></i> Expert Reviewer</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-purple);"><i class="fa-solid fa-puzzle-piece"></i> 17 Skills</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-cyan);"><i class="fa-solid fa-file-code"></i> 18 Instruction Files</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--color-blue);"><i class="fa-solid fa-gears"></i> 5 Automated Workflows</span>
-                </div>
-
-                <div style="display: flex; align-items: center; gap: 30px; background: var(--bg-subtle); border: 2px solid var(--border-light); border-radius: 20px; padding: 24px 36px;">
-                    <img src="wiki-qr.png" alt="QR Code" style="width: 140px; height: 140px; border-radius: 12px;">
-                    <div style="text-align: left;">
-                        <div style="font-size: 13px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Scan or visit</div>
-                        <a href="https://github.com/dotnet/maui/wiki/Using-AI-to-Work-on-.NET-MAUI" target="_blank" style="font-size: 18px; color: var(--brand-purple); font-weight: 700; text-decoration: none; line-height: 1.4;">github.com/dotnet/maui/wiki/<br>Using-AI-to-Work-on-.NET-MAUI</a>
-                        <div style="font-size: 13px; color: var(--text-muted); margin-top: 8px;"><code style="font-size: 12px; background: var(--bg-code); padding: 2px 6px; border-radius: 4px;">/share file</code> or <code style="font-size: 12px; background: var(--bg-code); padding: 2px 6px; border-radius: 4px;">/share gist</code> to export your Copilot sessions</div>
-                    </div>
-                </div>
-            </div>
-            <div class="branding-footer">
-                <span>CONTRIBUTOR GUIDE</span>
-                <span>dotnet/maui · Wiki</span>
-            </div>
-        </div>
-
-        <!-- SLIDE 12: THE DATA: BEFORE AND AFTER -->
-        <div class="slide-container" id="slide12">
-            <h2 class="slide-title">The Data After Agents</h2>
+        <div class="slide-container evidence-slide keynote" id="evidence" data-keynote>
+            <div class="eyebrow">October update / everyday engineering</div>
+            <h2 class="slide-title">AI assistance is the default.</h2>
             <div class="content-area">
-                <p style="margin-bottom: 25px;">Jan-May 2026 compared to 2025</p>
-                
-                <div class="grid-2x2">
-                    <div class="dev-card" style="padding: 24px; border-top-color: var(--color-green);">
-                        <h4 style="font-size: 18px; color: var(--text-muted);"><i class="fa-solid fa-clock"></i> Time to Merge</h4>
-                        <div style="font-size: 40px; font-weight: 700; margin-top: 10px; color: var(--text-main);">6.3 days</div>
-                        <p style="font-size: 15px; color: var(--color-green); font-weight: 600; margin-top: 5px;">-50% Reduction (was 12.5d)</p>
-                    </div>
-                    <div class="dev-card" style="padding: 24px; border-top-color: var(--color-green);">
-                        <h4 style="font-size: 18px; color: var(--text-muted);"><i class="fa-solid fa-bolt"></i> Same-Day Merges</h4>
-                        <div style="font-size: 40px; font-weight: 700; margin-top: 10px; color: var(--text-main);">22%</div>
-                        <p style="font-size: 15px; color: var(--color-green); font-weight: 600; margin-top: 5px;">+175% Speed Increase (was 8%)</p>
-                    </div>
-                    <div class="dev-card" style="padding: 24px; border-top-color: var(--color-blue);">
-                        <h4 style="font-size: 18px; color: var(--text-muted);"><i class="fa-solid fa-box-open"></i> PRs Merged</h4>
-                        <div style="font-size: 40px; font-weight: 700; margin-top: 10px; color: var(--text-main);">358</div>
-                        <p style="font-size: 15px; color: var(--color-blue); font-weight: 600; margin-top: 5px;">+62% Merged Faster*</p>
-                    </div>
-                    <div class="dev-card" style="padding: 24px; border-top-color: var(--color-green);">
-                        <h4 style="font-size: 18px; color: var(--text-muted);"><i class="fa-solid fa-rocket"></i> Merged &lt; 3 Days</h4>
-                        <div style="font-size: 40px; font-weight: 700; margin-top: 10px; color: var(--text-main);">34%</div>
-                        <p style="font-size: 15px; color: var(--color-green); font-weight: 600; margin-top: 5px;">+48% Early Signoffs (was 23%)</p>
-                    </div>
-                </div>
+                <div class="adoption-number">≈99%</div>
+                <p class="evidence-lead">of PRs AI-assisted since June 2026.</p>
+                <p class="provenance">Maintainer-reported estimate · June 2026 onward</p>
             </div>
-            <div class="branding-footer">
-                <span>EVALUATION TELEMETRY</span>
-                <span>*2026 is ongoing; 358 merged in less total timeframe</span>
-            </div>
+            <div class="branding-footer"><span>MAINTAINER ESTIMATE · SUPPLIED 05 OCT 2026</span><a href="#methodology">Reported adoption · sources and scope</a></div>
         </div>
 
-        <!-- SLIDE 13: THE RAMP UP -->
-        <div class="slide-container" id="slide13">
-            <h2 class="slide-title">The Ramp-Up: 820% Growth in 5 Months</h2>
+        <div class="slide-container evidence-slide keynote" id="community-volume" data-keynote>
+            <div class="eyebrow">More community contributions reach merge</div>
+            <h2 class="slide-title">A bigger contribution stream.</h2>
+            <div class="content-area result-layout">
+                <div><div class="adoption-number">2.1×</div><p class="evidence-lead">community PRs merged</p></div>
+                <div class="result-graphic" role="img" aria-label="Community-labeled merged PRs: 542 in January–September 2025; 1,139 in January–September 2026. Zero-baseline proportional bars."><div class="result-column previous" style="height: 118.488px;"><span>542</span><small>2025</small></div><div class="result-column" style="height: 249px;"><span>1,139</span><small>2026</small></div></div>
+            </div>
+            <div class="branding-footer"><span>MATCHED JAN–SEP · CURRENT COMMUNITY LABEL · SNAPSHOT 04 OCT 2026</span><a href="#methodology">Observed outcome · not causal attribution</a></div>
+        </div>
+
+        <div class="slide-container evidence-slide keynote" id="community-timing" data-keynote>
+            <div class="eyebrow">A shorter path for community contributions</div>
+            <h2 class="slide-title">Less time from PR to merge.</h2>
+            <div class="content-area result-layout">
+                <div><div class="adoption-number">−26%</div><p class="evidence-lead">community median PR-to-merge time</p></div>
+                <div class="result-graphic" role="img" aria-label="Community median creation-to-merge time: 12.211 days in January–September 2025; 9.067 days in January–September 2026. Reduction 25.7 percent, rounded to 26 percent."><div class="result-column previous" style="height: 249px;"><span>12.2d</span><small>2025</small></div><div class="result-column" style="height: 184.889px;"><span>9.1d</span><small>2026</small></div></div>
+            </div>
+            <div class="branding-footer"><span>MATCHED JAN–SEP COMMUNITY COHORT · SNAPSHOT 04 OCT 2026</span><a href="#limitations">Elapsed days · all-PR timing in appendix</a></div>
+        </div>
+
+        <div class="slide-container evidence-slide keynote" id="merge-activity" data-keynote>
+            <div class="eyebrow">October update / matched January–September windows</div>
+            <h2 class="slide-title">More PRs reached merge.</h2>
             <div class="content-area">
-                <p style="margin-bottom: 25px; max-width: 900px;">Review coverage scaled smoothly over 5 months. Total parsed PR volume: <strong style="color: var(--brand-purple);">428 reviewed</strong>.</p>
-                
-                <div class="bar-chart-vertical">
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 30px; background-color: var(--brand-purple);"><span>10</span></div>
-                        <div class="bar-label">Jan (Launch)</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 80px; background-color: var(--brand-purple);"><span>27</span></div>
-                        <div class="bar-label">Feb</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 220px; background-color: var(--color-blue);"><span>74</span></div>
-                        <div class="bar-label">Mar</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 250px; background-color: var(--brand-purple);"><span>84</span></div>
-                        <div class="bar-label">Apr</div>
-                    </div>
-                    <div class="vertical-bar-group">
-                        <div class="bar-fill" style="height: 275px; background-color: var(--brand-cyan);"><span>92</span></div>
-                        <div class="bar-label">May</div>
-                    </div>
+                <div class="metric-strip"><strong style="font-size: 72px;">+44%</strong><span>1,628 → 2,350 total merged PRs</span></div>
+                <div class="chart-legend"><span class="previous-year">2025</span><span>2026</span></div>
+                <div class="monthly-chart" role="img" aria-label="Monthly merged PRs, January through September. 2025: 150, 212, 210, 171, 164, 174, 171, 192, 184. 2026: 176, 199, 376, 222, 203, 245, 294, 343, 292. Linear scale from zero to 400 PRs.">
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-01" data-metric="merged" data-value="150" style="height: 37.5%;"><span>150</span></div><div class="month-bar" data-month="2026-01" data-metric="merged" data-value="176" style="height: 44%;"><span>176</span></div></div><div class="month-label">Jan</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-02" data-metric="merged" data-value="212" style="height: 53%;"><span>212</span></div><div class="month-bar" data-month="2026-02" data-metric="merged" data-value="199" style="height: 49.75%;"><span>199</span></div></div><div class="month-label">Feb</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-03" data-metric="merged" data-value="210" style="height: 52.5%;"><span>210</span></div><div class="month-bar" data-month="2026-03" data-metric="merged" data-value="376" style="height: 94%;"><span>376</span></div></div><div class="month-label">Mar</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-04" data-metric="merged" data-value="171" style="height: 42.75%;"><span>171</span></div><div class="month-bar" data-month="2026-04" data-metric="merged" data-value="222" style="height: 55.5%;"><span>222</span></div></div><div class="month-label">Apr</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-05" data-metric="merged" data-value="164" style="height: 41%;"><span>164</span></div><div class="month-bar" data-month="2026-05" data-metric="merged" data-value="203" style="height: 50.75%;"><span>203</span></div></div><div class="month-label">May</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-06" data-metric="merged" data-value="174" style="height: 43.5%;"><span>174</span></div><div class="month-bar" data-month="2026-06" data-metric="merged" data-value="245" style="height: 61.25%;"><span>245</span></div></div><div class="month-label">Jun</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-07" data-metric="merged" data-value="171" style="height: 42.75%;"><span>171</span></div><div class="month-bar" data-month="2026-07" data-metric="merged" data-value="294" style="height: 73.5%;"><span>294</span></div></div><div class="month-label">Jul</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-08" data-metric="merged" data-value="192" style="height: 48%;"><span>192</span></div><div class="month-bar" data-month="2026-08" data-metric="merged" data-value="343" style="height: 85.75%;"><span>343</span></div></div><div class="month-label">Aug</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2025-09" data-metric="merged" data-value="184" style="height: 46%;"><span>184</span></div><div class="month-bar" data-month="2026-09" data-metric="merged" data-value="292" style="height: 73%;"><span>292</span></div></div><div class="month-label">Sep</div></div>
                 </div>
             </div>
-            <div class="branding-footer">
-                <span>TRANSACTION SCALE DEPTH</span>
-                <span>Monthly Operations Growth</span>
-            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Matched Jan–Sep windows · all PR types · 0–400 scale</span></div>
         </div>
-
-        <!-- SLIDE 14: MERGE SPEED 2X FASTER -->
-        <div class="slide-container" id="slide14">
-            <h2 class="slide-title">Merge Speed: 2x Faster</h2>
+            <div class="slide-container evidence-slide keynote" id="everyday-workflow" data-keynote>
+                <div class="eyebrow">Not one magic prompt / a connected workflow</div>
+                <h2 class="slide-title">AI across the engineering loop.</h2>
+                <div class="content-area">
+                    <div class="workflow-strip"><div class="workflow-step"><i class="fa-solid fa-tags" aria-hidden="true"></i>Triage</div><div class="workflow-step"><i class="fa-solid fa-code" aria-hidden="true"></i>Code</div><div class="workflow-step"><i class="fa-solid fa-vial" aria-hidden="true"></i>Tests</div><div class="workflow-step"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Review</div><div class="workflow-step"><i class="fa-solid fa-gears" aria-hidden="true"></i>CI</div></div>
+                    <p class="evidence-lead" style="margin-top: 35px;">Context → candidates → checked evidence → human decisions.</p>
+                </div>
+                <div class="branding-footer"><span>AI SUPPORT THROUGHOUT · PEOPLE OWN THE WORK</span><a href="#slide5">Optional technical walkthrough</a></div>
+            </div>
+            <div class="slide-container evidence-slide keynote" id="ownership" data-keynote>
+                <div class="eyebrow">The winning combination</div>
+                <h2 class="ownership-title">AI-assisted.<br>Human-owned.</h2>
+                <div class="content-area">
+                    <p class="evidence-lead">All 60 Copilot app-authored merges in the snapshot<br>were merged by human-classified accounts.</p>
+                </div>
+                <div class="branding-footer"><span>JAN–SEP 2026 · PUBLIC SNAPSHOT · NOT PROOF OF MANUAL MERGE CLICKS</span><a href="#human-involvement">Human-involvement detail</a></div>
+            </div>
+        <div class="slide-container evidence-slide appendix" id="merge-counts">
+            <div class="eyebrow">Appendix / public event counts</div>
+            <h2 class="slide-title">Monthly PR activity: exact counts.</h2>
             <div class="content-area">
-                <p style="margin-bottom: 30px;">Time-to-merge distributions highlight the drop in tail latency (Median: 12.5 -> 6.3 days).</p>
-                
-                <div class="two-column" style="gap: 45px;">
-                    <div>
-                        <h4 style="font-size: 16px; margin-bottom: 15px; color: var(--color-red);">2025 (No Agents)</h4>
-                        <div class="bar-chart-horizontal">
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">Same Day</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 8%; background-color: var(--color-red);"><span>8%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">1-3 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 15%; background-color: var(--color-red);"><span>15%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">3-7 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 23%; background-color: var(--color-red);"><span>23%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">7-30 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 30%; background-color: var(--color-red);"><span>30%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">30+ Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 24%; background-color: var(--color-red);"><span>24%</span></div></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h4 style="font-size: 16px; margin-bottom: 15px; color: var(--color-green);">2026 (With Agents)</h4>
-                        <div class="bar-chart-horizontal">
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">Same Day</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 22%; background-color: var(--color-green);"><span>22%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">1-3 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 12%; background-color: var(--color-green);"><span>12%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">3-7 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 36%; background-color: var(--color-green);"><span>36%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">7-30 Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 22%; background-color: var(--color-green);"><span>22%</span></div></div>
-                            </div>
-                            <div class="horizontal-bar-row">
-                                <div class="horizontal-label">30+ Days</div>
-                                <div class="horizontal-track"><div class="horizontal-fill" style="width: 8%; background-color: var(--color-green);"><span>8%</span></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <table class="data-table"><caption>January–September calendar-month event counts</caption><thead><tr><th scope="col">Month</th><th scope="col">2025 opened</th><th scope="col">2025 merged</th><th scope="col">2026 opened</th><th scope="col">2026 merged</th></tr></thead><tbody>
+                    <tr><th scope="row">Jan</th><td>224</td><td>150</td><td>285</td><td>176</td></tr>
+                    <tr><th scope="row">Feb</th><td>273</td><td>212</td><td>283</td><td>199</td></tr>
+                    <tr><th scope="row">Mar</th><td>306</td><td>210</td><td>270</td><td>376</td></tr>
+                    <tr><th scope="row">Apr</th><td>237</td><td>171</td><td>267</td><td>222</td></tr>
+                    <tr><th scope="row">May</th><td>219</td><td>164</td><td>221</td><td>203</td></tr>
+                    <tr><th scope="row">Jun</th><td>301</td><td>174</td><td>269</td><td>245</td></tr>
+                    <tr><th scope="row">Jul</th><td>321</td><td>171</td><td>391</td><td>294</td></tr>
+                    <tr><th scope="row">Aug</th><td>241</td><td>192</td><td>529</td><td>343</td></tr>
+                    <tr><th scope="row">Sep</th><td>245</td><td>184</td><td>512</td><td>292</td></tr>
+                </tbody></table>
             </div>
-            <div class="branding-footer">
-                <span>DISTRIBUTION FREQUENCY</span>
-                <span>P75 latency decreased from 65 to 22 days</span>
-            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Same nine months · different PR mixes</span></div>
         </div>
 
-        <!-- SLIDE 15: CORE ALIGNMENT PHILOSOPHY -->
-        <div class="slide-container" id="slide15">
-            <div class="content-area" style="justify-content: center;">
-                <div class="two-column" style="align-items: center; gap: 60px;">
-                    <div>
-                        <div style="font-size: 36px; color: var(--brand-purple); margin-bottom: 20px;"><i class="fa-solid fa-quote-left"></i></div>
-                        <h3 style="font-size: 32px; line-height: 1.35; font-weight: 600; color: var(--text-main);">
-                            "Agents don't replace reviewers. They make reviewers <span style="color: var(--brand-purple); font-weight: 700;">3x more effective</span>."
-                        </h3>
-                    </div>
-                    
-                    <div class="grid-3x2" style="grid-template-columns: 1fr 1fr; gap: 20px; height: auto;">
-                        <div class="dev-card" style="padding: 20px;">
-                            <div style="font-size: 28px; font-weight: 700; color: var(--brand-purple);">-50%</div>
-                            <p style="font-size: 13px; font-weight: 600;">Merge Time</p>
-                        </div>
-                        <div class="dev-card" style="padding: 20px; border-top-color: var(--brand-cyan);">
-                            <div style="font-size: 28px; font-weight: 700; color: var(--brand-cyan);">+175%</div>
-                            <p style="font-size: 13px; font-weight: 600;">Same-day Merges</p>
-                        </div>
-                        <div class="dev-card" style="padding: 20px; border-top-color: var(--brand-cyan);">
-                            <div style="font-size: 28px; font-weight: 700; color: var(--brand-cyan);">67</div>
-                            <p style="font-size: 13px; font-weight: 600;">Bugs Caught</p>
-                        </div>
-                        <div class="dev-card" style="padding: 20px;">
-                            <div style="font-size: 28px; font-weight: 700; color: var(--brand-purple);">428</div>
-                            <p style="font-size: 13px; font-weight: 600;">Total PRs Reviewed</p>
-                        </div>
-                    </div>
+        <div class="slide-container evidence-slide" id="ai-evolution">
+            <div class="eyebrow">Public metadata / lower-bound corroboration</div>
+            <h2 class="slide-title">AI participation is visible at scale.</h2>
+            <div class="content-area">
+                <div class="metric-strip"><div><strong>1,738 / 2,350</strong> <span>2026 merged PRs with a signal</span></div><strong>74.0%</strong></div>
+                <div class="chart-legend"><span class="all-merges">All 2026 merges</span><span>At least one observed AI signal</span></div>
+                <div class="monthly-chart" role="img" aria-label="All 2026 monthly merges versus the subset with at least one observed AI signal, January through September. All merges: 176, 199, 376, 222, 203, 245, 294, 343, 292. AI-signal subset: 59, 110, 317, 188, 163, 195, 234, 232, 240. Zero to 400 PR scale.">
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-01" data-metric="merged" data-value="176" style="height: 44%;"><span>176</span></div><div class="month-bar" data-month="2026-01" data-metric="any_observed_ai_signal" data-value="59" style="height: 14.75%;"><span>59</span></div></div><div class="month-label">Jan</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-02" data-metric="merged" data-value="199" style="height: 49.75%;"><span>199</span></div><div class="month-bar" data-month="2026-02" data-metric="any_observed_ai_signal" data-value="110" style="height: 27.5%;"><span>110</span></div></div><div class="month-label">Feb</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-03" data-metric="merged" data-value="376" style="height: 94%;"><span>376</span></div><div class="month-bar" data-month="2026-03" data-metric="any_observed_ai_signal" data-value="317" style="height: 79.25%;"><span>317</span></div></div><div class="month-label">Mar</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-04" data-metric="merged" data-value="222" style="height: 55.5%;"><span>222</span></div><div class="month-bar" data-month="2026-04" data-metric="any_observed_ai_signal" data-value="188" style="height: 47%;"><span>188</span></div></div><div class="month-label">Apr</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-05" data-metric="merged" data-value="203" style="height: 50.75%;"><span>203</span></div><div class="month-bar" data-month="2026-05" data-metric="any_observed_ai_signal" data-value="163" style="height: 40.75%;"><span>163</span></div></div><div class="month-label">May</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-06" data-metric="merged" data-value="245" style="height: 61.25%;"><span>245</span></div><div class="month-bar" data-month="2026-06" data-metric="any_observed_ai_signal" data-value="195" style="height: 48.75%;"><span>195</span></div></div><div class="month-label">Jun</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-07" data-metric="merged" data-value="294" style="height: 73.5%;"><span>294</span></div><div class="month-bar" data-month="2026-07" data-metric="any_observed_ai_signal" data-value="234" style="height: 58.5%;"><span>234</span></div></div><div class="month-label">Jul</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-08" data-metric="merged" data-value="343" style="height: 85.75%;"><span>343</span></div><div class="month-bar" data-month="2026-08" data-metric="any_observed_ai_signal" data-value="232" style="height: 58%;"><span>232</span></div></div><div class="month-label">Aug</div></div>
+                    <div class="month-group"><div class="month-bars"><div class="month-bar previous-year" data-month="2026-09" data-metric="merged" data-value="292" style="height: 73%;"><span>292</span></div><div class="month-bar" data-month="2026-09" data-metric="any_observed_ai_signal" data-value="240" style="height: 60%;"><span>240</span></div></div><div class="month-label">Sep</div></div>
                 </div>
+                <p class="source-note">Labels, app authorship or commit credit; overlapping signals counted once. Jan–Sep snapshot detects less than all AI use and is separate from the June-onward maintainer estimate. <a href="#ai-counts">Exact counts</a> · <a href="#methodology">Definitions</a>.</p>
             </div>
-            <div class="branding-footer">
-                <span>COOPERATIVE ALIGNMENT MODEL</span>
-                <span>Performance Proofs</span>
-            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>0–400 PR scale · not total adoption coverage</span></div>
         </div>
+        <div class="slide-container evidence-slide appendix" id="ai-counts">
+            <div class="eyebrow">Appendix / overlapping metadata signals</div>
+            <h2 class="slide-title">AI signals: exact subset counts.</h2>
+            <div class="content-area">
+                <table class="data-table"><caption>2026 merged PRs; signals observed at snapshot time</caption><thead><tr><th scope="col">Month</th><th scope="col">All merges</th><th scope="col">Signal union</th><th scope="col">Review label</th><th scope="col">App author or credit</th></tr></thead><tbody>
+                    <tr><th scope="row">Jan</th><td>176</td><td>59</td><td>12</td><td>47</td></tr>
+                    <tr><th scope="row">Feb</th><td>199</td><td>110</td><td>55</td><td>59</td></tr>
+                    <tr><th scope="row">Mar</th><td>376</td><td>317</td><td>244</td><td>148</td></tr>
+                    <tr><th scope="row">Apr</th><td>222</td><td>188</td><td>111</td><td>126</td></tr>
+                    <tr><th scope="row">May</th><td>203</td><td>163</td><td>135</td><td>83</td></tr>
+                    <tr><th scope="row">Jun</th><td>245</td><td>195</td><td>139</td><td>123</td></tr>
+                    <tr><th scope="row">Jul</th><td>294</td><td>234</td><td>148</td><td>162</td></tr>
+                    <tr><th scope="row">Aug</th><td>343</td><td>232</td><td>128</td><td>161</td></tr>
+                    <tr><th scope="row">Sep</th><td>292</td><td>240</td><td>151</td><td>150</td></tr>
+                </tbody></table>
+            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Overlapping signals counted once · 0–400 PR scale</span></div>
+        </div>
+
+        <div class="slide-container evidence-slide" id="review-capacity">
+            <div class="eyebrow">Review support / people still write the PRs</div>
+            <h2 class="slide-title">AI builds. AI reviews.</h2>
+            <div class="content-area">
+                <div class="comparison-grid">
+                    <div class="visual-panel"><h3>Coding signal</h3><div class="display-value">1,059</div><p>Copilot app author or commit credit.</p></div>
+                    <div class="visual-panel"><h3>Review signal</h3><div class="display-value">1,123</div><p>Current agent-reviewed label.</p></div>
+                </div>
+                <p class="takeaway">444 PRs overlap. 1,738 unique PRs have an observed signal.</p>
+                <p class="source-note">868 human-account-authored PRs carry explicit Copilot credit. Jan–Sep 2026; public signals, not autonomous work. <a href="#methodology">Scope and scan limits</a>.</p>
+                <p class="speaker-note">Talk track: the observable change is wider participation in the workflow. These counts do not measure reviewer hours saved, finding quality, or AI's share of the code.</p>
+            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Detected participation, not measured review capacity</span></div>
+        </div>
+
+        <div class="slide-container evidence-slide" id="human-involvement">
+            <div class="eyebrow">App-authored does not mean AI-only</div>
+            <h2 class="slide-title">Humans remain in the loop.</h2>
+            <div class="content-area">
+                <p class="evidence-lead">60 Copilot app-authored PRs merged; 37 in the matched 2025 window.</p>
+                <div class="evidence-grid">
+                    <div class="evidence-card"><h3>60 / 60</h3><p>Merged by human-classified accounts.</p></div>
+                    <div class="evidence-card"><h3>55 / 60</h3><p>Visible human comment or review before merge.</p></div>
+                    <div class="evidence-card"><h3>44 / 60</h3><p>Visible human approval before merge.</p></div>
+                </div>
+                <p class="takeaway">The other five are not proven human-free.</p>
+                <p class="source-note">Jan–Sep 2026. Account classification is not proof of manual merge clicks. <a href="#methodology">Definitions</a> · <a href="evidence/maui-ai-evidence-2026-10-04.json" download>Full cohort</a>.</p>
+            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>No “zero human interaction” percentage inferred</span></div>
+        </div>
+
+        <div class="slide-container evidence-slide" id="community-uptake">
+            <div class="eyebrow">A visible collaboration signal</div>
+            <h2 class="slide-title">Suggestions can become contributions.</h2>
+            <div class="content-area">
+                <div class="metric-strip"><strong>168</strong><span>community-labeled merged PRs also carry an implementation/adoption label</span></div>
+                <blockquote class="takeaway" style="font-size: 27px;">“@kubaflo I have updated the changes”</blockquote>
+                <p class="evidence-lead">On an Android SearchBar PR, the public commit sequence includes “Updated suggestion” and “committed the suggestion”.</p>
+                <p class="speaker-note">Talk track: feedback and revision are part of engineering. Visible uptake is encouraging, but adoption alone does not validate a suggestion or measure satisfaction.</p>
+                <p class="source-note">Source: <a href="https://github.com/dotnet/maui/pull/35197#issuecomment-4388181135" target="_blank" rel="noopener">dotnet/maui#35197 · author's public follow-up</a>. Count uses current <code>s/agent-suggestions-implemented</code> OR <code>s/agent-fix-implemented</code> on the 1,139 community-labeled merges. <a href="evidence/maui-ai-examples-2026-10-04.json" download>Examples and caveats</a>.</p>
+            </div>
+            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Uptake, not a quality score or satisfaction survey</span></div>
+        </div>
+
+        <div class="slide-container evidence-slide appendix" id="methodology">
+            <div class="eyebrow">Appendix / sources and scope</div>
+            <h2 class="slide-title">Two sources. Two different scopes.</h2>
+            <div class="content-area">
+                <div class="evidence-grid">
+                    <div class="evidence-card"><h3>Matched windows</h3><p>January through September in each year. UTC merge-date buckets; October is partial and excluded.</p></div>
+                    <div class="evidence-card"><h3>Repository-wide</h3><p>All dotnet/maui PRs in scope, including ports and dependency automation. A merge is not a unique feature or bug fix.</p></div>
+                    <div class="evidence-card"><h3>Observable signals</h3><p>Review labels are current state, not event-time coverage; they can change later. App authorship is a different, incomplete AI signal.</p></div>
+                </div>
+                <p class="takeaway">≈99% is a maintainer-reported estimate supplied 05 Oct 2026, covering June 2026 onward. It is not computed from the Jan–Sep snapshot. <a href="evidence/maintainer-adoption-2026-10-05.json" download>Estimate provenance</a>.</p>
+                <p class="speaker-note">Do not compare the old May deck's reviewed-PR total with a count of merged PRs carrying a label. The populations and time windows differ. Only the first 100 original commits are scanned; 27 current-year PRs are truncated, with merge-commit credit also checked.</p>
+                <p class="source-note">Collected <time datetime="2026-10-04T22:46:17Z">04 Oct 2026, 22:46:17 UTC</time>. <a href="evidence/maui-ai-evidence-2026-10-04.json" download>Full dated JSON</a> · <a href="evidence/maui-ai-examples-2026-10-04.json" download>Qualitative sources</a> · <a href="evidence/collect_maui_ai_evidence.py" download>Reproducible collector</a> (existing GitHub CLI login; run <code>python3 evidence/collect_maui_ai_evidence.py --output fresh-snapshot.json</code>).</p>
+            </div>
+            <div class="branding-footer"><span>REPRODUCIBLE PUBLIC GITHUB SNAPSHOT</span><span>3,978 PR records · 18 monthly buckets · October excluded</span></div>
+        </div>
+
+        <div class="slide-container evidence-slide appendix" id="limitations">
+            <div class="eyebrow">Lessons / keep the win honest</div>
+            <h2 class="slide-title">What the figures do—and do not—show.</h2>
+            <div class="content-area">
+                <div class="evidence-grid">
+                    <div class="evidence-card"><h3>Incomplete traces</h3><p>Public metadata misses local and private AI assistance.</p></div>
+                    <div class="evidence-card"><h3>Test the suggestion</h3><p>Passing selected tests is not proof of universal correctness.</p></div>
+                    <div class="evidence-card"><h3>Compare cohorts</h3><p>PR mix and release timing also affect outcomes.</p></div>
+                </div>
+
+                <p class="takeaway">Community median: 12.211 → 9.067 days. All-PR median: 1.689 → 3.004 days. Observed outcomes—not causal AI attribution.</p>
+                <p class="speaker-note">No causal productivity multiplier, shipped-regression rate, satisfaction score, or human-free percentage is measured. Opened and merged PRs are independent event cohorts.</p>
+            </div>
+            <div class="branding-footer"><span>HUMAN ACCOUNTABILITY STAYS</span><span>No review or merge SLA implied</span></div>
+        </div>
+                <div class="slide-container evidence-slide appendix" id="human-validation">
+                    <div class="eyebrow">A real human checkpoint</div>
+                    <h2 class="slide-title">A label is not a verdict.</h2>
+                    <div class="content-area">
+                        <blockquote class="takeaway" style="font-size: 27px; line-height: 1.5;">
+                            “I tested this locally, and it did not resolve the issue.”
+                        </blockquote>
+                        <div class="evidence-grid">
+                            <div class="evidence-card"><h3>Label says uptake</h3><p>Win / implementation labels are present.</p></div>
+                            <div class="evidence-card"><h3>Author tests</h3><p>The suggestion did not fix the issue.</p></div>
+                            <div class="evidence-card"><h3>Learn and verify</h3><p>Behavior matters more than a badge.</p></div>
+                        </div>
+                        <p class="source-note"><a href="https://github.com/dotnet/maui/pull/35358#issuecomment-4438010132" target="_blank" rel="noopener">dotnet/maui#35358 · author follow-up</a> · <a href="evidence/maui-ai-examples-2026-10-04.json" download>04 Oct 2026 snapshot</a>. Ineffective suggestion—not proof of a shipped regression.</p>
+                        <p class="speaker-note">Talk track: this is why the human loop matters. Public disagreement is useful evidence, not something to hide behind a success badge.</p>
+                    </div>
+                    <div class="branding-footer"><span>MAKE FEEDBACK PART OF THE SYSTEM</span><span>One example, not a failure-rate estimate</span></div>
+                </div>
 
         <!-- SLIDE 16: SUBMIT A PR TODAY -->
         <div class="slide-container" id="slide16">
@@ -1588,32 +1776,32 @@
                     
                     <div style="z-index: 1; text-align: center; width: 22%;">
                         <div style="width: 26px; height: 26px; background: var(--brand-purple); border-radius: 50%; border: 4px solid white; outline: 2px solid var(--brand-purple); margin: 0 auto 15px;"></div>
-                        <h4 style="font-size: 18px;">Within Minutes</h4>
+                        <h4 style="font-size: 18px;">Classify</h4>
                         <p style="font-size: 14px; color: var(--text-muted); margin-top: 5px;">Auto-labeled with area & platform tags.</p>
                     </div>
                     
                     <div style="z-index: 1; text-align: center; width: 22%;">
                         <div style="width: 26px; height: 26px; background: var(--brand-cyan); border-radius: 50%; border: 4px solid white; outline: 2px solid var(--brand-cyan); margin: 0 auto 15px;"></div>
-                        <h4 style="font-size: 18px;">Within 1 Hour</h4>
+                        <h4 style="font-size: 18px;">Gather evidence</h4>
                         <p style="font-size: 14px; color: var(--text-muted); margin-top: 5px;">AI review with actionable feedback posted directly.</p>
                     </div>
                     
                     <div style="z-index: 1; text-align: center; width: 22%;">
                         <div style="width: 26px; height: 26px; background: var(--brand-purple); border-radius: 50%; border: 4px solid white; outline: 2px solid var(--brand-purple); margin: 0 auto 15px;"></div>
-                        <h4 style="font-size: 18px;">Within a Day</h4>
+                        <h4 style="font-size: 18px;">Human review</h4>
                         <p style="font-size: 14px; color: var(--text-muted); margin-top: 5px;">Human reviewer assigns feedback with AI context.</p>
                     </div>
                     
                     <div style="z-index: 1; text-align: center; width: 22%;">
                         <div style="width: 26px; height: 26px; background: var(--color-green); border-radius: 50%; border: 4px solid white; outline: 2px solid var(--color-green); margin: 0 auto 15px;"></div>
-                        <h4 style="font-size: 18px;">Median 6.3 Days</h4>
-                        <p style="font-size: 14px; color: var(--text-muted); margin-top: 5px;">Code merged. Your fix ships inside .NET packages.</p>
+                        <h4 style="font-size: 18px;">Maintainer decision</h4>
+                        <p style="font-size: 14px; color: var(--text-muted); margin-top: 5px;">Merge only when ready; shipping follows the release process.</p>
                     </div>
                 </div>
             </div>
             <div class="branding-footer">
                 <span>DEVELOPER WORKFLOW TIMELINE</span>
-                <span>Repository Turnaround Speed</span>
+                <span>Conceptual sequence, not a turnaround guarantee</span>
             </div>
         </div>
 
@@ -1627,7 +1815,7 @@
                             <div style="color: var(--brand-purple); font-size: 24px; padding-top: 2px;"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                             <div>
                                 <h4 style="font-size: 18px;">Contribute to MAUI</h4>
-                                <p style="font-size: 15px; margin-top: 5px;">Your PR gets AI-powered review automatically.</p>
+                                <p style="font-size: 15px; margin-top: 5px;">Bring a clear repro and tests; AI-assisted review can add evidence, not a guaranteed signoff.</p>
                             </div>
                         </div>
                         <div style="display: flex; gap: 15px; align-items: start;">
@@ -1649,11 +1837,12 @@
                     <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                         <!-- Real QR Code via API -->
                         <div style="background: white; padding: 10px; display: inline-block;">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://github.com/dotnet/maui/wiki/Using-AI-to-Work-on-.NET-MAUI&color=512BD4" alt="QR Code to MAUI Wiki" width="180" height="180">
+                            <img src="wiki-qr.png" alt="QR Code to MAUI Wiki" width="180" height="180">
                         </div>
                         <p style="font-family: monospace; font-size: 13px; font-weight: bold; margin-top: 15px; color: var(--brand-purple);">
-                            github.com/dotnet/maui/wiki/
+                            <a href="https://github.com/dotnet/maui/wiki/Using-AI-to-Work-on-.NET-MAUI" style="color: inherit;">Using AI to Work on .NET MAUI</a>
                         </p>
+                        <p style="font-size: 16px; margin-top: 12px;"><code>/share file</code> · <code>/share gist</code></p>
                     </div>
                 </div>
             </div>
@@ -1664,7 +1853,7 @@
         </div>
 
         <!-- SLIDE 18: THANK YOU -->
-        <div class="slide-container" id="slide18">
+        <div class="slide-container" id="slide18" data-keynote>
             <div class="content-area" style="justify-content: center; align-items: center; text-align: center;">
                 <h1 style="font-size: 80px; color: var(--brand-purple); margin-bottom: 20px;">Thank You!</h1>
                 <p style="font-size: 28px; color: var(--text-muted); margin-bottom: 50px;">Questions?</p>
@@ -1675,82 +1864,369 @@
                         <h4 style="font-size: 18px; margin-bottom: 5px;">Jakub Florkowski</h4>
                         <p style="font-size: 16px; color: var(--brand-purple); font-weight: 600;">@kubaflo</p>
                     </div>
-                    <div style="text-align: center;">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://www.linkedin.com/in/jfversluis/&color=512BD4" alt="Gerald LinkedIn QR" width="160" height="160" style="margin-bottom: 12px;">
-                        <h4 style="font-size: 18px; margin-bottom: 5px;">Gerald Versluis</h4>
-                        <p style="font-size: 16px; color: var(--brand-purple); font-weight: 600;">@jfversluis</p>
-                    </div>
                 </div>
             </div>
             <div class="branding-footer">
                 <span>github.com/dotnet/maui/wiki</span>
-                <span>MAUI DAY KRAKÓW</span>
+                <span>UNIVERSITY TALK · OCTOBER 6, 2026</span>
             </div>
         </div>
 
     </div>
 
+    <template id="expanded-story">
+        <div class="slide-container evidence-slide" id="coding-share">
+            <div class="eyebrow">Visual comparison / same public-credit rule</div>
+            <h2 class="slide-title">From a small slice to everyday evidence.</h2>
+            <div class="content-area comparison-grid">
+                <div class="visual-panel"><h3>Jan–Sep 2025</h3><div class="display-value">8.0%</div><p>131 / 1,628 merged PRs</p><div class="waffle" data-credit-year="2025" role="img" aria-label="8 of 100 cells filled; rounded coding-signal share of 8.0 percent"></div></div>
+                <div class="visual-panel"><h3>Jan–Sep 2026</h3><div class="display-value">45.1%</div><p>1,059 / 2,350 merged PRs</p><div class="waffle" data-credit-year="2026" role="img" aria-label="45 of 100 cells filled; rounded coding-signal share of 45.1 percent"></div></div>
+            </div>
+            <div class="branding-footer"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>PUBLIC CODING SIGNAL · SNAPSHOT 04 OCT 2026</a><span>One cell ≈1% · copied credits/underdetection apply</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="pr-commands">
+            <div class="eyebrow">Recent tools / pull request comments</div>
+            <h2 class="slide-title">Ask in GitHub. Get engineering evidence.</h2>
+            <div class="content-area command-list">
+                <div class="command-row"><div><span class="command-state">Live</span><br><code>/review</code></div><p>Full code review, test gate and alternative-fix pipeline.</p></div>
+                <div class="command-row"><div><span class="command-state">Live</span><br><code>/review tests</code></div><p>Attribute CI failures against five target-branch runs per pipeline.</p></div>
+                <div class="command-row"><div><span class="command-state">Live</span><br><code>/review performance</code></div><p>Pinned managed Release base/head: ABBA timing + allocations.</p></div>
+                <p class="source-note">Maintainer permissions required. Tests: report-only, three pipelines—not test writing or CI reruns. Performance: hosted Linux, not native-device coverage.</p>
+            </div>
+            <div class="branding-footer"><a href="https://github.com/dotnet/maui/blob/7f52ae4d0b8c41e966a1a3a9a6f8348c2a45de95/.github/docs/pr-review-workflow.md">COMMANDS CHECKED 05 OCT 2026</a><a href="https://github.com/dotnet/maui/pull/39037">dotnet/maui#39037 · readable performance reports</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="issue-commands">
+            <div class="eyebrow">Recent tools / issue comments</div>
+            <h2 class="slide-title">Issue intelligence, on demand.</h2>
+            <div class="content-area command-list">
+                <div class="command-row"><div><span class="command-state">Live</span><br><code>/issue trace-regression</code></div><p>Evidence-calibrated candidate introducing commits and PRs.</p></div>
+                <div class="command-row"><div><span class="command-state">Coming next · open PR</span><br><code>/issue triage</code></div><p>Evidence-backed taxonomy labels + missing-information questions.</p></div>
+                <p class="takeaway">Less repetitive investigation. Decisions stay with maintainers.</p>
+                <p class="source-note">Trace is report-only—not automatic repro, bisect or fix. Triage does not close issues or change milestones, assignees or code. Maintainer permissions required.</p>
+            </div>
+            <div class="branding-footer"><a href="https://github.com/dotnet/maui/pull/39121">dotnet/maui#39121 · trace improvements in flight</a><a href="https://github.com/dotnet/maui/pull/39065">dotnet/maui#39065 · triage in flight</a><a href="evidence/maui-command-capabilities-2026-10-05.json" download>05 Oct command facts + sources</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="candidate-comparison">
+            <div class="eyebrow">Try-fix / compare evidence, not authorship</div>
+            <h2 class="slide-title">A second idea earns its place.</h2>
+            <div class="content-area"><div class="evidence-grid"><div class="evidence-card"><h3>Original approach</h3><p>Understand the behavior and constraints.</p></div><div class="evidence-card"><h3>AI alternative</h3><p>Build a candidate; run the same checks.</p></div><div class="evidence-card"><h3>Review decision</h3><p>Prefer the better-supported approach.</p></div></div><p class="takeaway">“Original” does not mean AI-free. A workflow preference is not a blind quality benchmark.</p></div>
+            <div class="branding-footer"><span>ILLUSTRATIVE COMPARISON · NO WIN-RATE CLAIM</span><a href="#human-validation">Keep human validation in the loop</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="historical-growth">
+            <div class="eyebrow">Historical comparison / the same nine months</div>
+            <h2 class="slide-title">2026 leads the matched merge counts.</h2>
+            <div class="content-area"><div class="history-bars" id="history-total-bars" role="img"></div><p class="evidence-lead">Merged PRs. Opened separately: 2,051 → 1,793 → 2,367 → 3,027.</p></div>
+            <div class="branding-footer"><span class="history-source"></span><a href="#historical-methods">Matched periods and source data</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="historical-monthly">
+            <div class="eyebrow">Four years / monthly merge cadence</div>
+            <h2 class="slide-title">Compare the trajectory—not just the total.</h2>
+            <div class="content-area"><div class="history-legend" id="history-monthly-legend"></div><svg class="history-svg" id="history-monthly-svg" viewBox="0 0 1080 330" role="img" aria-label="Matched January–September monthly merged PR counts, 2023 through 2026"></svg><p class="source-note">UTC merge-date buckets; zero baseline. Each line is one year, not a cohort transition.</p></div>
+            <div class="branding-footer"><span class="history-source"></span><a href="#historical-methods">Exact monthly data and definitions</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="historical-community">
+            <div class="eyebrow">Historical comparison / community-labeled merges</div>
+            <h2 class="slide-title">A much larger visible contributor stream.</h2>
+            <div class="content-area"><div class="history-bars" id="history-community-bars" role="img"></div><p class="evidence-lead">Same current-label criterion. Historical labeling completeness may differ.</p></div>
+            <div class="branding-footer"><span class="history-source"></span><a href="#historical-methods">Community timing and cohort definitions</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="historical-timing">
+            <div class="eyebrow">Historical comparison / community median</div>
+            <h2 class="slide-title">Faster than 2025—not fastest ever.</h2>
+            <div class="content-area"><div class="history-bars" id="history-timing-bars" role="img"></div><p class="evidence-lead">PR creation → merge, in days. 2023's cohort was only 75 PRs.</p></div>
+            <div class="branding-footer"><span class="history-source"></span><a href="#historical-methods">Cohort mix and all-PR timing</a></div>
+        </div>
+        <div class="slide-container evidence-slide appendix" id="historical-methods">
+            <div class="eyebrow">Sources / historical comparison</div>
+            <h2 class="slide-title">Matched dates. Different PR mixes.</h2>
+            <div class="content-area">
+                <table class="data-table"><caption>Jan–Sep merge-date cohorts; current community label</caption><thead><tr><th scope="col">Year</th><th scope="col">Opened</th><th scope="col">Merged</th><th scope="col">Community</th><th scope="col">Community median days</th><th scope="col">All-PR median days</th></tr></thead><tbody id="history-summary-table"></tbody></table>
+                <p class="source-note">2023/2024 collected 05 Oct 2026, 12:03:41 UTC. 2025/2026 retain the unchanged snapshot from 04 Oct 2026, 22:46:17 UTC. Historical label practice/completeness, release cadence and PR mix may differ. Opened and merged are independent event counts. Growth is not causal AI attribution.</p>
+                <p class="source-note">2023/2024 coding-credit signals are unmeasured, not zero. No satisfaction, AI-only, shipped-regression or issue-to-shipping rate is measured.</p>
+                <p class="source-note"><a href="evidence/maui-ai-historical-2026-10-05.json" download>Historical JSON · 36 monthly rows + 3,024 older PRs</a> · <a href="evidence/collect_maui_historical_evidence.py" download>Collector</a> · <a href="evidence/maui-ai-evidence-2026-10-04.json" download>Existing 3,978-PR snapshot</a>.</p>
+                <p class="source-note"><code>python3 evidence/collect_maui_historical_evidence.py --current-snapshot evidence/maui-ai-evidence-2026-10-04.json --output fresh-history.json</code></p>
+            </div>
+            <div class="branding-footer"><span>7,002 UNIQUE MERGED PR RECORDS ACROSS TWO SNAPSHOTS</span><span>Reproducible public evidence</span></div>
+        </div>
+        <div class="slide-container evidence-slide keynote" id="then-now">
+            <div class="eyebrow">Engineering loop / qualitative comparison</div>
+            <h2 class="slide-title">From repeated steps to reusable evidence.</h2>
+            <div class="content-area comparison-grid">
+                <div class="comparison-panel"><h3>Manual repetition</h3><p>Find context.<br>Reproduce the issue.<br>Repeat the checks.<br>Explain the result.</p></div>
+                <div class="comparison-panel"><h3>Agent-supported loop</h3><p>Load repository context.<br>Generate a test candidate.<br>Run configured checks.<br>Leave reviewable evidence.</p></div>
+            </div>
+            <div class="branding-footer"><span>WORKFLOW COMPARISON · NOT MEASURED HUMAN HOURS</span><span>Judgment stays with people</span></div>
+        </div>
+        <div class="slide-container evidence-slide keynote" id="platform-surface">
+            <div class="eyebrow">One shared framework / different platform behavior</div>
+            <h2 class="slide-title">A fix has more than one target.</h2>
+            <div class="content-area">
+                <div class="workflow-strip" style="grid-template-columns: repeat(4, 1fr);"><div class="workflow-step">Android</div><div class="workflow-step">iOS</div><div class="workflow-step">Windows</div><div class="workflow-step">Mac Catalyst</div></div>
+                <p class="evidence-lead" style="margin-top: 35px;">Shared code is not proof of shared behavior.</p>
+            </div>
+            <div class="branding-footer"><span>PLATFORM-AWARE REVIEW AND TEST SELECTION</span><span>Validate the affected target</span></div>
+        </div>
+        <div class="slide-container evidence-slide keynote" id="gate-proof">
+            <div class="eyebrow">Gate verification / the same regression test</div>
+            <h2 class="slide-title">Make the test prove the fix matters.</h2>
+            <div class="content-area test-proof">
+                <div class="proof-state"><span>Without the fix</span><strong>FAIL</strong></div><div style="font-size: 60px; color: var(--brand-purple);">→</div><div class="proof-state"><span>With the fix</span><strong>PASS</strong></div>
+            </div>
+            <div class="branding-footer"><span>DESIRED GATE EVIDENCE · ILLUSTRATIVE, NOT A RUN RESULT</span><span>Same scenario, controlled change</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="device-validation">
+            <div class="eyebrow">From generated code to observed behavior</div>
+            <h2 class="slide-title">Build → deploy → exercise → inspect.</h2>
+            <div class="content-area">
+                <div class="evidence-grid"><div class="evidence-card"><h3>Build the candidate</h3><p>Correct SDK, target and configuration.</p></div><div class="evidence-card"><h3>Exercise the repro</h3><p>Run the selected scenario on an available emulator or simulator.</p></div><div class="evidence-card"><h3>Inspect the evidence</h3><p>Logs, assertions, failures and missing coverage.</p></div></div>
+                <p class="takeaway">Unavailable target? Report the gap—not a success-shaped fallback.</p>
+            </div>
+            <div class="branding-footer"><span>VALIDATION DESIGN · NOT ALL PLATFORMS RUN EVERY TIME</span><span>Execution limits must be visible</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="review-context">
+            <div class="eyebrow">Review design / turn findings into decisions</div>
+            <h2 class="slide-title">Context belongs beside the code.</h2>
+            <div class="content-area comparison-grid"><div class="comparison-panel"><h3>Weak feedback</h3><p>“This might be wrong.”</p></div><div class="comparison-panel"><h3>Reviewable feedback</h3><p>File + line.<br>Failure scenario.<br>Reasoning.<br>What to verify next.</p></div></div>
+            <div class="branding-footer"><span>ILLUSTRATIVE FEEDBACK FORMAT</span><a href="https://github.com/dotnet/maui/pull/35590">Public expert-review example</a></div>
+        </div>
+        <div class="slide-container evidence-slide keynote" id="coding-credit-growth">
+            <div class="eyebrow">Historical comparison / visible Copilot authorship or credit</div>
+            <h2 class="slide-title">Coding assistance leaves more traces.</h2>
+            <div class="content-area result-layout"><div><div class="adoption-number">8.1×</div><p class="evidence-lead">131 → 1,059 merged PRs</p></div><div class="comparison-panel"><h3>2025 → 2026</h3><p>Matched Jan–Sep.<br>App author OR explicit commit credit.</p></div></div>
+            <div class="branding-footer"><span>SNAPSHOT 04 OCT 2026 · CREDITS MAY PROPAGATE THROUGH PORTS</span><a href="#methodology">Observable signals, not all AI use</a></div>
+        </div>
+        <div class="slide-container evidence-slide keynote" id="community-review-reach">
+            <div class="eyebrow">Review support / community participation</div>
+            <h2 class="slide-title">Review assistance reaches contributors.</h2>
+            <div class="content-area result-layout"><div><div class="adoption-number" style="font-size: 160px;">845</div><p class="evidence-lead">community-labeled merges<br>also carry the agent-reviewed label</p></div><div class="comparison-panel"><h3>1,123 total</h3><p>Observed review-labeled merges in Jan–Sep 2026.</p></div></div>
+            <div class="branding-footer"><span>CURRENT LABEL STATE · SNAPSHOT 04 OCT 2026</span><span>Not historical event-time coverage</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="case-searchbar">
+            <div class="eyebrow">Case study / Android SearchBar</div>
+            <h2 class="slide-title">A suggestion becomes a revision.</h2>
+            <div class="content-area"><blockquote class="takeaway" style="font-size: 32px;">“@kubaflo I have updated the changes”</blockquote><div class="workflow-strip" style="grid-template-columns: repeat(3, 1fr);"><div class="workflow-step">Feedback</div><div class="workflow-step">Updated suggestion</div><div class="workflow-step">Merged PR</div></div><p class="evidence-lead">Landscape IME behavior: a concrete contributor loop.</p></div>
+            <div class="branding-footer"><a href="https://github.com/dotnet/maui/pull/35197#issuecomment-4388181135">dotnet/maui#35197 · author follow-up</a><span>One uptake example—not a satisfaction score</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="case-collectionview">
+            <div class="eyebrow">Case study / Android CollectionView</div>
+            <h2 class="slide-title">The contributor catches the missing condition.</h2>
+            <div class="content-area"><div class="evidence-grid"><div class="evidence-card"><h3>Proposed change</h3><p>A sync-first approach to the animation problem.</p></div><div class="evidence-card"><h3>Local check</h3><p>The original issue remains; recycled items also need care.</p></div><div class="evidence-card"><h3>Engineering lesson</h3><p>Validate lifecycle conditions, not just plausible code.</p></div></div><p class="takeaway">Human testing is part of the AI-assisted workflow.</p></div>
+            <div class="branding-footer"><a href="https://github.com/dotnet/maui/pull/35358#issuecomment-4438010132">dotnet/maui#35358 · author report</a><span>Not evidence of a shipped AI regression</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="reusable-lessons">
+            <div class="eyebrow">Make the approach portable</div>
+            <h2 class="slide-title">Teach the repository—not every prompt.</h2>
+            <div class="content-area"><div class="evidence-grid"><div class="evidence-card"><h3>Instructions</h3><p>Architecture, conventions and platform pitfalls.</p></div><div class="evidence-card"><h3>Skills</h3><p>Repeatable steps with explicit inputs and outputs.</p></div><div class="evidence-card"><h3>Evidence</h3><p>Tests, logs and source-linked findings.</p></div></div><p class="takeaway">Reuse context. Verify claims. Preserve human decisions.</p></div>
+            <div class="branding-footer"><a href="https://github.com/dotnet/maui/tree/d8b87161cccb95b6163c103fca262d8890030bac/.github">Pinned public repository examples</a><span>Adopt the pattern, not a promise</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="contributor-start">
+            <div class="eyebrow">Your first contribution / make it reviewable</div>
+            <h2 class="slide-title">Bring a repro. Leave evidence.</h2>
+            <div class="content-area"><div class="workflow-strip" style="grid-template-columns: repeat(4, 1fr);"><div class="workflow-step">Minimal repro</div><div class="workflow-step">Target platform</div><div class="workflow-step">Regression test</div><div class="workflow-step">Clear PR</div></div><p class="evidence-lead" style="margin-top: 35px;">Use AI for preparation—not as a substitute for understanding.</p></div>
+            <div class="branding-footer"><span>CONTRIBUTOR CHECKLIST</span><a href="https://github.com/dotnet/maui/wiki/Using-AI-to-Work-on-.NET-MAUI">Public AI contributor guide</a></div>
+        </div>
+    </template>
+
+    <script type="application/json" id="historical-chart-data">
+    {
+        "years": [2023, 2024, 2025, 2026],
+        "merged": [1697, 1327, 1628, 2350],
+        "opened": [2051, 1793, 2367, 3027],
+        "community": [75, 198, 542, 1139],
+        "communityMedian": [6.568, 11.600, 12.211, 9.067],
+        "allMedian": [0.909, 1.166, 1.689, 3.004],
+        "monthlyMerged": [
+            [228, 228, 283, 143, 125, 149, 130, 242, 169],
+            [135, 193, 140, 134, 133, 150, 153, 167, 122],
+            [150, 212, 210, 171, 164, 174, 171, 192, 184],
+            [176, 199, 376, 222, 203, 245, 294, 343, 292]
+        ]
+    }
+    </script>
+
     <!-- PRESENTATION STATE ENGINE SCRIPT -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const body = document.body;
-            const slides = document.querySelectorAll('.slide-container');
+            const deck = document.querySelector('.slide-deck-container');
+            deck.appendChild(document.getElementById('expanded-story').content.cloneNode(true));
+            const historyData = JSON.parse(document.getElementById('historical-chart-data').textContent);
+            document.querySelectorAll('.waffle').forEach(grid => {
+                const filledCells = grid.dataset.creditYear === '2025' ? 8 : 45;
+                for (let index = 0; index < 100; index++) {
+                    const cell = document.createElement('span');
+                    cell.className = `waffle-cell${index < filledCells ? ' filled' : ''}`;
+                    cell.setAttribute('aria-hidden', 'true');
+                    grid.appendChild(cell);
+                }
+            });
+            const historyColors = ['#8A76B5', '#8554C2', '#7047EB', '#512BD4'];
+            function historicalBars(id, values, maximum, unit) {
+                const chart = document.getElementById(id);
+                chart.setAttribute('aria-label', historyData.years.map((year, index) => `${year}: ${values[index]} ${unit}`).join('; ') + '. Zero baseline.');
+                values.forEach((value, index) => {
+                    const group = document.createElement('div');
+                    group.className = 'history-group';
+                    const bar = document.createElement('div');
+                    bar.className = 'history-bar';
+                    bar.dataset.year = historyData.years[index];
+                    bar.dataset.value = value;
+                    bar.style.height = `${value / maximum * 200}px`;
+                    bar.style.backgroundColor = historyColors[index];
+                    const number = document.createElement('strong');
+                    number.textContent = unit === 'days' ? value.toFixed(3) : value.toLocaleString('en-US');
+                    const label = document.createElement('span');
+                    label.textContent = historyData.years[index];
+                    bar.appendChild(number);
+                    group.append(bar, label);
+                    chart.appendChild(group);
+                });
+            }
+            historicalBars('history-total-bars', historyData.merged, 2500, 'merged PRs');
+            historicalBars('history-community-bars', historyData.community, 1200, 'community-labeled merges');
+            historicalBars('history-timing-bars', historyData.communityMedian, 13, 'days');
+            document.querySelectorAll('.history-source').forEach(label => {
+                label.textContent = 'JAN–SEP · 2023/24 SNAPSHOT 05 OCT; 2025/26 SNAPSHOT 04 OCT 2026';
+            });
+            const svg = document.getElementById('history-monthly-svg');
+            svg.setAttribute('aria-label', 'Monthly merged PRs January through September; ' + historyData.years.map((year, index) => `${year}: ${historyData.monthlyMerged[index].join(', ')}`).join('; ') + '. Linear zero to 400 scale.');
+            const svgNS = 'http://www.w3.org/2000/svg';
+            function svgElement(tag, attributes, text) {
+                const node = document.createElementNS(svgNS, tag);
+                Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, value));
+                if (text !== undefined) node.textContent = text;
+                svg.appendChild(node);
+                return node;
+            }
+            const x = index => 70 + index * 116;
+            const y = value => 285 - value / 400 * 250;
+            [0, 100, 200, 300, 400].forEach(value => {
+                svgElement('line', {x1: 70, x2: 998, y1: y(value), y2: y(value), class: 'axis'});
+                svgElement('text', {x: 55, y: y(value) + 6, 'text-anchor': 'end'}, value);
+            });
+            ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'].forEach((month, index) => svgElement('text', {x: x(index), y: 320, 'text-anchor': 'middle'}, month));
+            historyData.monthlyMerged.forEach((values, index) => {
+                const legend = document.createElement('span');
+                legend.style.setProperty('--series', historyColors[index]);
+                legend.textContent = historyData.years[index];
+                document.getElementById('history-monthly-legend').appendChild(legend);
+                svgElement('polyline', {points: values.map((value, month) => `${x(month)},${y(value)}`).join(' '), fill: 'none', stroke: historyColors[index], 'stroke-width': index === 3 ? 5 : 3, 'stroke-dasharray': ['6 6', '12 4', '2 4', 'none'][index], 'data-year': historyData.years[index]});
+                values.forEach((value, month) => {
+                    const point = svgElement('circle', {cx: x(month), cy: y(value), r: index === 3 ? 5 : 4, fill: historyColors[index], 'data-year': historyData.years[index], 'data-month': month + 1, 'data-value': value});
+                    const title = document.createElementNS(svgNS, 'title');
+                    title.textContent = `${historyData.years[index]}-${String(month + 1).padStart(2, '0')}: ${value} merged PRs`;
+                    point.appendChild(title);
+                });
+            });
+            historyData.years.forEach((year, index) => {
+                const row = document.createElement('tr');
+                [year, historyData.opened[index], historyData.merged[index], historyData.community[index], historyData.communityMedian[index], historyData.allMedian[index]].forEach((value, column) => {
+                    const cell = document.createElement(column === 0 ? 'th' : 'td');
+                    if (column === 0) cell.scope = 'row';
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                });
+                document.getElementById('history-summary-table').appendChild(row);
+            });
+            const mainOrder = [
+                'slide1', 'evidence', 'historical-growth', 'historical-monthly', 'historical-community', 'historical-timing',
+                'community-volume', 'community-timing', 'merge-activity', 'ownership',
+                'slide2', 'slide3', 'then-now', 'slide5', 'everyday-workflow', 'slide9', 'platform-surface',
+                'slide6', 'slide7', 'slide8', 'gate-proof', 'slide-tryfix', 'candidate-comparison', 'device-validation',
+                'slide11', 'review-context', 'pr-commands', 'issue-commands', 'slide-pipeline', 'slide-daily-workflows', 'slide10',
+                'ai-evolution', 'coding-credit-growth', 'coding-share', 'review-capacity', 'community-review-reach',
+                'human-involvement', 'community-uptake', 'case-searchbar', 'human-validation',
+                'case-collectionview', 'limitations', 'reusable-lessons', 'slide16',
+                'contributor-start', 'slide17', 'slide18'
+            ];
+            mainOrder.forEach(id => {
+                const slide = document.getElementById(id);
+                slide.classList.remove('appendix');
+                slide.setAttribute('data-keynote', '');
+                deck.appendChild(slide);
+            });
+            const sourceSlides = Array.from(deck.querySelectorAll('.slide-container:not([data-keynote])'));
+            sourceSlides.forEach(slide => {
+                slide.classList.add('appendix');
+                deck.appendChild(slide);
+            });
+            const slides = Array.from(deck.querySelectorAll(':scope > .slide-container'));
             const btnToggleMode = document.getElementById('btn-toggle-mode');
             const btnPrev = document.getElementById('btn-prev');
             const btnNext = document.getElementById('btn-next');
             const indicator = document.getElementById('slide-indicator');
             const presCounter = document.getElementById('pres-counter');
+            const slideJump = document.getElementById('slide-jump');
+            slideJump.replaceChildren();
+            slides.filter(slide => !slide.classList.contains('appendix')).forEach((slide, index) => {
+                const option = document.createElement('option');
+                option.value = slide.id;
+                option.textContent = `${index + 1}. ${slide.querySelector('h1,h2,h3').textContent.trim().replace(/\s+/g, ' ')}`;
+                slideJump.appendChild(option);
+            });
+            slideJump.addEventListener('change', () => {
+                history.replaceState(null, '', `#${slideJump.value}`);
+                followHash();
+            });
             
             let currentSlideIndex = 0;
             let isPresentationMode = false;
-            let slideDirection = 'forward';
+            slides.forEach((slide, index) => {
+                slide.setAttribute('role', 'region');
+                slide.setAttribute('aria-label', `Slide ${index + 1}: ${slide.querySelector('h1, h2, h3').textContent.trim()}`);
+            });
 
-            let previousSlideIndex = 0;
+            function fitPresentation() {
+                if (!isPresentationMode) {
+                    deck.style.transform = '';
+                    return;
+                }
+                const scale = Math.min(1, window.innerWidth / 1280, (window.innerHeight - 100) / 720);
+                deck.style.transform = `scale(${Math.max(0.1, scale)})`;
+            }
 
             function updateUI() {
+                const isAppendix = slides[currentSlideIndex].classList.contains('appendix');
+                body.classList.toggle('show-appendix', isAppendix);
+                slideJump.value = isAppendix ? '' : slides[currentSlideIndex].id;
+                const sequence = slides.filter(slide => slide.classList.contains('appendix') === isAppendix);
+                const position = sequence.indexOf(slides[currentSlideIndex]) + 1;
+                const total = sequence.length;
                 if (isPresentationMode) {
                     slides.forEach((slide, idx) => {
-                        if (idx === currentSlideIndex) {
-                            slide.classList.add('active-slide');
-                            slide.style.zIndex = '2';
-                        } else if (idx === previousSlideIndex) {
-                            // Keep previous slide visible underneath during transition
-                            slide.style.zIndex = '1';
-                            slide.style.opacity = '1';
-                            setTimeout(() => {
-                                slide.classList.remove('active-slide');
-                                slide.style.zIndex = '';
-                                slide.style.opacity = '';
-                            }, 450);
-                        } else {
-                            slide.classList.remove('active-slide');
-                            slide.style.zIndex = '';
-                        }
+                        const active = idx === currentSlideIndex;
+                        slide.classList.toggle('active-slide', active);
+                        slide.inert = !active;
+                        slide.setAttribute('aria-hidden', String(!active));
                     });
-                    previousSlideIndex = currentSlideIndex;
-                    indicator.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
-                    presCounter.textContent = `${currentSlideIndex + 1} / ${slides.length}`;
-                    btnPrev.style.visibility = currentSlideIndex === 0 ? 'hidden' : 'visible';
-                    btnNext.style.visibility = currentSlideIndex === slides.length - 1 ? 'hidden' : 'visible';
+                    indicator.textContent = `${isAppendix ? 'Optional appendix' : 'Keynote'} ${position} of ${total}`;
+                    presCounter.textContent = `${isAppendix ? 'Appendix · ' : ''}${position} / ${total}`;
+                    btnPrev.style.visibility = position === 1 ? 'hidden' : 'visible';
+                    btnNext.style.visibility = position === total ? 'hidden' : 'visible';
                 } else {
-                    slides.forEach(slide => slide.classList.add('active-slide'));
-                    indicator.textContent = `Total Slides: ${slides.length}`;
+                    slides.forEach(slide => {
+                        slide.classList.add('active-slide');
+                        slide.inert = false;
+                        slide.removeAttribute('aria-hidden');
+                    });
+                    indicator.textContent = `${isAppendix ? 'Optional appendix' : 'Keynote'}: ${total} slides`;
                     presCounter.textContent = '';
                     btnPrev.style.visibility = 'hidden';
                     btnNext.style.visibility = 'hidden';
                 }
+                fitPresentation();
             }
 
             function goNext() {
-                if (currentSlideIndex < slides.length - 1) {
-                    slideDirection = 'forward';
+                const next = slides[currentSlideIndex + 1];
+                if (next && next.classList.contains('appendix') === slides[currentSlideIndex].classList.contains('appendix')) {
                     currentSlideIndex++;
                     updateUI();
                 }
             }
             function goPrev() {
-                if (currentSlideIndex > 0) {
-                    slideDirection = 'backward';
+                const previous = slides[currentSlideIndex - 1];
+                if (previous && previous.classList.contains('appendix') === slides[currentSlideIndex].classList.contains('appendix')) {
                     currentSlideIndex--;
                     updateUI();
                 }
@@ -1781,22 +2257,43 @@
                 }
             });
 
-            // Exit presentation on Escape
-            document.addEventListener('fullscreenchange', () => {});
-
             btnPrev.addEventListener('click', () => goPrev());
             btnNext.addEventListener('click', () => goNext());
+            window.addEventListener('resize', fitPresentation);
+
+            function followHash() {
+                const targetHash = window.location.hash === '#workflow' ? '#slide5' : window.location.hash;
+                const index = slides.findIndex(slide => `#${slide.id}` === targetHash);
+                if (index < 0) return;
+                currentSlideIndex = index;
+                updateUI();
+                if (!isPresentationMode) slides[index].scrollIntoView({ block: 'start' });
+            }
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    history.replaceState(null, '', link.getAttribute('href'));
+                    followHash();
+                });
+            });
+            window.addEventListener('hashchange', followHash);
 
             // Click to advance in presentation mode (left 25% = back, right 75% = forward)
             document.addEventListener('click', (e) => {
                 if (!isPresentationMode) return;
-                if (e.target.closest('a, button')) return;
+                if (e.target.closest('a, button, details, input, textarea, select, [contenteditable]')) return;
                 const x = e.clientX / window.innerWidth;
                 if (x < 0.25) { goPrev(); } else { goNext(); }
             });
 
             // Keyboard navigation support
             document.addEventListener('keydown', (e) => {
+                if (e.target.closest('details, input, textarea, select, [contenteditable]')) return;
+                if (e.key === ' ' && e.target.closest('a, button')) return;
+                if (e.key.toLowerCase() === 'p') {
+                    if (isPresentationMode) exitPresentation(); else enterPresentation();
+                    return;
+                }
                 if (!isPresentationMode) return;
                 if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
                     e.preventDefault();
@@ -1811,6 +2308,7 @@
 
             // Initialize UI
             updateUI();
+            followHash();
 
             // Dark/Light mode toggle
             const btnTheme = document.getElementById('btn-toggle-theme');
