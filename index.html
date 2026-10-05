@@ -13,7 +13,7 @@
         :root {
             --brand-purple: #512BD4;       /* Official .NET Purple */
             --brand-lavender: #8250DF;     /* Highlight accent */
-            --brand-cyan: #00B7C3;         /* Interactive cyan */
+            --brand-cyan: #7047EB;         /* Violet accent */
             --text-main: #242424;          /* Charcoal body */
             --text-muted: #505050;         /* Secondary slate */
             --bg-canvas: #f3f2f1;          /* Canvas background */
@@ -23,10 +23,10 @@
             --bg-code: #f6f8fa;            /* Code block backgrounds */
             
             /* Status Indicators */
-            --color-red: #e03b2b;
-            --color-orange: #f28c28;
-            --color-green: #107c41;
-            --color-blue: #0078d4;
+            --color-red: #8558B8;
+            --color-orange: #9875D8;
+            --color-green: #6541C4;
+            --color-blue: #7047EB;
         }
 
         body.dark-mode {
@@ -169,7 +169,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(125% 125% at 50% 10%, transparent 40%, #C93CAD77 100%);
+            background: radial-gradient(125% 125% at 50% 10%, transparent 40%, #512BD477 100%);
         }
 
         /* Slide Container Frame */
@@ -785,29 +785,44 @@
         }
 
         :root {
-            --brand-purple: #15594f;
-            --brand-lavender: #38756b;
-            --brand-cyan: #9a4b1a;
-            --bg-card: #fffdf7;
-            --bg-subtle: #f3f2e9;
-            --border-light: #dedfd4;
+            --brand-purple: #512BD4;
+            --brand-lavender: #8250DF;
+            --brand-cyan: #7047EB;
+            --bg-card: #ffffff;
+            --bg-subtle: #f7f4ff;
+            --border-light: #e3dcf5;
         }
         body.dark-mode {
-            --brand-purple: #83d6be;
-            --brand-lavender: #b1e5d6;
-            --brand-cyan: #ffc18e;
-            --bg-card: #142621;
-            --bg-subtle: #203a32;
-            --border-light: #426457;
+            --brand-purple: #BBA3FF;
+            --brand-lavender: #D1BEFF;
+            --brand-cyan: #C4ADFF;
+            --bg-card: #1d1535;
+            --bg-subtle: #2a2047;
+            --border-light: #51406e;
         }
         h1, h2, h3 { letter-spacing: -0.035em; }
         code, .eyebrow { font-family: 'IBM Plex Mono', monospace; }
         .deck-controls { opacity: 1; flex-wrap: wrap; justify-content: center; max-width: calc(100vw - 24px); }
         .deck-controls:focus-within { opacity: 1; }
         .deck-btn { text-decoration: none; font-size: 14px; }
-        body.dark-mode .deck-btn:hover { color: #142621; }
+        body.dark-mode .deck-btn:hover { color: #1d1535; }
         body.dark-mode [style*="background: var(--brand-purple)"],
-        body.dark-mode [style*="background: var(--brand-cyan)"] { color: #142621 !important; }
+        body.dark-mode [style*="background: var(--brand-cyan)"] { color: #1d1535 !important; }
+        .slide-container { padding: 40px 70px 24px; gap: 14px; }
+        .slide-container > .content-area { flex: 1; min-height: 0; }
+        .slide-container > .branding-footer { position: static; flex: none; padding-top: 12px; border-top: 1px solid var(--border-light); color: var(--text-muted); gap: 20px; }
+        .slide-title { margin-bottom: 20px; }
+        .slide-container .speaker-note { display: none; }
+        #slide-daily-workflows p, #slide-daily-workflows a { font-size: 14px !important; }
+        #slide-daily-workflows img { max-height: 280px; object-fit: contain; }
+        #slide-tryfix .two-column p, #slide11 .two-column p { font-size: 16px !important; }
+        #slide-tryfix .two-column h4, #slide11 .two-column h4 { font-size: 18px !important; }
+        #slide11 img { max-height: 420px !important; }
+        #slide-pipeline img { max-width: 100%; max-height: 235px; }
+        #slide-pipeline img[src="azdo-tasks.png"] { max-height: 140px !important; }
+        #slide-pipeline img[src="azdo-stages.png"] { max-height: 150px !important; }
+        #slide-pipeline img[src="copilot-logs.png"] { max-height: 330px !important; }
+        #slide-pipeline .content-area > div { min-height: 0; }
         :focus-visible { outline: 3px solid var(--brand-cyan); outline-offset: 4px; }
         .eyebrow { color: var(--brand-purple); text-transform: uppercase; font-size: 14px; letter-spacing: .12em; margin-bottom: 18px; }
         .evidence-slide .slide-title { margin-bottom: 22px; }
@@ -825,7 +840,7 @@
         .keynote .result-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 70px; align-items: center; }
         .result-graphic { display: flex; align-items: end; justify-content: center; gap: 45px; height: 270px; }
         .result-column { width: 100px; background: var(--brand-purple); position: relative; }
-        .result-column.previous { background: #6b7a86; }
+        .result-column.previous { background: #967FC8; }
         .result-column span { position: absolute; top: -40px; width: 100%; text-align: center; font-size: 27px; font-weight: 800; }
         .result-column small { position: absolute; bottom: -34px; width: 100%; text-align: center; font-size: 18px; }
         .workflow-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
@@ -846,13 +861,13 @@
         .metric-strip span { font-size: 17px; color: var(--text-muted); }
         .chart-legend { display: flex; gap: 24px; font-size: 16px; color: var(--text-muted); }
         .chart-legend span::before { content: ''; display: inline-block; width: 16px; height: 16px; margin-right: 8px; vertical-align: middle; background: var(--brand-purple); }
-        .chart-legend .previous-year::before { background: #6b7a86; }
-        .chart-legend .all-merges::before { background: #6b7a86; }
+        .chart-legend .previous-year::before { background: #967FC8; }
+        .chart-legend .all-merges::before { background: #967FC8; }
         .monthly-chart { display: grid; grid-template-columns: repeat(9, 1fr); gap: 14px; border-bottom: 1px solid var(--text-muted); padding: 0 12px 12px; }
         .month-group { min-width: 0; text-align: center; }
         .month-bars { height: 245px; display: flex; align-items: flex-end; justify-content: center; gap: 8px; }
         .month-bar { background: var(--brand-purple); width: 32px; position: relative; min-height: 1px; }
-        .month-bar.previous-year { background: #6b7a86; }
+        .month-bar.previous-year { background: #967FC8; }
         .month-bar span { position: absolute; bottom: calc(100% + 5px); left: 50%; transform: translateX(-50%); font-size: 16px; font-weight: 700; color: var(--text-main); }
         .month-label { margin-top: 12px; font-size: 15px; color: var(--text-main); }
         .signal-row { display: grid; grid-template-columns: 235px 1fr 140px; gap: 16px; align-items: center; }
@@ -886,8 +901,9 @@
             body.mode-scroll .grid-3x2, body.mode-scroll .evidence-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
             body.mode-scroll .flow-pipeline { flex-wrap: wrap; gap: 12px; }
             body.mode-scroll .pipeline-node { width: 100% !important; }
-            body.mode-scroll .branding-footer { left: 24px; right: 24px; bottom: 24px; flex-wrap: wrap; }
+            body.mode-scroll .branding-footer { flex-wrap: wrap; }
             body.mode-scroll .slide-title { font-size: 30px; margin-bottom: 24px; }
+            body.mode-scroll #slide-pipeline .content-area > div { grid-template-columns: 1fr !important; }
             body.mode-scroll img { max-width: 100%; height: auto; }
             body.mode-scroll .content-area > div[style*="display: flex"] { flex-wrap: wrap; gap: 24px; }
             body.mode-scroll #slide1 .two-column > div > div[style*="display: flex"] { flex-wrap: wrap; }
@@ -928,7 +944,7 @@
         <span id="slide-indicator" aria-live="polite" style="font-weight: 600; font-size: 14px; color: var(--text-muted);"></span>
         <button class="deck-btn" id="btn-next">Next <i class="fa-solid fa-chevron-right"></i></button>
         <a class="deck-btn" href="#evidence" id="btn-evidence">Evidence / Oct update</a>
-        <a class="deck-btn" href="#slide5" id="btn-workflow">Workflow</a>
+        <a class="deck-btn" href="#workflow" id="btn-workflow">Workflow</a>
         <a class="deck-btn" href="#methodology" id="btn-sources">Optional appendix / sources</a>
         <div style="height: 20px; width: 1px; background-color: var(--border-light);"></div>
         <button class="deck-btn" id="btn-toggle-theme"><i class="fa-solid fa-moon"></i> Dark</button>
@@ -1038,18 +1054,18 @@
 
         <!-- SLIDE 5: THE SHIFT TO AGENTIC WORKFLOWS -->
         <div class="slide-container" id="slide5">
-            <h2 class="slide-title">The Shift to Agentic Workflows</h2>
+            <h2 class="slide-title" id="workflow">The Shift to Agentic Workflows</h2>
             <div class="content-area">
                 <div class="two-column" style="gap: 60px;">
                     <div class="dev-card" style="border-top-color: var(--brand-cyan);">
                         <div style="font-size: 40px; color: var(--brand-cyan); margin-bottom: 20px;"><i class="fa-solid fa-eye"></i></div>
                         <h3>The Vision</h3>
-                        <p>Supporting maintainer judgment with specialized AI assistants, repository context, platform-specific checks, and reproducible testing evidence.</p>
+                        <p>Repository context + platform checks + reproducible evidence.</p>
                     </div>
                     <div class="dev-card">
                         <div style="font-size: 40px; color: var(--brand-purple); margin-bottom: 20px;"><i class="fa-solid fa-cubes"></i></div>
                         <h3>The Core Ecosystem</h3>
-                        <p>Moving from monolithic chat to an ecosystem of skills: <strong>pr</strong> for review cycles, <strong>sandbox</strong> for validation, and <strong>write-tests</strong> for coverage.</p>
+                        <p><strong>pr</strong> reviews. <strong>sandbox</strong> validates. <strong>write-tests</strong> builds coverage.</p>
                     </div>
                 </div>
                 <div style="margin-top: 40px; background-color: #fafafa; border: 1px solid var(--border-light); padding: 30px; border-radius: 4px; text-align: center;">
@@ -1066,7 +1082,7 @@
         <div class="slide-container" id="slide-daily-workflows">
             <h2 class="slide-title">Daily Agentic Workflows</h2>
             <div class="content-area" style="justify-content: flex-start;">
-                <p style="margin-bottom: 8px;">Scheduled workflows can generate daily intelligence issues; people still interpret and act on them.</p>
+                <p style="margin-bottom: 8px;">Scheduled intelligence. Human priorities.</p>
                 <div class="two-column" style="gap: 20px; align-items: stretch;">
                     <!-- Card 1: Daily Repo Status -->
                     <div style="border: 1px solid var(--border-light); border-radius: 10px; padding: 12px; display: flex; flex-direction: column;">
@@ -1074,7 +1090,7 @@
                                 <div style="font-size: 15px; font-weight: 700;">Daily Repo Status</div>
                                 <span style="font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 12px; background: var(--brand-cyan); color: white;">gh-aw</span>
                         </div>
-                        <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin-bottom: 6px;">Markdown prompt compiled via <code style="background: #f3f2f1; padding: 1px 4px; border-radius: 3px; font-size: 10px;">gh aw compile</code> → <code style="background: #f3f2f1; padding: 1px 4px; border-radius: 3px; font-size: 10px;">.lock.yml</code>. Copilot agent analyzes repo activity daily.</p>
+                        <p style="font-size: 14px; margin-bottom: 6px;">Markdown prompt → compiled workflow → daily activity report.</p>
                         <div style="margin-bottom: 6px; border-radius: 6px; overflow: hidden; border: 1px solid #e0e0e0; flex: 1; max-height: 350px;">
                             <img src="daily-repo-status-issue.png" alt="Daily Repo Status Issue" style="width: 100%; display: block;">
                         </div>
@@ -1090,7 +1106,7 @@
                                 <div style="font-size: 15px; font-weight: 700;">PR Review Queue</div>
                                 <span style="font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 12px; background: var(--brand-purple); color: white;">Skill-Powered</span>
                         </div>
-                        <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin-bottom: 6px;">GitHub Actions calls <code style="background: #f3f2f1; padding: 1px 4px; border-radius: 3px; font-size: 10px;">find-reviewable-pr</code> skill to query and categorize open PRs weekdays at 8 UTC.</p>
+                        <p style="font-size: 14px; margin-bottom: 6px;"><code>find-reviewable-pr</code> → categorized queue → maintainer action.</p>
                         <div style="margin-bottom: 6px; border-radius: 6px; overflow: hidden; border: 1px solid #e0e0e0; flex: 1; max-height: 350px;">
                             <img src="pr-review-queue-issue.png" alt="PR Review Queue Issue" style="width: 100%; display: block;">
                         </div>
@@ -1122,19 +1138,19 @@
                     <div style="flex: 1; padding: 16px 20px; background: #fafafa; border-left: 4px solid var(--brand-purple); border-radius: 0 6px 6px 0;">
                         <h4 style="font-size: 15px; margin-bottom: 6px;">Trigger</h4>
                         <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-                            GitHub Agentic Workflow (<code>gh-aw</code>) fires on <code>pull_request_target</code> and <code>issues.opened</code> events.
+                            PR or issue event starts the workflow.
                         </p>
                     </div>
                     <div style="flex: 1; padding: 16px 20px; background: #fafafa; border-left: 4px solid var(--brand-cyan); border-radius: 0 6px 6px 0;">
                         <h4 style="font-size: 15px; margin-bottom: 6px;">Skill: <code>agentic-labeler</code></h4>
                         <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-                            Sandboxed Copilot agent invokes the <code>agentic-labeler</code> skill. Reads the diff via MCP tools and infers labels from file paths.
+                            Sandboxed agent reads paths and infers area + platform.
                         </p>
                     </div>
                     <div style="flex: 1; padding: 16px 20px; background: #fafafa; border-left: 4px solid var(--color-green); border-radius: 0 6px 6px 0;">
                         <h4 style="font-size: 15px; margin-bottom: 6px;">Safe-Output Write</h4>
                         <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">
-                            Separate job with write permissions applies <code>area-*</code> and <code>platform/*</code> labels.
+                            Separate write job applies the proposed labels.
                         </p>
                     </div>
                 </div>
@@ -1258,35 +1274,35 @@
             <div class="content-area">
                 <div class="two-column" style="grid-template-columns: 55% 45%; gap: 40px; align-items: start;">
                     <div>
-                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">The workflow can explore alternative fixes and validate candidates on configured emulators or simulators.</p>
+                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">Explore candidates. Test behavior. Recommend a fix.</p>
 
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-purple); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">1</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Analyze Problem &amp; Existing Fix</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Reads the issue, PR diff, and gate test results — understands what the fix does and where it falls short</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Issue + diff + gate results.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-cyan); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">2</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Generate Alternative Candidates</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Designs a fundamentally different approach — not a tweak, but a new strategy informed by prior failures</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Try another strategy; learn from failures.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-blue); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">3</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Build, Deploy &amp; Test on Device</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Build, deploy, and run the selected tests when the target environment is available; report failures and gaps</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Run selected tests; report gaps.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-green); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">4</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Compare &amp; Recommend Best Fix</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">All candidates are scored against the PR's fix — the winner is recommended with a full diff and rationale</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Compare evidence; leave a diff and rationale.</p>
                                 </div>
                             </div>
                         </div>
@@ -1329,35 +1345,35 @@
             <div class="content-area">
                 <div class="two-column" style="grid-template-columns: 55% 45%; gap: 40px; align-items: start;">
                     <div>
-                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">The review workflow examines multiple dimensions beyond style; coverage depends on execution and available context.</p>
+                        <p style="font-size: 18px; margin-bottom: 20px; color: var(--text-muted);">Platform-aware findings, right on the diff.</p>
 
                         <div style="display: flex; flex-direction: column; gap: 10px;">
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-purple); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">1</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">30 Architectural Dimensions</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Handler lifecycle, platform threading, safe area, accessibility, layout, CollectionView, memory, API surface, and more</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Lifecycle, threading, layout, accessibility, memory.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--brand-cyan); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">2</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Per-Dimension Sub-Agents</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Each dimension is evaluated by a specialized sub-agent with domain-specific knowledge and checklist</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Domain-specific context and checklists.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-blue); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">3</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Independence-First Assessment</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Reads code before PR description to avoid anchoring bias — forms its own judgment first</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">Code first; description second.</p>
                                 </div>
                             </div>
                             <div style="display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; background: var(--bg-subtle); border-radius: 8px;">
                                 <div style="width: 32px; height: 32px; border-radius: 8px; background: var(--color-green); color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700;">4</div>
                                 <div>
                                     <h4 style="font-size: 15px; margin-bottom: 2px;">Inline Findings on the PR</h4>
-                                    <p style="font-size: 12px; color: var(--text-muted);">Posts findings as inline code comments at exact file + line — reviewers see issues in context</p>
+                                    <p style="font-size: 16px; color: var(--text-muted);">File + line + actionable explanation.</p>
                                 </div>
                             </div>
                         </div>
@@ -1408,7 +1424,7 @@
                     <div style="display: flex; flex-direction: column; gap: 12px;">
                         <div style="padding: 15px 20px; background: #fafafa; border-left: 4px solid var(--brand-purple);">
                             <h4 style="font-size: 18px;">pr-review</h4>
-                            <p style="font-size: 14px;">End-to-end orchestrator - runs 3 distinct phases.</p>
+                            <p style="font-size: 16px;">Orchestrates the review cycle.</p>
                         </div>
                         <div style="padding: 15px 20px; background: #fafafa; border-left: 4px solid var(--color-red);">
                             <h4 style="font-size: 18px;">verify-tests-fail</h4>
@@ -1416,7 +1432,7 @@
                         </div>
                         <div style="padding: 15px 20px; background: #fafafa; border-left: 4px solid var(--color-orange);">
                             <h4 style="font-size: 18px;">try-fix</h4>
-                            <p style="font-size: 14px;">Explores 4 separate AI models to find robust fix paths.</p>
+                            <p style="font-size: 16px;">Explores alternative fix candidates.</p>
                         </div>
                     </div>
                     
@@ -1431,13 +1447,13 @@
                         </div>
                         <div style="padding: 15px 20px; background: #fafafa; border-left: 4px solid #737373;">
                             <h4 style="font-size: 18px;">learn-from-pr</h4>
-                            <p style="font-size: 14px;">Self-improves and learns repo context after every execution.</p>
+                            <p style="font-size: 16px;">Captures lessons as reusable repository context.</p>
                         </div>
                     </div>
                 </div>
                 
                 <p style="margin-top: 30px; text-align: center; font-weight: 600; font-size: 18px; color: var(--brand-purple);">
-                    18 reusable skills + 17 instruction files = domain-specific AI, not generic chat.
+                    Reusable skills + repository instructions = domain-specific support.
                 </p>
             </div>
             <div class="branding-footer">
@@ -1477,38 +1493,6 @@
             <div class="branding-footer">
                 <span>AZURE DEVOPS PIPELINE</span>
                 <span>ci-copilot.yml</span>
-            </div>
-        </div>
-
-        <!-- SLIDE: USING AI TO WORK ON MAUI -->
-        <div class="slide-container" id="slide-ai-wiki">
-            <h2 class="slide-title">Want to Try It Yourself?</h2>
-            <div class="content-area" style="align-items: center; justify-content: center; text-align: center;">
-                <p style="font-size: 18px; margin-bottom: 28px; color: var(--text-muted);">Everything in the wiki — agents, skills, workflows, and more</p>
-
-                <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 32px; max-width: 1000px;">
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-purple);"><i class="fa-solid fa-robot"></i> PR Review Agent</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-cyan);"><i class="fa-solid fa-vial"></i> Write Tests Agent</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--color-blue);"><i class="fa-solid fa-mobile-screen"></i> Sandbox Agent</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-lavender);"><i class="fa-solid fa-lightbulb"></i> Learn From PR</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--color-green);"><i class="fa-solid fa-magnifying-glass"></i> Expert Reviewer</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-purple);"><i class="fa-solid fa-puzzle-piece"></i> Skills</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--brand-cyan);"><i class="fa-solid fa-file-code"></i> Repository Instructions</span>
-                    <span style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 50px; font-size: 14px; font-weight: 600; color: white; background: var(--color-blue);"><i class="fa-solid fa-gears"></i> Automated Workflows</span>
-                </div>
-
-                <div style="display: flex; align-items: center; gap: 30px; background: var(--bg-subtle); border: 2px solid var(--border-light); border-radius: 20px; padding: 24px 36px;">
-                    <img src="wiki-qr.png" alt="QR Code" style="width: 140px; height: 140px; border-radius: 12px;">
-                    <div style="text-align: left;">
-                        <div style="font-size: 13px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Scan or visit</div>
-                        <a href="https://github.com/dotnet/maui/wiki/Using-AI-to-Work-on-.NET-MAUI" target="_blank" style="font-size: 18px; color: var(--brand-purple); font-weight: 700; text-decoration: none; line-height: 1.4;">github.com/dotnet/maui/wiki/<br>Using-AI-to-Work-on-.NET-MAUI</a>
-                        <div style="font-size: 13px; color: var(--text-muted); margin-top: 8px;"><code style="font-size: 12px; background: var(--bg-code); padding: 2px 6px; border-radius: 4px;">/share file</code> or <code style="font-size: 12px; background: var(--bg-code); padding: 2px 6px; border-radius: 4px;">/share gist</code> to export your Copilot sessions</div>
-                    </div>
-                </div>
-            </div>
-            <div class="branding-footer">
-                <span>CONTRIBUTOR GUIDE</span>
-                <span>dotnet/maui · Wiki</span>
             </div>
         </div>
 
@@ -1639,34 +1623,18 @@
             <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Overlapping signals counted once · 0–400 PR scale</span></div>
         </div>
 
-        <div class="slide-container evidence-slide" id="community-update">
-            <div class="eyebrow">Contributor story / the same community-label criterion</div>
-            <h2 class="slide-title">A stronger contribution stream.</h2>
-            <div class="content-area">
-                <div class="evidence-grid">
-                    <div class="evidence-card"><h3>542 → 1,139</h3><p>Community-labeled PRs merged in matched Jan–Sep windows: <strong>110.1% more</strong>, or just over twice as many.</p></div>
-                    <div class="evidence-card"><h3>12.211 → 9.067 days</h3><p>Community-cohort median creation-to-merge time: <strong>25.7% shorter</strong>. This is elapsed calendar time, not reviewer effort.</p></div>
-                    <div class="evidence-card"><h3>168 contributions</h3><p>Community merges also carry implementation/adoption labels: visible uptake of suggestions.</p></div>
-                </div>
-                <p class="takeaway">More contributions reached merge. Community contributors saw a shorter median path from PR creation to merge.</p>
-                <p class="speaker-note">Talk track: AI is now part of everyday engineering. These are observed contributor outcomes; <a href="#limitations">the appendix distinguishes timing cohorts and attribution</a>.</p>
-                <p class="source-note"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>Snapshot, exact cohorts and PR records</a>. Community means the current <code>community ✨</code> label in both years; labels can change or be backfilled. All PR types are included within each cohort.</p>
-            </div>
-            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>2025 → 2026 · matched Jan–Sep merge cohorts</span></div>
-        </div>
-
         <div class="slide-container evidence-slide" id="review-capacity">
             <div class="eyebrow">Review support / people still write the PRs</div>
             <h2 class="slide-title">A visible layer of AI assistance.</h2>
             <div class="content-area">
                 <div class="evidence-grid">
-                    <div class="evidence-card"><h3>1,123</h3><p>Merged PRs carry the current agent-reviewed label: <strong>47.8% of 2,350</strong>. Of those, 845 also carry the community label.</p></div>
-                    <div class="evidence-card"><h3>1,059</h3><p>Merged PRs have Copilot app authorship or explicit commit credit: <strong>45.1% of 2,350</strong>. This includes ports and automation.</p></div>
-                    <div class="evidence-card"><h3>868</h3><p>Human-account-authored merged PRs have explicit Copilot commit credit. App authorship alone would miss this visible collaboration.</p></div>
+                    <div class="evidence-card"><h3>1,123</h3><p>Current review label.<br><strong>47.8% of 2,350 merges.</strong></p></div>
+                    <div class="evidence-card"><h3>1,059</h3><p>Copilot app author or commit credit.<br><strong>45.1% of merges.</strong></p></div>
+                    <div class="evidence-card"><h3>868</h3><p>Human-account-authored PRs with explicit Copilot credit.</p></div>
                 </div>
-                <p class="takeaway">Review and coding signals overlap on 444 PRs. The union is 1,738, not 1,123 + 1,059.</p>
+                <p class="takeaway">444 PRs overlap. 1,738 unique PRs have an observed signal.</p>
                 <p class="speaker-note">Talk track: the observable change is wider participation in the workflow. These counts do not measure reviewer hours saved, finding quality, or AI's share of the code.</p>
-                <p class="source-note"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>Snapshot and PR records</a> · Jan–Sep 2026 merge cohort. Current labels are not a historical log; commit scans are incomplete for 27 PRs. Copied credits do not establish fresh AI work on each port.</p>
+                <p class="source-note">Jan–Sep 2026; current labels and commit credits. Lower-bound signals, not effort saved. <a href="#methodology">Scope and scan limits</a>.</p>
             </div>
             <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Detected participation, not measured review capacity</span></div>
         </div>
@@ -1675,14 +1643,14 @@
             <div class="eyebrow">App-authored does not mean AI-only</div>
             <h2 class="slide-title">Humans remain in the loop.</h2>
             <div class="content-area">
-                <p class="evidence-lead">60 Copilot app-authored PRs merged in Jan–Sep 2026, compared with 37 in the matched 2025 window.</p>
+                <p class="evidence-lead">60 Copilot app-authored PRs merged; 37 in the matched 2025 window.</p>
                 <div class="evidence-grid">
-                    <div class="evidence-card"><h3>60 / 60</h3><p>Were merged by human-classified accounts. Classification uses GitHub's actor type plus an explicit automation-account exclusion list.</p></div>
-                    <div class="evidence-card"><h3>55 / 60</h3><p>Had a visible human-account comment or formal review before merge. The other five are not proven human-free.</p></div>
-                    <div class="evidence-card"><h3>44 / 60</h3><p>Had a visible pre-merge human-account approval. This is a PR-level observation, not a measure of the review's depth.</p></div>
+                    <div class="evidence-card"><h3>60 / 60</h3><p>Merged by human-classified accounts.</p></div>
+                    <div class="evidence-card"><h3>55 / 60</h3><p>Visible human comment or review before merge.</p></div>
+                    <div class="evidence-card"><h3>44 / 60</h3><p>Visible human approval before merge.</p></div>
                 </div>
-                <p class="takeaway">GitHub authorship records one account. It does not record every person who prompted, checked, revised, or discussed the work.</p>
-                <p class="source-note"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>60-PR interaction cohort and classification rule</a>. No comment/review truncation in this cohort. A human-classified account is not proof of a manual merge click; offline or private work is unobserved.</p>
+                <p class="takeaway">The other five are not proven human-free.</p>
+                <p class="source-note">Jan–Sep 2026. Account classification is not proof of manual merge clicks. <a href="#methodology">Definitions</a> · <a href="evidence/maui-ai-evidence-2026-10-04.json" download>Full cohort</a>.</p>
             </div>
             <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>No “zero human interaction” percentage inferred</span></div>
         </div>
@@ -1717,16 +1685,16 @@
         </div>
 
         <div class="slide-container evidence-slide appendix" id="limitations">
-            <div class="eyebrow">Appendix / interpretation</div>
+            <div class="eyebrow">Lessons / keep the win honest</div>
             <h2 class="slide-title">What the figures do—and do not—show.</h2>
             <div class="content-area">
                 <div class="evidence-grid">
-                    <div class="evidence-card"><h3>Visible ≠ complete</h3><p>GitHub does not capture every local AI session, private discussion, failed run, or hour spent by a person.</p></div>
-                    <div class="evidence-card"><h3>Passing ≠ correct</h3><p>Tests cover specific scenarios. Models can miss bugs, misread intent, and suggest incorrect fixes.</p></div>
-                    <div class="evidence-card"><h3>Correlation ≠ cause</h3><p>Release timing, PR size, staffing, and backlog mix also affect activity and merge time.</p></div>
+                    <div class="evidence-card"><h3>Incomplete traces</h3><p>Public metadata misses local and private AI assistance.</p></div>
+                    <div class="evidence-card"><h3>Test the suggestion</h3><p>Passing selected tests is not proof of universal correctness.</p></div>
+                    <div class="evidence-card"><h3>Compare cohorts</h3><p>PR mix and release timing also affect outcomes.</p></div>
                 </div>
 
-                <p class="takeaway">All-PR median merge time rose from 1.689 to 3.004 days. Community median fell from 12.211 to 9.067 days. Different PR mixes can move in different directions.</p>
+                <p class="takeaway">Community median: 12.211 → 9.067 days. All-PR median: 1.689 → 3.004 days. Observed outcomes—not causal AI attribution.</p>
                 <p class="speaker-note">No causal productivity multiplier, shipped-regression rate, satisfaction score, or human-free percentage is measured. Opened and merged PRs are independent event cohorts.</p>
             </div>
             <div class="branding-footer"><span>HUMAN ACCOUNTABILITY STAYS</span><span>No review or merge SLA implied</span></div>
@@ -1739,11 +1707,11 @@
                             “I tested this locally, and it did not resolve the issue.”
                         </blockquote>
                         <div class="evidence-grid">
-                            <div class="evidence-card"><h3>Visible signal</h3><p>This PR carries agent-fix-win / implemented signals in the observed label state.</p></div>
-                            <div class="evidence-card"><h3>Author checks</h3><p>The author reports that the suggestion did not fix the issue and explains a recycled-item concern.</p></div>
-                            <div class="evidence-card"><h3>Better standard</h3><p>Read the discussion, reproduce the behavior, and verify the candidate. Do not treat a label as proof.</p></div>
+                            <div class="evidence-card"><h3>Label says uptake</h3><p>Win / implementation labels are present.</p></div>
+                            <div class="evidence-card"><h3>Author tests</h3><p>The suggestion did not fix the issue.</p></div>
+                            <div class="evidence-card"><h3>Learn and verify</h3><p>Behavior matters more than a badge.</p></div>
                         </div>
-                        <p class="source-note">Source: <a href="https://github.com/dotnet/maui/pull/35358#issuecomment-4438010132" target="_blank" rel="noopener">dotnet/maui#35358 · author's public follow-up</a> · <a href="evidence/maui-ai-examples-2026-10-04.json" download>Example snapshot · 04 Oct 2026</a>. This is a validation limitation, not evidence of a shipped regression caused by AI. Negative labels are too sparse to estimate a failure rate.</p>
+                        <p class="source-note"><a href="https://github.com/dotnet/maui/pull/35358#issuecomment-4438010132" target="_blank" rel="noopener">dotnet/maui#35358 · author follow-up</a> · <a href="evidence/maui-ai-examples-2026-10-04.json" download>04 Oct 2026 snapshot</a>. Ineffective suggestion—not proof of a shipped regression.</p>
                         <p class="speaker-note">Talk track: this is why the human loop matters. Public disagreement is useful evidence, not something to hide behind a success badge.</p>
                     </div>
                     <div class="branding-footer"><span>MAKE FEEDBACK PART OF THE SYSTEM</span><span>One example, not a failure-rate estimate</span></div>
@@ -1819,11 +1787,12 @@
                     <div style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                         <!-- Real QR Code via API -->
                         <div style="background: white; padding: 10px; display: inline-block;">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://github.com/dotnet/maui/wiki/Using-AI-to-Work-on-.NET-MAUI&color=512BD4" alt="QR Code to MAUI Wiki" width="180" height="180">
+                            <img src="wiki-qr.png" alt="QR Code to MAUI Wiki" width="180" height="180">
                         </div>
                         <p style="font-family: monospace; font-size: 13px; font-weight: bold; margin-top: 15px; color: var(--brand-purple);">
-                            github.com/dotnet/maui/wiki/
+                            <a href="https://github.com/dotnet/maui/wiki/Using-AI-to-Work-on-.NET-MAUI" style="color: inherit;">Using AI to Work on .NET MAUI</a>
                         </p>
+                        <p style="font-size: 16px; margin-top: 12px;"><code>/share file</code> · <code>/share gist</code></p>
                     </div>
                 </div>
             </div>
@@ -1860,7 +1829,21 @@
         document.addEventListener('DOMContentLoaded', () => {
             const body = document.body;
             const deck = document.querySelector('.slide-deck-container');
-            deck.querySelectorAll('.slide-container:not([data-keynote])').forEach(slide => {
+            const mainOrder = [
+                'slide1', 'evidence', 'community-volume', 'community-timing', 'merge-activity', 'ownership',
+                'slide2', 'slide3', 'slide5', 'everyday-workflow', 'slide9', 'slide6', 'slide7', 'slide8',
+                'slide-tryfix', 'slide11', 'slide-pipeline', 'slide-daily-workflows', 'slide10',
+                'ai-evolution', 'review-capacity', 'human-involvement', 'community-uptake',
+                'human-validation', 'limitations', 'slide16', 'slide17', 'slide18'
+            ];
+            mainOrder.forEach(id => {
+                const slide = document.getElementById(id);
+                slide.classList.remove('appendix');
+                slide.setAttribute('data-keynote', '');
+                deck.appendChild(slide);
+            });
+            const sourceSlides = Array.from(deck.querySelectorAll('.slide-container:not([data-keynote])'));
+            sourceSlides.forEach(slide => {
                 slide.classList.add('appendix');
                 deck.appendChild(slide);
             });
@@ -1963,7 +1946,8 @@
             window.addEventListener('resize', fitPresentation);
 
             function followHash() {
-                const index = slides.findIndex(slide => `#${slide.id}` === window.location.hash);
+                const targetHash = window.location.hash === '#workflow' ? '#slide5' : window.location.hash;
+                const index = slides.findIndex(slide => `#${slide.id}` === targetHash);
                 if (index < 0) return;
                 currentSlideIndex = index;
                 updateUI();
