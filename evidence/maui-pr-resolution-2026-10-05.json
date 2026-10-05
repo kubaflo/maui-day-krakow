@@ -1,0 +1,558 @@
+{
+  "repository": "dotnet/maui",
+  "collection_started_at": "2026-10-05T15:32:26+00:00",
+  "collection_finished_at": "2026-10-05T15:32:32+00:00",
+  "calendar_summary": {
+    "2023": {
+      "merged": 1697,
+      "closed_without_merge": 367,
+      "terminal_decisions": 2064
+    },
+    "2024": {
+      "merged": 1327,
+      "closed_without_merge": 373,
+      "terminal_decisions": 1700
+    },
+    "2025": {
+      "merged": 1628,
+      "closed_without_merge": 585,
+      "terminal_decisions": 2213
+    },
+    "2026": {
+      "merged": 2350,
+      "closed_without_merge": 898,
+      "terminal_decisions": 3248
+    }
+  },
+  "created_cohort_current_state": {
+    "2023": {
+      "created": 2051,
+      "merged": 1675,
+      "closed_without_merge": 376,
+      "still_open": 0
+    },
+    "2024": {
+      "created": 1793,
+      "merged": 1361,
+      "closed_without_merge": 432,
+      "still_open": 0
+    },
+    "2025": {
+      "created": 2367,
+      "merged": 1733,
+      "closed_without_merge": 632,
+      "still_open": 2
+    },
+    "2026": {
+      "created": 3027,
+      "merged": 2022,
+      "closed_without_merge": 949,
+      "still_open": 56
+    }
+  },
+  "monthly_closed_without_merge": [
+    {
+      "month": "2023-01",
+      "closed_without_merge": 42,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2023-01-01..2023-01-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2023-01-01..2023-01-31"
+    },
+    {
+      "month": "2023-02",
+      "closed_without_merge": 41,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2023-02-01..2023-02-28",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2023-02-01..2023-02-28"
+    },
+    {
+      "month": "2023-03",
+      "closed_without_merge": 32,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2023-03-01..2023-03-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2023-03-01..2023-03-31"
+    },
+    {
+      "month": "2023-04",
+      "closed_without_merge": 16,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2023-04-01..2023-04-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2023-04-01..2023-04-30"
+    },
+    {
+      "month": "2023-05",
+      "closed_without_merge": 47,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2023-05-01..2023-05-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2023-05-01..2023-05-31"
+    },
+    {
+      "month": "2023-06",
+      "closed_without_merge": 65,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2023-06-01..2023-06-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2023-06-01..2023-06-30"
+    },
+    {
+      "month": "2023-07",
+      "closed_without_merge": 44,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2023-07-01..2023-07-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2023-07-01..2023-07-31"
+    },
+    {
+      "month": "2023-08",
+      "closed_without_merge": 33,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2023-08-01..2023-08-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2023-08-01..2023-08-31"
+    },
+    {
+      "month": "2023-09",
+      "closed_without_merge": 47,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2023-09-01..2023-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2023-09-01..2023-09-30"
+    },
+    {
+      "month": "2024-01",
+      "closed_without_merge": 29,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2024-01-01..2024-01-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2024-01-01..2024-01-31"
+    },
+    {
+      "month": "2024-02",
+      "closed_without_merge": 47,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2024-02-01..2024-02-29",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2024-02-01..2024-02-29"
+    },
+    {
+      "month": "2024-03",
+      "closed_without_merge": 34,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2024-03-01..2024-03-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2024-03-01..2024-03-31"
+    },
+    {
+      "month": "2024-04",
+      "closed_without_merge": 26,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2024-04-01..2024-04-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2024-04-01..2024-04-30"
+    },
+    {
+      "month": "2024-05",
+      "closed_without_merge": 37,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2024-05-01..2024-05-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2024-05-01..2024-05-31"
+    },
+    {
+      "month": "2024-06",
+      "closed_without_merge": 48,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2024-06-01..2024-06-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2024-06-01..2024-06-30"
+    },
+    {
+      "month": "2024-07",
+      "closed_without_merge": 53,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2024-07-01..2024-07-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2024-07-01..2024-07-31"
+    },
+    {
+      "month": "2024-08",
+      "closed_without_merge": 62,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2024-08-01..2024-08-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2024-08-01..2024-08-31"
+    },
+    {
+      "month": "2024-09",
+      "closed_without_merge": 37,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2024-09-01..2024-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2024-09-01..2024-09-30"
+    },
+    {
+      "month": "2025-01",
+      "closed_without_merge": 49,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2025-01-01..2025-01-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2025-01-01..2025-01-31"
+    },
+    {
+      "month": "2025-02",
+      "closed_without_merge": 49,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2025-02-01..2025-02-28",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2025-02-01..2025-02-28"
+    },
+    {
+      "month": "2025-03",
+      "closed_without_merge": 68,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2025-03-01..2025-03-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2025-03-01..2025-03-31"
+    },
+    {
+      "month": "2025-04",
+      "closed_without_merge": 28,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2025-04-01..2025-04-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2025-04-01..2025-04-30"
+    },
+    {
+      "month": "2025-05",
+      "closed_without_merge": 47,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2025-05-01..2025-05-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2025-05-01..2025-05-31"
+    },
+    {
+      "month": "2025-06",
+      "closed_without_merge": 67,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2025-06-01..2025-06-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2025-06-01..2025-06-30"
+    },
+    {
+      "month": "2025-07",
+      "closed_without_merge": 93,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2025-07-01..2025-07-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2025-07-01..2025-07-31"
+    },
+    {
+      "month": "2025-08",
+      "closed_without_merge": 113,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2025-08-01..2025-08-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2025-08-01..2025-08-31"
+    },
+    {
+      "month": "2025-09",
+      "closed_without_merge": 71,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2025-09-01..2025-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2025-09-01..2025-09-30"
+    },
+    {
+      "month": "2026-01",
+      "closed_without_merge": 92,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2026-01-01..2026-01-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2026-01-01..2026-01-31"
+    },
+    {
+      "month": "2026-02",
+      "closed_without_merge": 63,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2026-02-01..2026-02-28",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2026-02-01..2026-02-28"
+    },
+    {
+      "month": "2026-03",
+      "closed_without_merge": 170,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2026-03-01..2026-03-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2026-03-01..2026-03-31"
+    },
+    {
+      "month": "2026-04",
+      "closed_without_merge": 91,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2026-04-01..2026-04-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2026-04-01..2026-04-30"
+    },
+    {
+      "month": "2026-05",
+      "closed_without_merge": 89,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2026-05-01..2026-05-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2026-05-01..2026-05-31"
+    },
+    {
+      "month": "2026-06",
+      "closed_without_merge": 74,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2026-06-01..2026-06-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2026-06-01..2026-06-30"
+    },
+    {
+      "month": "2026-07",
+      "closed_without_merge": 118,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2026-07-01..2026-07-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2026-07-01..2026-07-31"
+    },
+    {
+      "month": "2026-08",
+      "closed_without_merge": 79,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2026-08-01..2026-08-31",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2026-08-01..2026-08-31"
+    },
+    {
+      "month": "2026-09",
+      "closed_without_merge": 122,
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2026-09-01..2026-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2026-09-01..2026-09-30"
+    }
+  ],
+  "ai_reviewed_closures_2026": {
+    "closed_without_merge": 898,
+    "agent_reviewed_current_label": 173,
+    "share_percent": 19.3,
+    "detection_rule": "Currently closed and unmerged; Jan-Sep 2026 closedAt; current exact label \"s/agent-reviewed\"."
+  },
+  "sample_closed_pull_requests": {
+    "closed_2026": [
+      {
+        "__typename": "PullRequest",
+        "number": 39030,
+        "title": "[release/11.0.1xx-rc2] Restrict private SDK updates to trusted internal builds",
+        "url": "https://github.com/dotnet/maui/pull/39030",
+        "createdAt": "2026-09-30T17:46:56Z",
+        "closedAt": "2026-09-30T17:53:01Z",
+        "mergedAt": null,
+        "state": "CLOSED",
+        "merged": false,
+        "labels": [
+          "area-infrastructure"
+        ]
+      },
+      {
+        "__typename": "PullRequest",
+        "number": 39011,
+        "title": "[automated] Merge branch 'main' => 'net11.0'",
+        "url": "https://github.com/dotnet/maui/pull/39011",
+        "createdAt": "2026-09-30T10:52:03Z",
+        "closedAt": "2026-09-30T18:36:19Z",
+        "mergedAt": null,
+        "state": "CLOSED",
+        "merged": false,
+        "labels": []
+      },
+      {
+        "__typename": "PullRequest",
+        "number": 39004,
+        "title": "Bump the aspnetcore group with 3 updates",
+        "url": "https://github.com/dotnet/maui/pull/39004",
+        "createdAt": "2026-09-30T05:22:40Z",
+        "closedAt": "2026-09-30T09:46:51Z",
+        "mergedAt": null,
+        "state": "CLOSED",
+        "merged": false,
+        "labels": [
+          "area-infrastructure",
+          "dependencies",
+          "nuget"
+        ]
+      },
+      {
+        "__typename": "PullRequest",
+        "number": 38999,
+        "title": "[release/11.0.1xx-rc1] Update dependencies from dotnet/android, dotnet/macios",
+        "url": "https://github.com/dotnet/maui/pull/38999",
+        "createdAt": "2026-09-30T02:03:14Z",
+        "closedAt": "2026-09-30T09:46:54Z",
+        "mergedAt": null,
+        "state": "CLOSED",
+        "merged": false,
+        "labels": [
+          "area-infrastructure",
+          "area/infrastructure 🏗️"
+        ]
+      },
+      {
+        "__typename": "PullRequest",
+        "number": 38994,
+        "title": "[automated] Merge branch 'net11.0' => 'release/11.0.1xx-rc2'",
+        "url": "https://github.com/dotnet/maui/pull/38994",
+        "createdAt": "2026-09-29T22:09:34Z",
+        "closedAt": "2026-09-29T22:13:32Z",
+        "mergedAt": null,
+        "state": "CLOSED",
+        "merged": false,
+        "labels": []
+      }
+    ],
+    "reviewed_closed_2026": [
+      {
+        "__typename": "PullRequest",
+        "number": 38534,
+        "title": "Add manual AI-assisted interpretation of local UI evidence",
+        "url": "https://github.com/dotnet/maui/pull/38534",
+        "createdAt": "2026-09-14T14:47:03Z",
+        "closedAt": "2026-09-30T18:55:06Z",
+        "mergedAt": null,
+        "state": "CLOSED",
+        "merged": false,
+        "labels": [
+          "community ✨",
+          "s/agent-changes-requested",
+          "s/agent-fix-pr-picked",
+          "s/agent-reviewed"
+        ]
+      },
+      {
+        "__typename": "PullRequest",
+        "number": 38522,
+        "title": "[release/11.0.1xx-rc1] Update dependencies from dotnet/android, dotnet/macios",
+        "url": "https://github.com/dotnet/maui/pull/38522",
+        "createdAt": "2026-09-14T02:02:22Z",
+        "closedAt": "2026-09-14T12:18:38Z",
+        "mergedAt": null,
+        "state": "CLOSED",
+        "merged": false,
+        "labels": [
+          "s/agent-changes-requested",
+          "s/agent-fix-pr-picked",
+          "s/agent-reviewed"
+        ]
+      },
+      {
+        "__typename": "PullRequest",
+        "number": 38521,
+        "title": "[net11.0] Update dependencies from dotnet/android, dotnet/dotnet, dotnet/macios",
+        "url": "https://github.com/dotnet/maui/pull/38521",
+        "createdAt": "2026-09-14T02:02:20Z",
+        "closedAt": "2026-09-14T12:18:45Z",
+        "mergedAt": null,
+        "state": "CLOSED",
+        "merged": false,
+        "labels": [
+          "s/agent-changes-requested",
+          "s/agent-fix-pr-picked",
+          "s/agent-reviewed"
+        ]
+      },
+      {
+        "__typename": "PullRequest",
+        "number": 38475,
+        "title": "[net11.0] Update dependencies from dotnet/android",
+        "url": "https://github.com/dotnet/maui/pull/38475",
+        "createdAt": "2026-09-12T02:02:32Z",
+        "closedAt": "2026-09-12T16:30:08Z",
+        "mergedAt": null,
+        "state": "CLOSED",
+        "merged": false,
+        "labels": [
+          "area-infrastructure",
+          "area/infrastructure 🏗️",
+          "s/agent-changes-requested",
+          "s/agent-fix-win",
+          "s/agent-reviewed"
+        ]
+      },
+      {
+        "__typename": "PullRequest",
+        "number": 38474,
+        "title": "[release/11.0.1xx-rc1] Update dependencies from dotnet/android, dotnet/macios",
+        "url": "https://github.com/dotnet/maui/pull/38474",
+        "createdAt": "2026-09-12T02:02:23Z",
+        "closedAt": "2026-09-12T16:30:02Z",
+        "mergedAt": null,
+        "state": "CLOSED",
+        "merged": false,
+        "labels": [
+          "area-infrastructure",
+          "area/infrastructure 🏗️",
+          "s/agent-changes-requested",
+          "s/agent-fix-pr-picked",
+          "s/agent-reviewed"
+        ]
+      }
+    ]
+  },
+  "annual_query_sources": {
+    "merged_2023": {
+      "query": "repo:dotnet/maui is:pr is:merged merged:2023-01-01..2023-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Amerged%20merged%3A2023-01-01..2023-09-30"
+    },
+    "closed_2023": {
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2023-01-01..2023-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2023-01-01..2023-09-30"
+    },
+    "created_2023": {
+      "query": "repo:dotnet/maui is:pr created:2023-01-01..2023-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2023-01-01..2023-09-30"
+    },
+    "created_merged_2023": {
+      "query": "repo:dotnet/maui is:pr created:2023-01-01..2023-09-30 is:merged",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2023-01-01..2023-09-30%20is%3Amerged"
+    },
+    "created_closed_2023": {
+      "query": "repo:dotnet/maui is:pr created:2023-01-01..2023-09-30 is:closed -is:merged",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2023-01-01..2023-09-30%20is%3Aclosed%20-is%3Amerged"
+    },
+    "created_open_2023": {
+      "query": "repo:dotnet/maui is:pr created:2023-01-01..2023-09-30 is:open",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2023-01-01..2023-09-30%20is%3Aopen"
+    },
+    "merged_2024": {
+      "query": "repo:dotnet/maui is:pr is:merged merged:2024-01-01..2024-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Amerged%20merged%3A2024-01-01..2024-09-30"
+    },
+    "closed_2024": {
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2024-01-01..2024-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2024-01-01..2024-09-30"
+    },
+    "created_2024": {
+      "query": "repo:dotnet/maui is:pr created:2024-01-01..2024-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2024-01-01..2024-09-30"
+    },
+    "created_merged_2024": {
+      "query": "repo:dotnet/maui is:pr created:2024-01-01..2024-09-30 is:merged",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2024-01-01..2024-09-30%20is%3Amerged"
+    },
+    "created_closed_2024": {
+      "query": "repo:dotnet/maui is:pr created:2024-01-01..2024-09-30 is:closed -is:merged",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2024-01-01..2024-09-30%20is%3Aclosed%20-is%3Amerged"
+    },
+    "created_open_2024": {
+      "query": "repo:dotnet/maui is:pr created:2024-01-01..2024-09-30 is:open",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2024-01-01..2024-09-30%20is%3Aopen"
+    },
+    "merged_2025": {
+      "query": "repo:dotnet/maui is:pr is:merged merged:2025-01-01..2025-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Amerged%20merged%3A2025-01-01..2025-09-30"
+    },
+    "closed_2025": {
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2025-01-01..2025-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2025-01-01..2025-09-30"
+    },
+    "created_2025": {
+      "query": "repo:dotnet/maui is:pr created:2025-01-01..2025-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2025-01-01..2025-09-30"
+    },
+    "created_merged_2025": {
+      "query": "repo:dotnet/maui is:pr created:2025-01-01..2025-09-30 is:merged",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2025-01-01..2025-09-30%20is%3Amerged"
+    },
+    "created_closed_2025": {
+      "query": "repo:dotnet/maui is:pr created:2025-01-01..2025-09-30 is:closed -is:merged",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2025-01-01..2025-09-30%20is%3Aclosed%20-is%3Amerged"
+    },
+    "created_open_2025": {
+      "query": "repo:dotnet/maui is:pr created:2025-01-01..2025-09-30 is:open",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2025-01-01..2025-09-30%20is%3Aopen"
+    },
+    "merged_2026": {
+      "query": "repo:dotnet/maui is:pr is:merged merged:2026-01-01..2026-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Amerged%20merged%3A2026-01-01..2026-09-30"
+    },
+    "closed_2026": {
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2026-01-01..2026-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2026-01-01..2026-09-30"
+    },
+    "created_2026": {
+      "query": "repo:dotnet/maui is:pr created:2026-01-01..2026-09-30",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2026-01-01..2026-09-30"
+    },
+    "created_merged_2026": {
+      "query": "repo:dotnet/maui is:pr created:2026-01-01..2026-09-30 is:merged",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2026-01-01..2026-09-30%20is%3Amerged"
+    },
+    "created_closed_2026": {
+      "query": "repo:dotnet/maui is:pr created:2026-01-01..2026-09-30 is:closed -is:merged",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2026-01-01..2026-09-30%20is%3Aclosed%20-is%3Amerged"
+    },
+    "created_open_2026": {
+      "query": "repo:dotnet/maui is:pr created:2026-01-01..2026-09-30 is:open",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20created%3A2026-01-01..2026-09-30%20is%3Aopen"
+    },
+    "reviewed_closed_2026": {
+      "query": "repo:dotnet/maui is:pr is:closed -is:merged closed:2026-01-01..2026-09-30 label:\"s/agent-reviewed\"",
+      "url": "https://github.com/dotnet/maui/pulls?q=repo%3Adotnet%2Fmaui%20is%3Apr%20is%3Aclosed%20-is%3Amerged%20closed%3A2026-01-01..2026-09-30%20label%3A%22s%2Fagent-reviewed%22"
+    }
+  },
+  "ai_contribution_observation": {
+    "reported_at": "2026-10-05",
+    "attribution": "Maintainer-reported observation supplied for the presentation.",
+    "statement": "AI helped us close many PRs without merging, as well as supporting merged changes.",
+    "measurement_status": "Not a measured count or causal attribution of AI-generated closures."
+  },
+  "methodology": [
+    "Calendar buckets are UTC January 1 inclusive through September 30 inclusive (before October 1).",
+    "Merge activity uses mergedAt; nonmerge closures use current CLOSED/unmerged state and latest closedAt.",
+    "Terminal decisions add these disjoint calendar merge/closure cohorts; they are not shipped-fix or quality counts.",
+    "Created cohorts use January-September createdAt, with current merged/closed-unmerged/open state at collection time; October dispositions may be included.",
+    "Calendar opened and terminal-decision totals are different cohorts. Opened minus merged is not backlog or nonmerge-closure count.",
+    "GitHub Search aggregate counts are collected, not exhaustive historical closure-event timelines; reopened/reclosed PR metadata can change.",
+    "Current labels are mutable and may be backfilled. Label presence does not prove review-before-close or that AI caused a closure.",
+    "Nonmerges may include duplicates, obsolete work, rejected changes and automation. Reasons and decision quality are not measured.",
+    "Examples are the first five search results, not a representative outcome/satisfaction sample.",
+    "Coding-credit grids use merged PRs only: pale cells are already-merged PRs without detected coding credit, not open PRs or AI-free work.",
+    "Existing raw merged-PR snapshots remain unchanged; this is a separate dated resolution extension."
+  ]
+}
