@@ -847,6 +847,36 @@
         .workflow-step { padding: 34px 12px; background: var(--bg-subtle); border-top: 5px solid var(--brand-purple); text-align: center; font-size: 25px; font-weight: 800; }
         .workflow-step i { display: block; font-size: 40px; margin-bottom: 28px; color: var(--brand-purple); }
         .ownership-title { font-size: 90px; line-height: 1.12; color: var(--brand-purple); }
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
+        .comparison-panel { padding: 30px; background: var(--bg-subtle); border-top: 5px solid var(--brand-purple); }
+        .comparison-panel h3 { font-size: 30px; margin-bottom: 18px; }
+        .comparison-panel p { font-size: 24px; line-height: 1.6; }
+        .test-proof { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 30px; }
+        .proof-state { padding: 45px 20px; text-align: center; border: 3px solid var(--brand-purple); background: var(--bg-subtle); }
+        .proof-state strong { display: block; font-size: 48px; color: var(--brand-purple); margin-top: 20px; }
+        .proof-state span { font-size: 22px; }
+        .history-bars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 45px; align-items: end; height: 330px; padding: 45px 35px 40px; }
+        .history-group { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; gap: 12px; }
+        .history-bar { width: 100%; max-width: 150px; background: var(--brand-purple); position: relative; }
+        .history-bar strong { position: absolute; top: -38px; width: 100%; text-align: center; font-size: 30px; color: var(--text-main); }
+        .history-group > span { font-size: 23px; font-weight: 700; }
+        .history-legend { display: flex; gap: 28px; font-size: 18px; }
+        .history-legend span::before { content: ''; display: inline-block; width: 22px; height: 5px; background: var(--series); margin-right: 8px; vertical-align: middle; }
+        .history-svg { width: 100%; height: 330px; overflow: visible; }
+        .history-svg text { fill: var(--text-main); font-family: 'Manrope', sans-serif; font-size: 18px; }
+        .history-svg .axis { stroke: var(--border-light); stroke-width: 1; }
+        body.dark-mode .history-bar { background-color: #BBA3FF !important; }
+        body.dark-mode .history-group:nth-child(1) .history-bar { background-color: #8E76BE !important; }
+        body.dark-mode .history-group:nth-child(2) .history-bar { background-color: #A68DD5 !important; }
+        body.dark-mode .history-group:nth-child(3) .history-bar { background-color: #C8B2F5 !important; }
+        body.dark-mode .history-svg [data-year="2023"] { stroke: #8E76BE; }
+        body.dark-mode .history-svg [data-year="2024"] { stroke: #A68DD5; }
+        body.dark-mode .history-svg [data-year="2025"] { stroke: #C8B2F5; }
+        body.dark-mode .history-svg [data-year="2026"] { stroke: #BBA3FF; }
+        body.dark-mode .history-legend span:nth-child(1) { --series: #8E76BE !important; }
+        body.dark-mode .history-legend span:nth-child(2) { --series: #A68DD5 !important; }
+        body.dark-mode .history-legend span:nth-child(3) { --series: #C8B2F5 !important; }
+        body.dark-mode .history-legend span:nth-child(4) { --series: #BBA3FF !important; }
         .evidence-lead { font-size: 23px; max-width: 940px; }
         .evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .evidence-card { padding: 24px; background: var(--bg-subtle); border-top: 4px solid var(--brand-purple); }
@@ -913,6 +943,7 @@
             body.mode-scroll .signal-row { grid-template-columns: 1fr; gap: 8px; }
             body.mode-scroll .result-layout { grid-template-columns: 1fr; gap: 60px; }
             body.mode-scroll .workflow-strip { grid-template-columns: 1fr; }
+            body.mode-scroll .comparison-grid, body.mode-scroll .test-proof { grid-template-columns: 1fr; gap: 24px; }
             body.mode-scroll .keynote .adoption-number { font-size: 110px; }
             body.mode-scroll .ownership-title { font-size: 55px; }
             .deck-controls { top: 8px; gap: 8px; padding: 8px; }
@@ -944,6 +975,7 @@
         <span id="slide-indicator" aria-live="polite" style="font-weight: 600; font-size: 14px; color: var(--text-muted);"></span>
         <button class="deck-btn" id="btn-next">Next <i class="fa-solid fa-chevron-right"></i></button>
         <a class="deck-btn" href="#evidence" id="btn-evidence">Evidence / Oct update</a>
+        <a class="deck-btn" href="#historical-growth">2023–2026 comparison</a>
         <a class="deck-btn" href="#workflow" id="btn-workflow">Workflow</a>
         <a class="deck-btn" href="#methodology" id="btn-sources">Optional appendix / sources</a>
         <div style="height: 20px; width: 1px; background-color: var(--border-light);"></div>
@@ -1824,17 +1856,224 @@
 
     </div>
 
+    <template id="expanded-story">
+        <div class="slide-container evidence-slide" id="historical-growth">
+            <div class="eyebrow">Historical comparison / the same nine months</div>
+            <h2 class="slide-title">2026 leads the matched merge counts.</h2>
+            <div class="content-area"><div class="history-bars" id="history-total-bars" role="img"></div><p class="evidence-lead">Merged PRs. Opened separately: 2,051 → 1,793 → 2,367 → 3,027.</p></div>
+            <div class="branding-footer"><span class="history-source"></span><a href="#historical-methods">Matched periods and source data</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="historical-monthly">
+            <div class="eyebrow">Four years / monthly merge cadence</div>
+            <h2 class="slide-title">Compare the trajectory—not just the total.</h2>
+            <div class="content-area"><div class="history-legend" id="history-monthly-legend"></div><svg class="history-svg" id="history-monthly-svg" viewBox="0 0 1080 330" role="img" aria-label="Matched January–September monthly merged PR counts, 2023 through 2026"></svg><p class="source-note">UTC merge-date buckets; zero baseline. Each line is one year, not a cohort transition.</p></div>
+            <div class="branding-footer"><span class="history-source"></span><a href="#historical-methods">Exact monthly data and definitions</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="historical-community">
+            <div class="eyebrow">Historical comparison / community-labeled merges</div>
+            <h2 class="slide-title">A much larger visible contributor stream.</h2>
+            <div class="content-area"><div class="history-bars" id="history-community-bars" role="img"></div><p class="evidence-lead">Same current-label criterion. Historical labeling completeness may differ.</p></div>
+            <div class="branding-footer"><span class="history-source"></span><a href="#historical-methods">Community timing and cohort definitions</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="historical-timing">
+            <div class="eyebrow">Historical comparison / community median</div>
+            <h2 class="slide-title">Faster than 2025—not fastest ever.</h2>
+            <div class="content-area"><div class="history-bars" id="history-timing-bars" role="img"></div><p class="evidence-lead">PR creation → merge, in days. 2023's cohort was only 75 PRs.</p></div>
+            <div class="branding-footer"><span class="history-source"></span><a href="#historical-methods">Cohort mix and all-PR timing</a></div>
+        </div>
+        <div class="slide-container evidence-slide appendix" id="historical-methods">
+            <div class="eyebrow">Sources / historical comparison</div>
+            <h2 class="slide-title">Matched dates. Different PR mixes.</h2>
+            <div class="content-area">
+                <table class="data-table"><caption>Jan–Sep merge-date cohorts; current community label</caption><thead><tr><th scope="col">Year</th><th scope="col">Opened</th><th scope="col">Merged</th><th scope="col">Community</th><th scope="col">Community median days</th><th scope="col">All-PR median days</th></tr></thead><tbody id="history-summary-table"></tbody></table>
+                <p class="source-note">2023/2024 collected 05 Oct 2026, 12:03:41 UTC. 2025/2026 retain the unchanged snapshot from 04 Oct 2026, 22:46:17 UTC. Historical label practice/completeness, release cadence and PR mix may differ. Opened and merged are independent event counts. Growth is not causal AI attribution.</p>
+                <p class="source-note">2023/2024 coding-credit signals are unmeasured, not zero. No satisfaction, AI-only, shipped-regression or issue-to-shipping rate is measured.</p>
+                <p class="source-note"><a href="evidence/maui-ai-historical-2026-10-05.json" download>Historical JSON · 36 monthly rows + 3,024 older PRs</a> · <a href="evidence/collect_maui_historical_evidence.py" download>Collector</a> · <a href="evidence/maui-ai-evidence-2026-10-04.json" download>Existing 3,978-PR snapshot</a>.</p>
+                <p class="source-note"><code>python3 evidence/collect_maui_historical_evidence.py --current-snapshot evidence/maui-ai-evidence-2026-10-04.json --output fresh-history.json</code></p>
+            </div>
+            <div class="branding-footer"><span>7,002 UNIQUE MERGED PR RECORDS ACROSS TWO SNAPSHOTS</span><span>Reproducible public evidence</span></div>
+        </div>
+        <div class="slide-container evidence-slide keynote" id="then-now">
+            <div class="eyebrow">Engineering loop / qualitative comparison</div>
+            <h2 class="slide-title">From repeated steps to reusable evidence.</h2>
+            <div class="content-area comparison-grid">
+                <div class="comparison-panel"><h3>Manual repetition</h3><p>Find context.<br>Reproduce the issue.<br>Repeat the checks.<br>Explain the result.</p></div>
+                <div class="comparison-panel"><h3>Agent-supported loop</h3><p>Load repository context.<br>Generate a test candidate.<br>Run configured checks.<br>Leave reviewable evidence.</p></div>
+            </div>
+            <div class="branding-footer"><span>WORKFLOW COMPARISON · NOT MEASURED HUMAN HOURS</span><span>Judgment stays with people</span></div>
+        </div>
+        <div class="slide-container evidence-slide keynote" id="platform-surface">
+            <div class="eyebrow">One shared framework / different platform behavior</div>
+            <h2 class="slide-title">A fix has more than one target.</h2>
+            <div class="content-area">
+                <div class="workflow-strip" style="grid-template-columns: repeat(4, 1fr);"><div class="workflow-step">Android</div><div class="workflow-step">iOS</div><div class="workflow-step">Windows</div><div class="workflow-step">Mac Catalyst</div></div>
+                <p class="evidence-lead" style="margin-top: 35px;">Shared code is not proof of shared behavior.</p>
+            </div>
+            <div class="branding-footer"><span>PLATFORM-AWARE REVIEW AND TEST SELECTION</span><span>Validate the affected target</span></div>
+        </div>
+        <div class="slide-container evidence-slide keynote" id="gate-proof">
+            <div class="eyebrow">Gate verification / the same regression test</div>
+            <h2 class="slide-title">Make the test prove the fix matters.</h2>
+            <div class="content-area test-proof">
+                <div class="proof-state"><span>Without the fix</span><strong>FAIL</strong></div><div style="font-size: 60px; color: var(--brand-purple);">→</div><div class="proof-state"><span>With the fix</span><strong>PASS</strong></div>
+            </div>
+            <div class="branding-footer"><span>DESIRED GATE EVIDENCE · ILLUSTRATIVE, NOT A RUN RESULT</span><span>Same scenario, controlled change</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="device-validation">
+            <div class="eyebrow">From generated code to observed behavior</div>
+            <h2 class="slide-title">Build → deploy → exercise → inspect.</h2>
+            <div class="content-area">
+                <div class="evidence-grid"><div class="evidence-card"><h3>Build the candidate</h3><p>Correct SDK, target and configuration.</p></div><div class="evidence-card"><h3>Exercise the repro</h3><p>Run the selected scenario on an available emulator or simulator.</p></div><div class="evidence-card"><h3>Inspect the evidence</h3><p>Logs, assertions, failures and missing coverage.</p></div></div>
+                <p class="takeaway">Unavailable target? Report the gap—not a success-shaped fallback.</p>
+            </div>
+            <div class="branding-footer"><span>VALIDATION DESIGN · NOT ALL PLATFORMS RUN EVERY TIME</span><span>Execution limits must be visible</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="review-context">
+            <div class="eyebrow">Review design / turn findings into decisions</div>
+            <h2 class="slide-title">Context belongs beside the code.</h2>
+            <div class="content-area comparison-grid"><div class="comparison-panel"><h3>Weak feedback</h3><p>“This might be wrong.”</p></div><div class="comparison-panel"><h3>Reviewable feedback</h3><p>File + line.<br>Failure scenario.<br>Reasoning.<br>What to verify next.</p></div></div>
+            <div class="branding-footer"><span>ILLUSTRATIVE FEEDBACK FORMAT</span><a href="https://github.com/dotnet/maui/pull/35590">Public expert-review example</a></div>
+        </div>
+        <div class="slide-container evidence-slide keynote" id="coding-credit-growth">
+            <div class="eyebrow">Historical comparison / visible Copilot authorship or credit</div>
+            <h2 class="slide-title">Coding assistance leaves more traces.</h2>
+            <div class="content-area result-layout"><div><div class="adoption-number">8.1×</div><p class="evidence-lead">131 → 1,059 merged PRs</p></div><div class="comparison-panel"><h3>2025 → 2026</h3><p>Matched Jan–Sep.<br>App author OR explicit commit credit.</p></div></div>
+            <div class="branding-footer"><span>SNAPSHOT 04 OCT 2026 · CREDITS MAY PROPAGATE THROUGH PORTS</span><a href="#methodology">Observable signals, not all AI use</a></div>
+        </div>
+        <div class="slide-container evidence-slide keynote" id="community-review-reach">
+            <div class="eyebrow">Review support / community participation</div>
+            <h2 class="slide-title">Review assistance reaches contributors.</h2>
+            <div class="content-area result-layout"><div><div class="adoption-number" style="font-size: 160px;">845</div><p class="evidence-lead">community-labeled merges<br>also carry the agent-reviewed label</p></div><div class="comparison-panel"><h3>1,123 total</h3><p>Observed review-labeled merges in Jan–Sep 2026.</p></div></div>
+            <div class="branding-footer"><span>CURRENT LABEL STATE · SNAPSHOT 04 OCT 2026</span><span>Not historical event-time coverage</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="case-searchbar">
+            <div class="eyebrow">Case study / Android SearchBar</div>
+            <h2 class="slide-title">A suggestion becomes a revision.</h2>
+            <div class="content-area"><blockquote class="takeaway" style="font-size: 32px;">“@kubaflo I have updated the changes”</blockquote><div class="workflow-strip" style="grid-template-columns: repeat(3, 1fr);"><div class="workflow-step">Feedback</div><div class="workflow-step">Updated suggestion</div><div class="workflow-step">Merged PR</div></div><p class="evidence-lead">Landscape IME behavior: a concrete contributor loop.</p></div>
+            <div class="branding-footer"><a href="https://github.com/dotnet/maui/pull/35197#issuecomment-4388181135">dotnet/maui#35197 · author follow-up</a><span>One uptake example—not a satisfaction score</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="case-collectionview">
+            <div class="eyebrow">Case study / Android CollectionView</div>
+            <h2 class="slide-title">The contributor catches the missing condition.</h2>
+            <div class="content-area"><div class="evidence-grid"><div class="evidence-card"><h3>Proposed change</h3><p>A sync-first approach to the animation problem.</p></div><div class="evidence-card"><h3>Local check</h3><p>The original issue remains; recycled items also need care.</p></div><div class="evidence-card"><h3>Engineering lesson</h3><p>Validate lifecycle conditions, not just plausible code.</p></div></div><p class="takeaway">Human testing is part of the AI-assisted workflow.</p></div>
+            <div class="branding-footer"><a href="https://github.com/dotnet/maui/pull/35358#issuecomment-4438010132">dotnet/maui#35358 · author report</a><span>Not evidence of a shipped AI regression</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="reusable-lessons">
+            <div class="eyebrow">Make the approach portable</div>
+            <h2 class="slide-title">Teach the repository—not every prompt.</h2>
+            <div class="content-area"><div class="evidence-grid"><div class="evidence-card"><h3>Instructions</h3><p>Architecture, conventions and platform pitfalls.</p></div><div class="evidence-card"><h3>Skills</h3><p>Repeatable steps with explicit inputs and outputs.</p></div><div class="evidence-card"><h3>Evidence</h3><p>Tests, logs and source-linked findings.</p></div></div><p class="takeaway">Reuse context. Verify claims. Preserve human decisions.</p></div>
+            <div class="branding-footer"><a href="https://github.com/dotnet/maui/tree/d8b87161cccb95b6163c103fca262d8890030bac/.github">Pinned public repository examples</a><span>Adopt the pattern, not a promise</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="contributor-start">
+            <div class="eyebrow">Your first contribution / make it reviewable</div>
+            <h2 class="slide-title">Bring a repro. Leave evidence.</h2>
+            <div class="content-area"><div class="workflow-strip" style="grid-template-columns: repeat(4, 1fr);"><div class="workflow-step">Minimal repro</div><div class="workflow-step">Target platform</div><div class="workflow-step">Regression test</div><div class="workflow-step">Clear PR</div></div><p class="evidence-lead" style="margin-top: 35px;">Use AI for preparation—not as a substitute for understanding.</p></div>
+            <div class="branding-footer"><span>CONTRIBUTOR CHECKLIST</span><a href="https://github.com/dotnet/maui/wiki/Using-AI-to-Work-on-.NET-MAUI">Public AI contributor guide</a></div>
+        </div>
+    </template>
+
+    <script type="application/json" id="historical-chart-data">
+    {
+        "years": [2023, 2024, 2025, 2026],
+        "merged": [1697, 1327, 1628, 2350],
+        "opened": [2051, 1793, 2367, 3027],
+        "community": [75, 198, 542, 1139],
+        "communityMedian": [6.568, 11.600, 12.211, 9.067],
+        "allMedian": [0.909, 1.166, 1.689, 3.004],
+        "monthlyMerged": [
+            [228, 228, 283, 143, 125, 149, 130, 242, 169],
+            [135, 193, 140, 134, 133, 150, 153, 167, 122],
+            [150, 212, 210, 171, 164, 174, 171, 192, 184],
+            [176, 199, 376, 222, 203, 245, 294, 343, 292]
+        ]
+    }
+    </script>
+
     <!-- PRESENTATION STATE ENGINE SCRIPT -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const body = document.body;
             const deck = document.querySelector('.slide-deck-container');
+            deck.appendChild(document.getElementById('expanded-story').content.cloneNode(true));
+            const historyData = JSON.parse(document.getElementById('historical-chart-data').textContent);
+            const historyColors = ['#8A76B5', '#8554C2', '#7047EB', '#512BD4'];
+            function historicalBars(id, values, maximum, unit) {
+                const chart = document.getElementById(id);
+                chart.setAttribute('aria-label', historyData.years.map((year, index) => `${year}: ${values[index]} ${unit}`).join('; ') + '. Zero baseline.');
+                values.forEach((value, index) => {
+                    const group = document.createElement('div');
+                    group.className = 'history-group';
+                    const bar = document.createElement('div');
+                    bar.className = 'history-bar';
+                    bar.dataset.year = historyData.years[index];
+                    bar.dataset.value = value;
+                    bar.style.height = `${value / maximum * 200}px`;
+                    bar.style.backgroundColor = historyColors[index];
+                    const number = document.createElement('strong');
+                    number.textContent = unit === 'days' ? value.toFixed(3) : value.toLocaleString('en-US');
+                    const label = document.createElement('span');
+                    label.textContent = historyData.years[index];
+                    bar.appendChild(number);
+                    group.append(bar, label);
+                    chart.appendChild(group);
+                });
+            }
+            historicalBars('history-total-bars', historyData.merged, 2500, 'merged PRs');
+            historicalBars('history-community-bars', historyData.community, 1200, 'community-labeled merges');
+            historicalBars('history-timing-bars', historyData.communityMedian, 13, 'days');
+            document.querySelectorAll('.history-source').forEach(label => {
+                label.textContent = 'JAN–SEP · 2023/24 SNAPSHOT 05 OCT; 2025/26 SNAPSHOT 04 OCT 2026';
+            });
+            const svg = document.getElementById('history-monthly-svg');
+            svg.setAttribute('aria-label', 'Monthly merged PRs January through September; ' + historyData.years.map((year, index) => `${year}: ${historyData.monthlyMerged[index].join(', ')}`).join('; ') + '. Linear zero to 400 scale.');
+            const svgNS = 'http://www.w3.org/2000/svg';
+            function svgElement(tag, attributes, text) {
+                const node = document.createElementNS(svgNS, tag);
+                Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, value));
+                if (text !== undefined) node.textContent = text;
+                svg.appendChild(node);
+                return node;
+            }
+            const x = index => 70 + index * 116;
+            const y = value => 285 - value / 400 * 250;
+            [0, 100, 200, 300, 400].forEach(value => {
+                svgElement('line', {x1: 70, x2: 998, y1: y(value), y2: y(value), class: 'axis'});
+                svgElement('text', {x: 55, y: y(value) + 6, 'text-anchor': 'end'}, value);
+            });
+            ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'].forEach((month, index) => svgElement('text', {x: x(index), y: 320, 'text-anchor': 'middle'}, month));
+            historyData.monthlyMerged.forEach((values, index) => {
+                const legend = document.createElement('span');
+                legend.style.setProperty('--series', historyColors[index]);
+                legend.textContent = historyData.years[index];
+                document.getElementById('history-monthly-legend').appendChild(legend);
+                svgElement('polyline', {points: values.map((value, month) => `${x(month)},${y(value)}`).join(' '), fill: 'none', stroke: historyColors[index], 'stroke-width': index === 3 ? 5 : 3, 'stroke-dasharray': ['6 6', '12 4', '2 4', 'none'][index], 'data-year': historyData.years[index]});
+                values.forEach((value, month) => {
+                    const point = svgElement('circle', {cx: x(month), cy: y(value), r: index === 3 ? 5 : 4, fill: historyColors[index], 'data-year': historyData.years[index], 'data-month': month + 1, 'data-value': value});
+                    const title = document.createElementNS(svgNS, 'title');
+                    title.textContent = `${historyData.years[index]}-${String(month + 1).padStart(2, '0')}: ${value} merged PRs`;
+                    point.appendChild(title);
+                });
+            });
+            historyData.years.forEach((year, index) => {
+                const row = document.createElement('tr');
+                [year, historyData.opened[index], historyData.merged[index], historyData.community[index], historyData.communityMedian[index], historyData.allMedian[index]].forEach((value, column) => {
+                    const cell = document.createElement(column === 0 ? 'th' : 'td');
+                    if (column === 0) cell.scope = 'row';
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                });
+                document.getElementById('history-summary-table').appendChild(row);
+            });
             const mainOrder = [
-                'slide1', 'evidence', 'community-volume', 'community-timing', 'merge-activity', 'ownership',
-                'slide2', 'slide3', 'slide5', 'everyday-workflow', 'slide9', 'slide6', 'slide7', 'slide8',
-                'slide-tryfix', 'slide11', 'slide-pipeline', 'slide-daily-workflows', 'slide10',
-                'ai-evolution', 'review-capacity', 'human-involvement', 'community-uptake',
-                'human-validation', 'limitations', 'slide16', 'slide17', 'slide18'
+                'slide1', 'evidence', 'historical-growth', 'historical-monthly', 'historical-community', 'historical-timing',
+                'community-volume', 'community-timing', 'merge-activity', 'ownership',
+                'slide2', 'slide3', 'then-now', 'slide5', 'everyday-workflow', 'slide9', 'platform-surface',
+                'slide6', 'slide7', 'slide8', 'gate-proof', 'slide-tryfix', 'device-validation',
+                'slide11', 'review-context', 'slide-pipeline', 'slide-daily-workflows', 'slide10',
+                'ai-evolution', 'coding-credit-growth', 'review-capacity', 'community-review-reach',
+                'human-involvement', 'community-uptake', 'case-searchbar', 'human-validation',
+                'case-collectionview', 'limitations', 'reusable-lessons', 'slide16',
+                'contributor-start', 'slide17', 'slide18'
             ];
             mainOrder.forEach(id => {
                 const slide = document.getElementById(id);
