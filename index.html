@@ -865,6 +865,22 @@
         .history-svg { width: 100%; height: 330px; overflow: visible; }
         .history-svg text { fill: var(--text-main); font-family: 'Manrope', sans-serif; font-size: 18px; }
         .history-svg .axis { stroke: var(--border-light); stroke-width: 1; }
+        .waffle { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; width: 230px; margin: 16px auto 0; }
+        .waffle-cell { aspect-ratio: 1; border-radius: 3px; background: var(--border-light); }
+        .waffle-cell.filled { background: var(--brand-purple); }
+        .visual-panel { background: var(--bg-subtle); border-top: 5px solid var(--brand-purple); padding: 24px; text-align: center; }
+        .visual-panel h3 { font-size: 24px; }
+        .visual-panel .display-value { font-size: 80px; font-weight: 800; letter-spacing: -.06em; color: var(--brand-purple); }
+        .command-list { display: grid; gap: 18px; }
+        .command-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; padding: 20px 24px; background: var(--bg-subtle); border-left: 5px solid var(--brand-purple); }
+        .command-row code { font-size: 27px; color: var(--brand-purple); white-space: nowrap; }
+        .command-row p { font-size: 21px; }
+        .command-state { font-size: 13px; font-weight: 800; text-transform: uppercase; color: var(--brand-purple); }
+        body.dark-mode .visual-panel .display-value,
+        body.dark-mode .command-row code,
+        body.dark-mode .command-state { color: #C5B4FF; }
+        body.dark-mode .waffle-cell.filled { background: #A68AFF; }
+        #slide-jump { font: inherit; color: var(--text-main); background: var(--bg-card); border: 1px solid var(--border-light); padding: 6px; max-width: 210px; }
         body.dark-mode .history-bar { background-color: #BBA3FF !important; }
         body.dark-mode .history-group:nth-child(1) .history-bar { background-color: #8E76BE !important; }
         body.dark-mode .history-group:nth-child(2) .history-bar { background-color: #A68DD5 !important; }
@@ -944,6 +960,9 @@
             body.mode-scroll .result-layout { grid-template-columns: 1fr; gap: 60px; }
             body.mode-scroll .workflow-strip { grid-template-columns: 1fr; }
             body.mode-scroll .comparison-grid, body.mode-scroll .test-proof { grid-template-columns: 1fr; gap: 24px; }
+            body.mode-scroll .command-row { grid-template-columns: 1fr; }
+            body.mode-scroll .command-row code { white-space: normal; overflow-wrap: anywhere; font-size: 24px; }
+            body.mode-scroll .waffle { width: min(230px, 100%); }
             body.mode-scroll .keynote .adoption-number { font-size: 110px; }
             body.mode-scroll .ownership-title { font-size: 55px; }
             .deck-controls { top: 8px; gap: 8px; padding: 8px; }
@@ -978,6 +997,7 @@
         <a class="deck-btn" href="#historical-growth">2023–2026 comparison</a>
         <a class="deck-btn" href="#workflow" id="btn-workflow">Workflow</a>
         <a class="deck-btn" href="#methodology" id="btn-sources">Optional appendix / sources</a>
+        <select id="slide-jump" aria-label="Jump to a main slide"><option>Slide index</option></select>
         <div style="height: 20px; width: 1px; background-color: var(--border-light);"></div>
         <button class="deck-btn" id="btn-toggle-theme"><i class="fa-solid fa-moon"></i> Dark</button>
     </div>
@@ -1657,16 +1677,15 @@
 
         <div class="slide-container evidence-slide" id="review-capacity">
             <div class="eyebrow">Review support / people still write the PRs</div>
-            <h2 class="slide-title">A visible layer of AI assistance.</h2>
+            <h2 class="slide-title">AI builds. AI reviews.</h2>
             <div class="content-area">
-                <div class="evidence-grid">
-                    <div class="evidence-card"><h3>1,123</h3><p>Current review label.<br><strong>47.8% of 2,350 merges.</strong></p></div>
-                    <div class="evidence-card"><h3>1,059</h3><p>Copilot app author or commit credit.<br><strong>45.1% of merges.</strong></p></div>
-                    <div class="evidence-card"><h3>868</h3><p>Human-account-authored PRs with explicit Copilot credit.</p></div>
+                <div class="comparison-grid">
+                    <div class="visual-panel"><h3>Coding signal</h3><div class="display-value">1,059</div><p>Copilot app author or commit credit.</p></div>
+                    <div class="visual-panel"><h3>Review signal</h3><div class="display-value">1,123</div><p>Current agent-reviewed label.</p></div>
                 </div>
                 <p class="takeaway">444 PRs overlap. 1,738 unique PRs have an observed signal.</p>
+                <p class="source-note">868 human-account-authored PRs carry explicit Copilot credit. Jan–Sep 2026; public signals, not autonomous work. <a href="#methodology">Scope and scan limits</a>.</p>
                 <p class="speaker-note">Talk track: the observable change is wider participation in the workflow. These counts do not measure reviewer hours saved, finding quality, or AI's share of the code.</p>
-                <p class="source-note">Jan–Sep 2026; current labels and commit credits. Lower-bound signals, not effort saved. <a href="#methodology">Scope and scan limits</a>.</p>
             </div>
             <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Detected participation, not measured review capacity</span></div>
         </div>
@@ -1857,6 +1876,43 @@
     </div>
 
     <template id="expanded-story">
+        <div class="slide-container evidence-slide" id="coding-share">
+            <div class="eyebrow">Visual comparison / same public-credit rule</div>
+            <h2 class="slide-title">From a small slice to everyday evidence.</h2>
+            <div class="content-area comparison-grid">
+                <div class="visual-panel"><h3>Jan–Sep 2025</h3><div class="display-value">8.0%</div><p>131 / 1,628 merged PRs</p><div class="waffle" data-credit-year="2025" role="img" aria-label="8 of 100 cells filled; rounded coding-signal share of 8.0 percent"></div></div>
+                <div class="visual-panel"><h3>Jan–Sep 2026</h3><div class="display-value">45.1%</div><p>1,059 / 2,350 merged PRs</p><div class="waffle" data-credit-year="2026" role="img" aria-label="45 of 100 cells filled; rounded coding-signal share of 45.1 percent"></div></div>
+            </div>
+            <div class="branding-footer"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>PUBLIC CODING SIGNAL · SNAPSHOT 04 OCT 2026</a><span>One cell ≈1% · copied credits/underdetection apply</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="pr-commands">
+            <div class="eyebrow">Recent tools / pull request comments</div>
+            <h2 class="slide-title">Ask in GitHub. Get engineering evidence.</h2>
+            <div class="content-area command-list">
+                <div class="command-row"><div><span class="command-state">Live</span><br><code>/review</code></div><p>Full code review, test gate and alternative-fix pipeline.</p></div>
+                <div class="command-row"><div><span class="command-state">Live</span><br><code>/review tests</code></div><p>Attribute CI failures against five target-branch runs per pipeline.</p></div>
+                <div class="command-row"><div><span class="command-state">Live</span><br><code>/review performance</code></div><p>Pinned managed Release base/head: ABBA timing + allocations.</p></div>
+                <p class="source-note">Maintainer permissions required. Tests: report-only, three pipelines—not test writing or CI reruns. Performance: hosted Linux, not native-device coverage.</p>
+            </div>
+            <div class="branding-footer"><a href="https://github.com/dotnet/maui/blob/7f52ae4d0b8c41e966a1a3a9a6f8348c2a45de95/.github/docs/pr-review-workflow.md">COMMANDS CHECKED 05 OCT 2026</a><a href="https://github.com/dotnet/maui/pull/39037">dotnet/maui#39037 · readable performance reports</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="issue-commands">
+            <div class="eyebrow">Recent tools / issue comments</div>
+            <h2 class="slide-title">Issue intelligence, on demand.</h2>
+            <div class="content-area command-list">
+                <div class="command-row"><div><span class="command-state">Live</span><br><code>/issue trace-regression</code></div><p>Evidence-calibrated candidate introducing commits and PRs.</p></div>
+                <div class="command-row"><div><span class="command-state">Coming next · open PR</span><br><code>/issue triage</code></div><p>Evidence-backed taxonomy labels + missing-information questions.</p></div>
+                <p class="takeaway">Less repetitive investigation. Decisions stay with maintainers.</p>
+                <p class="source-note">Trace is report-only—not automatic repro, bisect or fix. Triage does not close issues or change milestones, assignees or code. Maintainer permissions required.</p>
+            </div>
+            <div class="branding-footer"><a href="https://github.com/dotnet/maui/pull/39121">dotnet/maui#39121 · trace improvements in flight</a><a href="https://github.com/dotnet/maui/pull/39065">dotnet/maui#39065 · triage in flight</a><a href="evidence/maui-command-capabilities-2026-10-05.json" download>05 Oct command facts + sources</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="candidate-comparison">
+            <div class="eyebrow">Try-fix / compare evidence, not authorship</div>
+            <h2 class="slide-title">A second idea earns its place.</h2>
+            <div class="content-area"><div class="evidence-grid"><div class="evidence-card"><h3>Original approach</h3><p>Understand the behavior and constraints.</p></div><div class="evidence-card"><h3>AI alternative</h3><p>Build a candidate; run the same checks.</p></div><div class="evidence-card"><h3>Review decision</h3><p>Prefer the better-supported approach.</p></div></div><p class="takeaway">“Original” does not mean AI-free. A workflow preference is not a blind quality benchmark.</p></div>
+            <div class="branding-footer"><span>ILLUSTRATIVE COMPARISON · NO WIN-RATE CLAIM</span><a href="#human-validation">Keep human validation in the loop</a></div>
+        </div>
         <div class="slide-container evidence-slide" id="historical-growth">
             <div class="eyebrow">Historical comparison / the same nine months</div>
             <h2 class="slide-title">2026 leads the matched merge counts.</h2>
@@ -1996,6 +2052,15 @@
             const deck = document.querySelector('.slide-deck-container');
             deck.appendChild(document.getElementById('expanded-story').content.cloneNode(true));
             const historyData = JSON.parse(document.getElementById('historical-chart-data').textContent);
+            document.querySelectorAll('.waffle').forEach(grid => {
+                const filledCells = grid.dataset.creditYear === '2025' ? 8 : 45;
+                for (let index = 0; index < 100; index++) {
+                    const cell = document.createElement('span');
+                    cell.className = `waffle-cell${index < filledCells ? ' filled' : ''}`;
+                    cell.setAttribute('aria-hidden', 'true');
+                    grid.appendChild(cell);
+                }
+            });
             const historyColors = ['#8A76B5', '#8554C2', '#7047EB', '#512BD4'];
             function historicalBars(id, values, maximum, unit) {
                 const chart = document.getElementById(id);
@@ -2068,9 +2133,9 @@
                 'slide1', 'evidence', 'historical-growth', 'historical-monthly', 'historical-community', 'historical-timing',
                 'community-volume', 'community-timing', 'merge-activity', 'ownership',
                 'slide2', 'slide3', 'then-now', 'slide5', 'everyday-workflow', 'slide9', 'platform-surface',
-                'slide6', 'slide7', 'slide8', 'gate-proof', 'slide-tryfix', 'device-validation',
-                'slide11', 'review-context', 'slide-pipeline', 'slide-daily-workflows', 'slide10',
-                'ai-evolution', 'coding-credit-growth', 'review-capacity', 'community-review-reach',
+                'slide6', 'slide7', 'slide8', 'gate-proof', 'slide-tryfix', 'candidate-comparison', 'device-validation',
+                'slide11', 'review-context', 'pr-commands', 'issue-commands', 'slide-pipeline', 'slide-daily-workflows', 'slide10',
+                'ai-evolution', 'coding-credit-growth', 'coding-share', 'review-capacity', 'community-review-reach',
                 'human-involvement', 'community-uptake', 'case-searchbar', 'human-validation',
                 'case-collectionview', 'limitations', 'reusable-lessons', 'slide16',
                 'contributor-start', 'slide17', 'slide18'
@@ -2092,6 +2157,18 @@
             const btnNext = document.getElementById('btn-next');
             const indicator = document.getElementById('slide-indicator');
             const presCounter = document.getElementById('pres-counter');
+            const slideJump = document.getElementById('slide-jump');
+            slideJump.replaceChildren();
+            slides.filter(slide => !slide.classList.contains('appendix')).forEach((slide, index) => {
+                const option = document.createElement('option');
+                option.value = slide.id;
+                option.textContent = `${index + 1}. ${slide.querySelector('h1,h2,h3').textContent.trim().replace(/\s+/g, ' ')}`;
+                slideJump.appendChild(option);
+            });
+            slideJump.addEventListener('change', () => {
+                history.replaceState(null, '', `#${slideJump.value}`);
+                followHash();
+            });
             
             let currentSlideIndex = 0;
             let isPresentationMode = false;
@@ -2112,6 +2189,7 @@
             function updateUI() {
                 const isAppendix = slides[currentSlideIndex].classList.contains('appendix');
                 body.classList.toggle('show-appendix', isAppendix);
+                slideJump.value = isAppendix ? '' : slides[currentSlideIndex].id;
                 const sequence = slides.filter(slide => slide.classList.contains('appendix') === isAppendix);
                 const position = sequence.indexOf(slides[currentSlideIndex]) + 1;
                 const total = sequence.length;
