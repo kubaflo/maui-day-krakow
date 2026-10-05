@@ -871,12 +871,14 @@
         .credit-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; font-size: 16px; color: var(--text-main); }
         .credit-legend span::before { content: ''; display: inline-block; width: 16px; height: 16px; margin-right: 8px; vertical-align: middle; background: var(--border-light); border: 1px solid var(--text-muted); }
         .credit-legend .recorded::before { background: var(--brand-purple); border-color: var(--brand-purple); }
-        #coding-share .waffle { width: 190px; margin-top: 12px; }
-        #coding-share .visual-panel { padding: 16px; }
-        #coding-share .display-value { font-size: 64px; }
+        #coding-credit-detail .waffle { width: 190px; margin-top: 12px; }
+        #coding-credit-detail .visual-panel { padding: 16px; }
+        #coding-credit-detail .display-value { font-size: 64px; }
         .source-switches { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
         .source-switches button[aria-pressed="true"] { border-color: var(--brand-purple); font-weight: 800; }
         .resolution-equation { text-align: center; font-size: 30px; font-weight: 800; color: var(--brand-purple); }
+        #stock-exact-tables td, #stock-exact-tables th { font-size: 14px; padding: 2px 10px; }
+        #stock-exact-tables caption { font-size: 16px; }
         .visual-panel { background: var(--bg-subtle); border-top: 5px solid var(--brand-purple); padding: 24px; text-align: center; }
         .visual-panel h3 { font-size: 24px; }
         .visual-panel .display-value { font-size: 80px; font-weight: 800; letter-spacing: -.06em; color: var(--brand-purple); }
@@ -1672,7 +1674,7 @@
         </div>
 
         <div class="slide-container evidence-slide" id="ai-evolution">
-            <div class="eyebrow">Public metadata / lower-bound corroboration</div>
+            <div class="eyebrow">Already-merged historical activity / not the open queue</div>
             <h2 class="slide-title">AI participation is visible at scale.</h2>
             <div class="content-area">
                 <div class="metric-strip"><div><strong>1,738 / 2,350</strong> <span>2026 merged PRs with a signal</span></div><strong>74.0%</strong></div>
@@ -1712,7 +1714,7 @@
         </div>
 
         <div class="slide-container evidence-slide" id="review-capacity">
-            <div class="eyebrow">Review support / people still write the PRs</div>
+            <div class="eyebrow">Already-merged historical activity / not PRs waiting for review</div>
             <h2 class="slide-title">AI builds. AI reviews.</h2>
             <div class="content-area">
                 <div class="comparison-grid">
@@ -1912,18 +1914,45 @@
     </div>
 
     <template id="expanded-story">
-        <div class="slide-container evidence-slide" id="coding-share">
+        <div class="slide-container evidence-slide keynote" id="coding-share">
+            <div class="eyebrow">Current open-PR queue / work remaining</div>
+            <h2 class="slide-title">The queue—not the historical activity.</h2>
+            <div class="content-area result-layout">
+                <div><div class="adoption-number" id="current-open-count">74</div><p class="evidence-lead">PRs currently open</p></div>
+                <div class="comparison-panel"><h3>58 drafts · 16 non-drafts</h3><p>The actual remaining queue.<br>Not every open PR needs a new review.</p></div>
+            </div>
+            <div class="branding-footer"><span id="current-open-date">05 OCT 2026 · 16:49:18 UTC · NOT OCTOBER MONTH-END</span><a href="#open-pr-history">Month-end queue history</a><a href="#coding-credit-detail">Historical coding-credit detail</a></div>
+        </div>
+        <div class="slide-container evidence-slide" id="open-pr-history">
+            <div class="eyebrow">Open-PR stock / Jan 2025–Sep 2026</div>
+            <h2 class="slide-title">How much work was still open?</h2>
+            <div class="content-area">
+                <svg class="history-svg" id="open-pr-history-svg" viewBox="0 0 1080 330" role="img" aria-label="Month-end open PR stock from January 2025 through September 2026"></svg>
+                <p class="takeaway">621 → 68 · 89% smaller than the February 2026 peak.</p>
+                <p class="source-note">Reconstructed month-end UTC stock; close/reopen/merge history included. Queue reduction is measured; AI's causal contribution is not.</p>
+            </div>
+            <div class="branding-footer"><span>JAN 2025–SEP 2026 · CURRENT OCTOBER SNAPSHOT SEPARATE</span><a href="#stock-exact-tables">Exact counts / reconstruction</a><a href="#coding-share">Current queue</a></div>
+        </div>
+        <div class="slide-container evidence-slide appendix" id="coding-credit-detail">
             <div class="eyebrow">Merged PRs only / documented coding credit</div>
             <h2 class="slide-title">From a small slice to everyday evidence.</h2>
             <div class="content-area">
+                <div class="source-switches" aria-label="Credit and queue evidence views"><button class="deck-btn" data-credit-view="credit-grids" aria-pressed="true" aria-controls="credit-grids">Merged coding credit</button><button class="deck-btn" data-credit-view="stock-exact-tables" aria-pressed="false" aria-controls="stock-exact-tables">Exact open-PR stock</button></div>
+                <section id="credit-grids" aria-label="Historical merged coding credit">
                 <div class="comparison-grid">
                     <div class="visual-panel"><h3>Jan–Sep 2025</h3><div class="display-value">8.0%</div><p>131 / 1,628 merged PRs</p><div class="waffle" data-credit-year="2025" role="img" aria-label="Merged PRs only: 8 cells coding credit recorded, 92 no credit recorded; rounded share 8.0 percent. No open or unmerged PRs represented."></div></div>
                     <div class="visual-panel"><h3>Jan–Sep 2026</h3><div class="display-value">45.1%</div><p>1,059 / 2,350 merged PRs</p><div class="waffle" data-credit-year="2026" role="img" aria-label="Merged PRs only: 45 cells coding credit recorded, 55 no credit recorded; rounded share 45.1 percent. No open or unmerged PRs represented."></div></div>
                 </div>
                 <div class="credit-legend"><span class="recorded">Credit recorded</span><span>No credit recorded</span></div>
                 <p class="source-note">Every cell represents merged PRs. Pale ≠ open, unmerged or human-only.</p>
+                </section>
+                <section id="stock-exact-tables" aria-label="Exact month-end queue counts" hidden>
+                    <div class="comparison-grid"><table class="data-table"><caption>2025 month-end open stock</caption><thead><tr><th scope="col">Month</th><th scope="col">Open PRs</th></tr></thead><tbody id="stock-table-2025"></tbody></table><table class="data-table"><caption>2026 month-end open stock</caption><thead><tr><th scope="col">Month</th><th scope="col">Open PRs</th></tr></thead><tbody id="stock-table-2026"></tbody></table></div>
+                    <p class="source-note">Sep 2025 489 → Sep 2026 68: 86.1% smaller. Current 05 Oct: 74 (58 drafts). Public reconstruction: 6,091 paginated candidate records, 91 close/reopen/merge histories; inaccessible records unavailable. Not opened-minus-merged, current survivors or a causal AI estimate.</p>
+                    <p class="source-note"><a href="evidence/maui-open-pr-stock-2026-10-05.json" download>Exact stock JSON / query URLs / event histories</a> · <a href="evidence/collect_maui_backlog_evidence.py" download>Reproducible collector</a> · collected 05 Oct 2026, 16:49:18 UTC.</p>
+                </section>
             </div>
-            <div class="branding-footer"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>PUBLIC CODING SIGNAL · SNAPSHOT 04 OCT 2026</a><span>One cell ≈1% · copied credits/underdetection apply</span></div>
+            <div class="branding-footer"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>CODING SNAPSHOT 04 OCT · STOCK SNAPSHOT 05 OCT</a><span>Credit cells ≈1% · copied credits/underdetection apply</span></div>
         </div>
         <div class="slide-container evidence-slide" id="terminal-decisions">
             <div class="eyebrow">Engineering outcomes / terminal PR decisions</div>
@@ -2042,7 +2071,7 @@
             <div class="branding-footer"><span>ILLUSTRATIVE FEEDBACK FORMAT</span><a href="https://github.com/dotnet/maui/pull/35590">Public expert-review example</a></div>
         </div>
         <div class="slide-container evidence-slide keynote" id="coding-credit-growth">
-            <div class="eyebrow">Historical comparison / visible Copilot authorship or credit</div>
+            <div class="eyebrow">Already-merged historical activity / documented coding credit</div>
             <h2 class="slide-title">Coding assistance leaves more traces.</h2>
             <div class="content-area result-layout"><div><div class="adoption-number">8.1×</div><p class="evidence-lead">131 → 1,059 merged PRs</p></div><div class="comparison-panel"><h3>2025 → 2026</h3><p>Matched Jan–Sep.<br>App author OR explicit commit credit.</p></div></div>
             <div class="branding-footer"><span>SNAPSHOT 04 OCT 2026 · CREDITS MAY PROPAGATE THROUGH PORTS</span><a href="#methodology">Observable signals, not all AI use</a></div>
@@ -2079,6 +2108,9 @@
         </div>
     </template>
 
+    <script type="application/json" id="open-pr-stock-data">
+    {"months":["2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05","2026-06","2026-07","2026-08","2026-09"],"open":[362,374,402,440,448,508,565,501,489,536,566,588,605,621,346,295,219,162,87,71,68],"current":{"open":74,"drafts":58,"collected_at":"2026-10-05T16:49:18Z"}}
+    </script>
     <script type="application/json" id="historical-chart-data">
     {
         "years": [2023, 2024, 2025, 2026],
@@ -2112,6 +2144,48 @@
                 button.addEventListener('click', () => showSourceView(button.dataset.sourceView));
             });
             deck.appendChild(document.getElementById('expanded-story').content.cloneNode(true));
+            function showCreditView(id) {
+                document.querySelectorAll('[data-credit-view]').forEach(button => {
+                    const selected = button.dataset.creditView === id;
+                    button.setAttribute('aria-pressed', String(selected));
+                    document.getElementById(button.dataset.creditView).hidden = !selected;
+                });
+            }
+            document.querySelectorAll('[data-credit-view]').forEach(button => button.addEventListener('click', () => showCreditView(button.dataset.creditView)));
+            const stock = JSON.parse(document.getElementById('open-pr-stock-data').textContent);
+            const stockSvg = document.getElementById('open-pr-history-svg');
+            stockSvg.setAttribute('aria-label', 'Month-end open PR stock, zero to 700 scale: ' + stock.months.map((month, index) => `${month}: ${stock.open[index]}`).join('; ') + '. Current October snapshot excluded.');
+            const stockX = index => 65 + index * 47;
+            const stockY = value => 275 - value / 700 * 245;
+            function stockElement(tag, attributes, text) {
+                const node = document.createElementNS('http://www.w3.org/2000/svg', tag);
+                Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, value));
+                if (text !== undefined) node.textContent = text;
+                stockSvg.appendChild(node);
+                return node;
+            }
+            [0, 100, 200, 300, 400, 500, 600, 700].forEach(value => {
+                stockElement('line', {x1:65,x2:1005,y1:stockY(value),y2:stockY(value),class:'axis'});
+                stockElement('text', {x:52,y:stockY(value)+6,'text-anchor':'end'}, value);
+            });
+            stockElement('polyline', {points:stock.open.map((value,index) => `${stockX(index)},${stockY(value)}`).join(' '),fill:'none',stroke:'var(--brand-lavender)','stroke-width':5});
+            stock.months.forEach((month, index) => {
+                const value = stock.open[index];
+                const point = stockElement('circle', {cx:stockX(index),cy:stockY(value),r:5,fill:'var(--brand-lavender)','data-month':month,'data-value':value});
+                const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+                title.textContent = `${month}: ${value} open PRs`;
+                point.appendChild(title);
+                if (index % 3 === 0 || index === 20) stockElement('text', {x:stockX(index),y:307,'text-anchor':'middle'}, month);
+                if (index === 13 || index === 20) stockElement('text', {x:stockX(index),y:stockY(value)-13,'text-anchor':'middle','font-weight':800}, value);
+                const row = document.createElement('tr');
+                const label = document.createElement('th');
+                label.scope = 'row';
+                label.textContent = month;
+                const count = document.createElement('td');
+                count.textContent = value;
+                row.append(label, count);
+                document.getElementById(`stock-table-${month.slice(0,4)}`).appendChild(row);
+            });
             const historyData = JSON.parse(document.getElementById('historical-chart-data').textContent);
             document.querySelectorAll('.waffle').forEach(grid => {
                 const filledCells = grid.dataset.creditYear === '2025' ? 8 : 45;
@@ -2196,7 +2270,7 @@
                 'slide2', 'slide3', 'then-now', 'slide5', 'everyday-workflow', 'slide9', 'platform-surface',
                 'slide6', 'slide7', 'slide8', 'gate-proof', 'slide-tryfix', 'candidate-comparison', 'device-validation',
                 'slide11', 'review-context', 'pr-commands', 'issue-commands', 'slide-pipeline', 'slide-daily-workflows', 'slide10',
-                'ai-evolution', 'coding-credit-growth', 'coding-share', 'review-capacity', 'community-review-reach',
+                'ai-evolution', 'coding-credit-growth', 'coding-share', 'open-pr-history', 'review-capacity', 'community-review-reach',
                 'human-involvement', 'community-uptake', 'case-searchbar', 'human-validation',
                 'case-collectionview', 'limitations', 'reusable-lessons', 'slide16',
                 'contributor-start', 'slide17', 'slide18'
@@ -2328,6 +2402,7 @@
                 const target = document.getElementById(targetHash.slice(1));
                 const sourceButton = Array.from(document.querySelectorAll('[data-source-view]')).find(button => button.dataset.sourceView === target?.id);
                 if (sourceButton) showSourceView(target.id);
+                if (document.querySelector(`[data-credit-view="${target?.id}"]`)) showCreditView(target.id);
                 const index = slides.indexOf(target?.closest('.slide-container'));
                 if (index < 0) return;
                 currentSlideIndex = index;
