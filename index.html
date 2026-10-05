@@ -868,6 +868,15 @@
         .waffle { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; width: 230px; margin: 16px auto 0; }
         .waffle-cell { aspect-ratio: 1; border-radius: 3px; background: var(--border-light); }
         .waffle-cell.filled { background: var(--brand-purple); }
+        .credit-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; font-size: 16px; color: var(--text-main); }
+        .credit-legend span::before { content: ''; display: inline-block; width: 16px; height: 16px; margin-right: 8px; vertical-align: middle; background: var(--border-light); border: 1px solid var(--text-muted); }
+        .credit-legend .recorded::before { background: var(--brand-purple); border-color: var(--brand-purple); }
+        #coding-share .waffle { width: 190px; margin-top: 12px; }
+        #coding-share .visual-panel { padding: 16px; }
+        #coding-share .display-value { font-size: 64px; }
+        .source-switches { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+        .source-switches button[aria-pressed="true"] { border-color: var(--brand-purple); font-weight: 800; }
+        .resolution-equation { text-align: center; font-size: 30px; font-weight: 800; color: var(--brand-purple); }
         .visual-panel { background: var(--bg-subtle); border-top: 5px solid var(--brand-purple); padding: 24px; text-align: center; }
         .visual-panel h3 { font-size: 24px; }
         .visual-panel .display-value { font-size: 80px; font-weight: 800; letter-spacing: -.06em; color: var(--brand-purple); }
@@ -880,6 +889,7 @@
         body.dark-mode .command-row code,
         body.dark-mode .command-state { color: #C5B4FF; }
         body.dark-mode .waffle-cell.filled { background: #A68AFF; }
+        body.dark-mode .credit-legend .recorded::before { background: #A68AFF; border-color: #A68AFF; }
         #slide-jump { font: inherit; color: var(--text-main); background: var(--bg-card); border: 1px solid var(--border-light); padding: 6px; max-width: 210px; }
         body.dark-mode .history-bar { background-color: #BBA3FF !important; }
         body.dark-mode .history-group:nth-child(1) .history-bar { background-color: #8E76BE !important; }
@@ -970,7 +980,7 @@
         @media print {
             @page { size: landscape; margin: 0; }
             body, body.mode-presentation { display: block; padding: 0; background: white; overflow: visible; }
-            .deck-controls, .bg-overlay, .bg-logos, .pres-counter { display: none !important; }
+            .deck-controls, .bg-overlay, .bg-logos, .pres-counter, .source-switches { display: none !important; }
             .slide-deck-container, body.mode-presentation .slide-deck-container { display: block; width: auto; height: auto; transform: none !important; }
             .slide-container, body.mode-presentation .slide-container {
                 position: relative; width: 100%; height: 100vh; margin: 0; border-radius: 0;
@@ -1619,7 +1629,13 @@
             <div class="eyebrow">Appendix / public event counts</div>
             <h2 class="slide-title">Monthly PR activity: exact counts.</h2>
             <div class="content-area">
-                <table class="data-table"><caption>January–September calendar-month event counts</caption><thead><tr><th scope="col">Month</th><th scope="col">2025 opened</th><th scope="col">2025 merged</th><th scope="col">2026 opened</th><th scope="col">2026 merged</th></tr></thead><tbody>
+                <div class="source-switches" aria-label="PR activity source views">
+                    <button class="deck-btn" data-source-view="monthly-events" aria-controls="monthly-events" aria-pressed="true">Monthly events</button>
+                    <button class="deck-btn" data-source-view="calendar-decisions" aria-controls="calendar-decisions" aria-pressed="false">Calendar decisions</button>
+                    <button class="deck-btn" data-source-view="created-cohort" aria-controls="created-cohort" aria-pressed="false">Opened cohort states</button>
+                </div>
+                <section id="monthly-events" aria-label="Monthly event counts">
+                <table class="data-table"><caption>Calendar inflow/outflow—not one opened-PR cohort or a backlog calculation</caption><thead><tr><th scope="col">Month</th><th scope="col">2025 opened</th><th scope="col">2025 merged</th><th scope="col">2026 opened</th><th scope="col">2026 merged</th></tr></thead><tbody>
                     <tr><th scope="row">Jan</th><td>224</td><td>150</td><td>285</td><td>176</td></tr>
                     <tr><th scope="row">Feb</th><td>273</td><td>212</td><td>283</td><td>199</td></tr>
                     <tr><th scope="row">Mar</th><td>306</td><td>210</td><td>270</td><td>376</td></tr>
@@ -1630,8 +1646,29 @@
                     <tr><th scope="row">Aug</th><td>241</td><td>192</td><td>529</td><td>343</td></tr>
                     <tr><th scope="row">Sep</th><td>245</td><td>184</td><td>512</td><td>292</td></tr>
                 </tbody></table>
+                </section>
+                <section id="calendar-decisions" aria-label="Calendar terminal decisions" hidden>
+                    <table class="data-table"><caption>Jan–Sep UTC calendar decisions · mergedAt / current closed-unmerged closedAt</caption><thead><tr><th scope="col">Year</th><th scope="col">Merged</th><th scope="col">Closed without merge</th><th scope="col">Total decisions</th></tr></thead><tbody>
+                        <tr><th scope="row">2023</th><td>1697</td><td>367</td><td>2064</td></tr>
+                        <tr><th scope="row">2024</th><td>1327</td><td>373</td><td>1700</td></tr>
+                        <tr><th scope="row">2025</th><td>1628</td><td>585</td><td>2213</td></tr>
+                        <tr><th scope="row">2026</th><td>2350</td><td>898</td><td>3248</td></tr>
+                    </tbody></table>
+                    <p class="source-note">2026 vs 2025: closures +53.5%; decisions +46.8%. 173/898 closures currently carry agent-reviewed—not all AI-assisted closures or proof of AI causation. Labels and latest closure metadata can change; reasons and quality are unmeasured.</p>
+                    <p class="source-note"><a href="evidence/maui-pr-resolution-2026-10-05.json" download>Resolution JSON · 36 closure buckets</a> · <a href="evidence/collect_maui_resolution_evidence.py" download>Reproducible collector</a> · collected 05 Oct 2026, 15:32:32 UTC.</p>
+                </section>
+                <section id="created-cohort" aria-label="Current states of January to September opened PRs" hidden>
+                    <table class="data-table"><caption>Jan–Sep created PRs · current states at 05 Oct 2026, 15:32:32 UTC (October transitions included)</caption><thead><tr><th scope="col">Year</th><th scope="col">Opened</th><th scope="col">Merged</th><th scope="col">Closed without merge</th><th scope="col">Still open</th></tr></thead><tbody>
+                        <tr><th scope="row">2023</th><td>2051</td><td>1675</td><td>376</td><td>0</td></tr>
+                        <tr><th scope="row">2024</th><td>1793</td><td>1361</td><td>432</td><td>0</td></tr>
+                        <tr><th scope="row">2025</th><td>2367</td><td>1733</td><td>632</td><td>2</td></tr>
+                        <tr><th scope="row">2026</th><td>3027</td><td>2022</td><td>949</td><td>56</td></tr>
+                    </tbody></table>
+                    <p class="source-note">2026 cohort: 98.1% terminal. Of the 1,005 not merged, 949 (94.4%) were closed without merging; 56 remain open. Not all remaining PRs were closed. These are cohort states—not the calendar totals above or the repository's entire backlog.</p>
+                    <p class="source-note"><a href="evidence/maui-pr-resolution-2026-10-05.json" download>Dated current-state queries and methodology</a>.</p>
+                </section>
             </div>
-            <div class="branding-footer"><span>PUBLIC GITHUB SNAPSHOT · 04 OCT 2026, 22:46 UTC</span><span>Same nine months · different PR mixes</span></div>
+            <div class="branding-footer"><span>MONTHLY SNAPSHOT 04 OCT · RESOLUTION SNAPSHOT 05 OCT 2026</span><span>Calendar activity ≠ creation-cohort states</span></div>
         </div>
 
         <div class="slide-container evidence-slide" id="ai-evolution">
@@ -1876,13 +1913,28 @@
 
     <template id="expanded-story">
         <div class="slide-container evidence-slide" id="coding-share">
-            <div class="eyebrow">Visual comparison / same public-credit rule</div>
+            <div class="eyebrow">Merged PRs only / documented coding credit</div>
             <h2 class="slide-title">From a small slice to everyday evidence.</h2>
-            <div class="content-area comparison-grid">
-                <div class="visual-panel"><h3>Jan–Sep 2025</h3><div class="display-value">8.0%</div><p>131 / 1,628 merged PRs</p><div class="waffle" data-credit-year="2025" role="img" aria-label="8 of 100 cells filled; rounded coding-signal share of 8.0 percent"></div></div>
-                <div class="visual-panel"><h3>Jan–Sep 2026</h3><div class="display-value">45.1%</div><p>1,059 / 2,350 merged PRs</p><div class="waffle" data-credit-year="2026" role="img" aria-label="45 of 100 cells filled; rounded coding-signal share of 45.1 percent"></div></div>
+            <div class="content-area">
+                <div class="comparison-grid">
+                    <div class="visual-panel"><h3>Jan–Sep 2025</h3><div class="display-value">8.0%</div><p>131 / 1,628 merged PRs</p><div class="waffle" data-credit-year="2025" role="img" aria-label="Merged PRs only: 8 cells coding credit recorded, 92 no credit recorded; rounded share 8.0 percent. No open or unmerged PRs represented."></div></div>
+                    <div class="visual-panel"><h3>Jan–Sep 2026</h3><div class="display-value">45.1%</div><p>1,059 / 2,350 merged PRs</p><div class="waffle" data-credit-year="2026" role="img" aria-label="Merged PRs only: 45 cells coding credit recorded, 55 no credit recorded; rounded share 45.1 percent. No open or unmerged PRs represented."></div></div>
+                </div>
+                <div class="credit-legend"><span class="recorded">Credit recorded</span><span>No credit recorded</span></div>
+                <p class="source-note">Every cell represents merged PRs. Pale ≠ open, unmerged or human-only.</p>
             </div>
             <div class="branding-footer"><a href="evidence/maui-ai-evidence-2026-10-04.json" download>PUBLIC CODING SIGNAL · SNAPSHOT 04 OCT 2026</a><span>One cell ≈1% · copied credits/underdetection apply</span></div>
+        </div>
+        <div class="slide-container evidence-slide" id="terminal-decisions">
+            <div class="eyebrow">Engineering outcomes / terminal PR decisions</div>
+            <h2 class="slide-title">Progress is a decision—not only a merge.</h2>
+            <div class="content-area">
+                <div class="comparison-grid"><div class="visual-panel"><h3>Merged</h3><div class="display-value">2,350</div></div><div class="visual-panel"><h3>Closed without merging</h3><div class="display-value">898</div></div></div>
+                <p class="resolution-equation">3,248 PR decisions · Jan–Sep 2026</p>
+                <p class="takeaway">AI also helped us close PRs without merging.</p>
+                <p class="source-note">Maintainer-reported observation · 05 Oct 2026. AI's causal contribution is not measured.</p>
+            </div>
+            <div class="branding-footer"><span>PUBLIC RESOLUTION SNAPSHOT · 05 OCT 2026, 15:32 UTC</span><a href="#calendar-decisions">Calendar decisions / cohort states</a></div>
         </div>
         <div class="slide-container evidence-slide" id="pr-commands">
             <div class="eyebrow">Recent tools / pull request comments</div>
@@ -1915,7 +1967,7 @@
         <div class="slide-container evidence-slide" id="historical-growth">
             <div class="eyebrow">Historical comparison / the same nine months</div>
             <h2 class="slide-title">2026 leads the matched merge counts.</h2>
-            <div class="content-area"><div class="history-bars" id="history-total-bars" role="img"></div><p class="evidence-lead">Merged PRs. Opened separately: 2,051 → 1,793 → 2,367 → 3,027.</p></div>
+            <div class="content-area"><div class="history-bars" id="history-total-bars" role="img"></div><p class="evidence-lead">Merged PRs. Opened separately: 2,051 → 1,793 → 2,367 → 3,027.</p><p class="source-note">Calendar inflow/outflow—not one cohort. Opened minus merged is not a backlog calculation.</p></div>
             <div class="branding-footer"><span class="history-source"></span><a href="#historical-methods">Matched periods and source data</a></div>
         </div>
         <div class="slide-container evidence-slide" id="historical-monthly">
@@ -1940,7 +1992,7 @@
             <div class="eyebrow">Sources / historical comparison</div>
             <h2 class="slide-title">Matched dates. Different PR mixes.</h2>
             <div class="content-area">
-                <table class="data-table"><caption>Jan–Sep merge-date cohorts; current community label</caption><thead><tr><th scope="col">Year</th><th scope="col">Opened</th><th scope="col">Merged</th><th scope="col">Community</th><th scope="col">Community median days</th><th scope="col">All-PR median days</th></tr></thead><tbody id="history-summary-table"></tbody></table>
+                <table class="data-table"><caption>Jan–Sep: opened by creation date; merged cohorts by merge date; current community label</caption><thead><tr><th scope="col">Year</th><th scope="col">Opened</th><th scope="col">Merged</th><th scope="col">Community</th><th scope="col">Community median days</th><th scope="col">All-PR median days</th></tr></thead><tbody id="history-summary-table"></tbody></table>
                 <p class="source-note">2023/2024 collected 05 Oct 2026, 12:03:41 UTC. 2025/2026 retain the unchanged snapshot from 04 Oct 2026, 22:46:17 UTC. Historical label practice/completeness, release cadence and PR mix may differ. Opened and merged are independent event counts. Growth is not causal AI attribution.</p>
                 <p class="source-note">2023/2024 coding-credit signals are unmeasured, not zero. No satisfaction, AI-only, shipped-regression or issue-to-shipping rate is measured.</p>
                 <p class="source-note"><a href="evidence/maui-ai-historical-2026-10-05.json" download>Historical JSON · 36 monthly rows + 3,024 older PRs</a> · <a href="evidence/collect_maui_historical_evidence.py" download>Collector</a> · <a href="evidence/maui-ai-evidence-2026-10-04.json" download>Existing 3,978-PR snapshot</a>.</p>
@@ -2049,6 +2101,16 @@
         document.addEventListener('DOMContentLoaded', () => {
             const body = document.body;
             const deck = document.querySelector('.slide-deck-container');
+            function showSourceView(id) {
+                document.querySelectorAll('[data-source-view]').forEach(button => {
+                    const selected = button.dataset.sourceView === id;
+                    button.setAttribute('aria-pressed', String(selected));
+                    document.getElementById(button.dataset.sourceView).hidden = !selected;
+                });
+            }
+            document.querySelectorAll('[data-source-view]').forEach(button => {
+                button.addEventListener('click', () => showSourceView(button.dataset.sourceView));
+            });
             deck.appendChild(document.getElementById('expanded-story').content.cloneNode(true));
             const historyData = JSON.parse(document.getElementById('historical-chart-data').textContent);
             document.querySelectorAll('.waffle').forEach(grid => {
@@ -2130,7 +2192,7 @@
             });
             const mainOrder = [
                 'slide1', 'evidence', 'historical-growth', 'historical-monthly', 'historical-community', 'historical-timing',
-                'community-volume', 'community-timing', 'merge-activity', 'ownership',
+                'community-volume', 'community-timing', 'merge-activity', 'terminal-decisions', 'ownership',
                 'slide2', 'slide3', 'then-now', 'slide5', 'everyday-workflow', 'slide9', 'platform-surface',
                 'slide6', 'slide7', 'slide8', 'gate-proof', 'slide-tryfix', 'candidate-comparison', 'device-validation',
                 'slide11', 'review-context', 'pr-commands', 'issue-commands', 'slide-pipeline', 'slide-daily-workflows', 'slide10',
@@ -2263,7 +2325,10 @@
 
             function followHash() {
                 const targetHash = window.location.hash === '#workflow' ? '#slide5' : window.location.hash;
-                const index = slides.findIndex(slide => `#${slide.id}` === targetHash);
+                const target = document.getElementById(targetHash.slice(1));
+                const sourceButton = Array.from(document.querySelectorAll('[data-source-view]')).find(button => button.dataset.sourceView === target?.id);
+                if (sourceButton) showSourceView(target.id);
+                const index = slides.indexOf(target?.closest('.slide-container'));
                 if (index < 0) return;
                 currentSlideIndex = index;
                 updateUI();
