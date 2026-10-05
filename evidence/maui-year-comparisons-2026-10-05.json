@@ -1,0 +1,173 @@
+{
+  "repository": "dotnet/maui",
+  "generated_at": "2026-10-05T17:34:54+00:00",
+  "years": [
+    2024,
+    2025,
+    2026
+  ],
+  "activity_period": "January 1 through September 30 inclusive, UTC, in each year",
+  "activity": {
+    "merged_prs": {
+      "label": "Merged PRs",
+      "values": [
+        1327,
+        1628,
+        2350
+      ],
+      "date_bucket": "mergedAt",
+      "unit": "PRs",
+      "lower_is_better": false,
+      "comparisons": {
+        "vs_2024": {
+          "ratio": 1.771,
+          "percent_change": 77.1
+        },
+        "vs_2025": {
+          "ratio": 1.443,
+          "percent_change": 44.3
+        }
+      }
+    },
+    "community_merges": {
+      "label": "Community-labeled merged PRs",
+      "values": [
+        198,
+        542,
+        1139
+      ],
+      "date_bucket": "mergedAt",
+      "unit": "PRs",
+      "lower_is_better": false,
+      "comparisons": {
+        "vs_2024": {
+          "ratio": 5.753,
+          "percent_change": 475.3
+        },
+        "vs_2025": {
+          "ratio": 2.101,
+          "percent_change": 110.1
+        }
+      }
+    },
+    "community_median_days": {
+      "label": "Community PR median days to merge",
+      "values": [
+        11.6,
+        12.211,
+        9.067
+      ],
+      "date_bucket": "mergedAt",
+      "unit": "days",
+      "lower_is_better": true,
+      "comparisons": {
+        "vs_2024": {
+          "ratio": 0.782,
+          "percent_change": -21.8
+        },
+        "vs_2025": {
+          "ratio": 0.743,
+          "percent_change": -25.7
+        }
+      }
+    },
+    "closed_without_merge": {
+      "label": "Closed without merging",
+      "values": [
+        373,
+        585,
+        898
+      ],
+      "date_bucket": "latest closedAt of currently nonmerged closed PRs",
+      "unit": "PRs",
+      "lower_is_better": false,
+      "comparisons": {
+        "vs_2024": {
+          "ratio": 2.408,
+          "percent_change": 140.8
+        },
+        "vs_2025": {
+          "ratio": 1.535,
+          "percent_change": 53.5
+        }
+      }
+    },
+    "terminal_decisions": {
+      "label": "Merged plus closed without merging",
+      "values": [
+        1700,
+        2213,
+        3248
+      ],
+      "date_bucket": "mergedAt or latest closedAt",
+      "unit": "PRs",
+      "lower_is_better": false,
+      "comparisons": {
+        "vs_2024": {
+          "ratio": 1.911,
+          "percent_change": 91.1
+        },
+        "vs_2025": {
+          "ratio": 1.468,
+          "percent_change": 46.8
+        }
+      }
+    }
+  },
+  "backlog": {
+    "label": "September month-end open PR stock",
+    "values": [
+      233,
+      489,
+      68
+    ],
+    "cutoff_exclusive_utc": [
+      "2024-10-01T00:00:00Z",
+      "2025-10-01T00:00:00Z",
+      "2026-10-01T00:00:00Z"
+    ],
+    "unit": "PRs",
+    "lower_is_better": true,
+    "comparisons": {
+      "vs_2024": {
+        "ratio": 0.292,
+        "percent_change": -70.8
+      },
+      "vs_2025": {
+        "ratio": 0.139,
+        "percent_change": -86.1
+      }
+    },
+    "current_october_snapshot": {
+      "open_prs": 72,
+      "draft_prs": 57,
+      "collected_at": "2026-10-05T17:32:56Z",
+      "scope": "All currently open PRs across repository branches, including drafts and already-reviewed PRs. Not a strict review-required count."
+    }
+  },
+  "sources": [
+    {
+      "url": "https://kubaflo.github.io/maui-day-krakow/evidence/maui-ai-historical-2026-10-05.json",
+      "sha256": "e2f1168afb20fe826de1e0b79c27e66db8d20bdcad19193f9679c745d8bdb0c7"
+    },
+    {
+      "url": "https://kubaflo.github.io/maui-day-krakow/evidence/maui-pr-resolution-2026-10-05.json",
+      "sha256": "3ef2b26b7a6adbcde08b4d2f2cd70d5e2f1af8e316b3bde3dee81c5fb5c561c9"
+    },
+    {
+      "url": "https://kubaflo.github.io/maui-day-krakow/evidence/maui-open-pr-history-2024-2026-10-05.json",
+      "sha256": "9de553af48ae8080d1962c4612ed6eb2f5beb10dc952f216ca47aa502c98c085"
+    }
+  ],
+  "methodology": [
+    "Activity comparisons use matched January-September UTC date buckets, not whole-year versus partial-year comparisons.",
+    "Community membership is the current community label at each source snapshot, not a historical or immutable identity classification.",
+    "Community timing is the median from PR creation to merge among community-labeled PRs merged in the matched period; it is not issue-to-fix time or an all-PR speed claim.",
+    "Community timing comparisons use the supplied unrounded source medians; visible slide labels may round days to one decimal.",
+    "Terminal decisions equal merged plus closed-without-merge PRs. Closure reasons, quality and AI causality were not measured; reopening can change the latest-closure metadata.",
+    "Backlog comparisons use reconstructed September month-end stock for every year. Today's October all-open count is separate and includes drafts, not an exact review-required count.",
+    "Counts can include ports and automation. Different source snapshots were collected at different times and are not a transactional historical database.",
+    "These historical cohorts are not no-AI versus AI cohorts. No causal AI impact, AI-only fraction, calibrated satisfaction rate or AI-caused regression rate is inferred.",
+    "2024 AI coding/review participation is unmeasured, not zero. The separate approximately 99 percent adoption statement remains a maintainer-reported estimate."
+  ]
+}
